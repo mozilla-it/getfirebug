@@ -1,0 +1,1477 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"" />
+    
+    <title>Firebug API Reference - File Index</title>
+    <meta name="generator" content="JsDoc Toolkit" />
+    <style type="text/css">
+    /* See license.txt for terms of usage */
+
+body {
+    font-size: 12px;
+    font-family: Lucida Grande, Arial, sans-serif;
+}
+
+/************************************************************************************************/
+
+#container {
+    margin-top: 93px;
+    border-top: solid rgb(230, 230, 230) 25px;
+    width: 880px;
+}
+
+#header img {
+    z-index: 200;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+#index {
+    float: left;
+    width: 250px; /*xxxHonza 160px*/
+    left: 8px;
+    background-color: rgb(230, 230, 230); /* #F3F3F3 */
+    padding: 8px;
+    padding-top: 35px;
+}
+
+#content
+{
+    margin-top: -20px;
+    margin-left: 280px; /*xxxHonza 190px*/
+    width: 600px;
+}
+
+/************************************************************************************************/
+
+h1
+{
+    color: #444444;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0;
+    margin: 1em 0 0 .3em;
+}
+
+hr
+{
+    border: none 0;
+    border-top: 1px solid #7F8FB1;
+    height: 1px;
+}
+
+pre.code
+{
+    display: block;
+    padding: 8px;
+    border: 1px dashed #ccc;
+}
+
+a {
+    color: SlateBlue;
+    font-weight: bold;
+}
+
+/************************************************************************************************/
+
+/* cllClasses.tmpl */
+.allClassesMenu {
+}
+
+/************************************************************************************************/
+
+.reportIssue {
+    margin-left: 310px;
+}
+
+/************************************************************************************************/
+
+.classList
+{
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 0 8px;
+    font-family: arial, sans-serif;
+    font-size: 1em;
+    overflow: auto;
+}
+
+.classList li
+{
+    padding: 0;
+    margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+    line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+    background-color: #7F8FB1;
+    color: #fff;
+    font-size:130%;
+    text-align: left;
+    padding: 2px 6px 2px 6px;
+    border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+    vertical-align: top;
+    padding: 4px;
+    border-bottom: 1px #7F8FB1 solid;
+    border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+    border-left: 1px #7F8FB1 solid;
+    width: 140px;
+    text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+    line-height: 15px;
+    color: #002EBE;
+    font-family: "Courier New",Courier,monospace;
+    font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+    text-align: left;
+    font-size: 13px;
+    line-height: 15px;
+}
+
+.description {
+    line-height: 17px !important;
+}
+
+.summaryTable td.nameDescription, .description
+{
+    line-height: 15px;
+    padding: 4px;
+    padding-left: 4px;
+    font-size: 12px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+    list-style: square;
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+.detailList {
+    margin-left: 20px; 
+    line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+    font-weight: bold;
+    padding-bottom: 6px;
+    margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+    color: #777;
+    font-style: italic;
+}
+
+.fineprint
+{
+    text-align: right;
+    font-size: 10px;
+}
+
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="header">
+    <img src="http://getfirebug.com/developer/api/header.png"/>
+</div>
+        <div id="index">
+        <!-- Top Menu -->
+<div align="center">
+<a href="index.html">Class Index</a> |
+<a href="files.html">File Index</a>
+</div>
+<hr />
+
+<!-- List of Modules (objects derived from Firebug.Module) -->
+
+<h2>Modules</h2>
+<ul class="classList">
+    
+    <li><a href="symbols/Firebug.ActivableModule.html">Firebug.ActivableModule</a></li>
+    
+    <li><a href="symbols/Firebug.Activation.html">Firebug.Activation</a></li>
+    
+    <li><a href="symbols/Firebug.CommandLine.Popup.html">Firebug.CommandLine.Popup</a></li>
+    
+    <li><a href="symbols/Firebug.Inspector.html">Firebug.Inspector</a></li>
+    
+    <li><a href="symbols/Firebug.Module.html">Firebug.Module</a></li>
+    
+    <li><a href="symbols/Firebug.NetMonitor.html">Firebug.NetMonitor</a></li>
+    
+    <li><a href="symbols/Firebug.PanelActivation.html">Firebug.PanelActivation</a></li>
+    
+    <li><a href="symbols/Firebug.Search.html">Firebug.Search</a></li>
+    
+    <li><a href="symbols/Firebug.Spy.html">Firebug.Spy</a></li>
+    
+    <li><a href="symbols/Firebug.StartButton.html">Firebug.StartButton</a></li>
+    
+    <li><a href="symbols/Firebug.SVGViewerModel.html">Firebug.SVGViewerModel</a></li>
+    
+    <li><a href="symbols/Firebug.XMLViewerModel.html">Firebug.XMLViewerModel</a></li>
+    
+</ul><hr />
+
+
+<!-- List of Panels (objects derived from Firebug.Panel) -->
+
+<h2>Panels</h2>
+<ul class="classList">
+    
+    <li><a href="symbols/Firebug.ActivablePanel.html">Firebug.ActivablePanel</a></li>
+    
+    <li><a href="symbols/Firebug.Panel.html">Firebug.Panel</a></li>
+    
+    <li><a href="symbols/Firebug.SourceBoxPanel.html">Firebug.SourceBoxPanel</a></li>
+    
+</ul><hr />
+
+
+<!-- List of Domplate templates (usually objects derived from Firebug.Rep) -->
+
+<h2>Templates</h2>
+<ul class="classList">
+    
+    <li><a href="symbols/Firebug.DisabledPanelBox.html">Firebug.DisabledPanelBox</a></li>
+    
+    <li><a href="symbols/Firebug.NetMonitor.NetInfoBody.html">Firebug.NetMonitor.NetInfoBody</a></li>
+    
+    <li><a href="symbols/Firebug.NetMonitor.NetInfoHeaders.html">Firebug.NetMonitor.NetInfoHeaders</a></li>
+    
+    <li><a href="symbols/Firebug.NetMonitor.NetInfoPostData.html">Firebug.NetMonitor.NetInfoPostData</a></li>
+    
+    <li><a href="symbols/Firebug.NetMonitor.NetRequestEntry.html">Firebug.NetMonitor.NetRequestEntry</a></li>
+    
+    <li><a href="symbols/Firebug.NetMonitor.NetRequestTable.html">Firebug.NetMonitor.NetRequestTable</a></li>
+    
+    <li><a href="symbols/Firebug.NetMonitor.SizeInfoTip.html">Firebug.NetMonitor.SizeInfoTip</a></li>
+    
+    <li><a href="symbols/Firebug.NetMonitor.TimeInfoTip.html">Firebug.NetMonitor.TimeInfoTip</a></li>
+    
+    <li><a href="symbols/Firebug.ScriptPanel.WarningRep.html">Firebug.ScriptPanel.WarningRep</a></li>
+    
+    <li><a href="symbols/Firebug.Spy.XHR.html">Firebug.Spy.XHR</a></li>
+    
+    <li><a href="symbols/Firebug.SVGViewerModel.ParseError.html">Firebug.SVGViewerModel.ParseError</a></li>
+    
+    <li><a href="symbols/Firebug.XMLViewerModel.ParseError.html">Firebug.XMLViewerModel.ParseError</a></li>
+    
+</ul><hr />
+
+
+<!-- List of all Services (XPCOM) objects -->
+
+<h2>Services (XPCOM)</h2>
+<ul class="classList">
+    
+    <li><a href="symbols/httpRequestObserver.html">httpRequestObserver</a></li>
+    
+    <li><a href="symbols/observerService.html">observerService</a></li>
+    
+</ul><hr />
+
+
+<!-- List of all dialog objects -->
+
+
+<!-- List of all classes -->
+<h2>All Classes</h2>
+<ul class="classList">
+    
+    <li><i><a href="symbols/_global_.html">_global_</a></i></li>
+    
+    <li><a href="symbols/annotationService.html">annotationService</a></li>
+    
+    <li><a href="symbols/ArrayReference.html">ArrayReference</a></li>
+    
+    <li><a href="symbols/Breakpoint.html">Breakpoint</a></li>
+    
+    <li><a href="symbols/Browser.html">Browser</a></li>
+    
+    <li><a href="symbols/Browser.EventListener.html">Browser.EventListener</a></li>
+    
+    <li><a href="symbols/BrowserContext.html">BrowserContext</a></li>
+    
+    <li><a href="symbols/CompilationUnit.html">CompilationUnit</a></li>
+    
+    <li><a href="symbols/Firebug.ActivableModule.html">Firebug.ActivableModule</a></li>
+    
+    <li><a href="symbols/Firebug.ActivablePanel.html">Firebug.ActivablePanel</a></li>
+    
+    <li><a href="symbols/Firebug.Activation.html">Firebug.Activation</a></li>
+    
+    <li><a href="symbols/Firebug.CommandLine.Popup.html">Firebug.CommandLine.Popup</a></li>
+    
+    <li><a href="symbols/Firebug.DisabledPanelBox.html">Firebug.DisabledPanelBox</a></li>
+    
+    <li><a href="symbols/Firebug.HTMLLib.html">Firebug.HTMLLib</a></li>
+    
+    <li><a href="symbols/Firebug.HTMLLib.DOMWalker.html">Firebug.HTMLLib.DOMWalker</a></li>
+    
+    <li><a href="symbols/Firebug.HTMLLib.NodeSearch.html">Firebug.HTMLLib.NodeSearch</a></li>
+    
+    <li><a href="symbols/Firebug.HTMLLib.SelectorSearch.html">Firebug.HTMLLib.SelectorSearch</a></li>
+    
+    <li><a href="symbols/Firebug.HTMLModule.DebuggerListener.html">Firebug.HTMLModule.DebuggerListener</a></li>
+    
+    <li><a href="symbols/Firebug.Inspector.html">Firebug.Inspector</a></li>
+    
+    <li><a href="symbols/Firebug.Module.html">Firebug.Module</a></li>
+    
+    <li><a href="symbols/Firebug.NavigationHistory.html">Firebug.NavigationHistory</a></li>
+    
+    <li><a href="symbols/Firebug.NetMonitor.html">Firebug.NetMonitor</a></li>
+    
+    <li><a href="symbols/Firebug.NetMonitor.NetInfoBody.html">Firebug.NetMonitor.NetInfoBody</a></li>
+    
+    <li><a href="symbols/Firebug.NetMonitor.NetInfoHeaders.html">Firebug.NetMonitor.NetInfoHeaders</a></li>
+    
+    <li><a href="symbols/Firebug.NetMonitor.NetInfoPostData.html">Firebug.NetMonitor.NetInfoPostData</a></li>
+    
+    <li><a href="symbols/Firebug.NetMonitor.NetRequestEntry.html">Firebug.NetMonitor.NetRequestEntry</a></li>
+    
+    <li><a href="symbols/Firebug.NetMonitor.NetRequestTable.html">Firebug.NetMonitor.NetRequestTable</a></li>
+    
+    <li><a href="symbols/Firebug.NetMonitor.SizeInfoTip.html">Firebug.NetMonitor.SizeInfoTip</a></li>
+    
+    <li><a href="symbols/Firebug.NetMonitor.TimeInfoTip.html">Firebug.NetMonitor.TimeInfoTip</a></li>
+    
+    <li><a href="symbols/Firebug.Panel.html">Firebug.Panel</a></li>
+    
+    <li><a href="symbols/Firebug.PanelActivation.html">Firebug.PanelActivation</a></li>
+    
+    <li><a href="symbols/Firebug.ScriptPanel.WarningRep.html">Firebug.ScriptPanel.WarningRep</a></li>
+    
+    <li><a href="symbols/Firebug.Search.html">Firebug.Search</a></li>
+    
+    <li><a href="symbols/Firebug.SourceBoxDecorator.html">Firebug.SourceBoxDecorator</a></li>
+    
+    <li><a href="symbols/Firebug.SourceBoxPanel.html">Firebug.SourceBoxPanel</a></li>
+    
+    <li><a href="symbols/Firebug.Spy.html">Firebug.Spy</a></li>
+    
+    <li><a href="symbols/Firebug.Spy.XHR.html">Firebug.Spy.XHR</a></li>
+    
+    <li><a href="symbols/Firebug.Spy.XMLHttpRequestSpy.html">Firebug.Spy.XMLHttpRequestSpy</a></li>
+    
+    <li><a href="symbols/Firebug.StartButton.html">Firebug.StartButton</a></li>
+    
+    <li><a href="symbols/Firebug.SVGViewerModel.html">Firebug.SVGViewerModel</a></li>
+    
+    <li><a href="symbols/Firebug.SVGViewerModel.ParseError.html">Firebug.SVGViewerModel.ParseError</a></li>
+    
+    <li><a href="symbols/Firebug.XMLViewerModel.html">Firebug.XMLViewerModel</a></li>
+    
+    <li><a href="symbols/Firebug.XMLViewerModel.ParseError.html">Firebug.XMLViewerModel.ParseError</a></li>
+    
+    <li><a href="symbols/FunctionReference.html">FunctionReference</a></li>
+    
+    <li><a href="symbols/httpRequestObserver.html">httpRequestObserver</a></li>
+    
+    <li><a href="symbols/IntoStepper.html">IntoStepper</a></li>
+    
+    <li><a href="symbols/JavaScriptStack.html">JavaScriptStack</a></li>
+    
+    <li><a href="symbols/LineStepper.html">LineStepper</a></li>
+    
+    <li><a href="symbols/LiteralRegExp.html">LiteralRegExp</a></li>
+    
+    <li><a href="symbols/ObjectPersister.html">ObjectPersister</a></li>
+    
+    <li><a href="symbols/ObjectReference.html">ObjectReference</a></li>
+    
+    <li><a href="symbols/observerService.html">observerService</a></li>
+    
+    <li><a href="symbols/OutStepper.html">OutStepper</a></li>
+    
+    <li><a href="symbols/Primitive.html">Primitive</a></li>
+    
+    <li><a href="symbols/Property.html">Property</a></li>
+    
+    <li><a href="symbols/StackFrame.html">StackFrame</a></li>
+    
+    <li><a href="symbols/TextSearch.html">TextSearch</a></li>
+    
+    <li><a href="symbols/top.Firebug.html">top.Firebug</a></li>
+    
+    <li><a href="symbols/Variable.html">Variable</a></li>
+    
+</ul>
+<hr />
+        </div>
+
+        <div id="content">
+            <a class="reportIssue" href="http://code.google.com/p/fbug/issues/entry?template=API Reference Report">Report Doc Issue</a>
+             |
+            <a href="http://getfirebug.com/wiki/index.php/Firebug_Source_Code_Comments">How To Comment Firebug Code</a>
+            <h1 class="classTitle">File Index</h1>
+
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_a11y.js.html">.\content\firebug\a11y.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_aboutOverlay.js.html">.\content\firebug\aboutOverlay.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_activation.js.html">.\content\firebug\activation.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_balloonNote.js.html">.\content\firebug\balloonNote.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_breakpoint.js.html">.\content\firebug\breakpoint.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_callstack.js.html">.\content\firebug\callstack.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_chrome.js.html">.\content\firebug\chrome.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_commandLine.js.html">.\content\firebug\commandLine.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_commandLineInjected.js.html">.\content\firebug\commandLineInjected.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_commandLinePopup.js.html">.\content\firebug\commandLinePopup.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_console.js.html">.\content\firebug\console.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_consoleInjected.js.html">.\content\firebug\consoleInjected.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_consoleInjector.js.html">.\content\firebug\consoleInjector.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_css.js.html">.\content\firebug\css.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_customizeShortcuts.js.html">.\content\firebug\customizeShortcuts.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_debugger.js.html">.\content\firebug\debugger.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_dom.js.html">.\content\firebug\dom.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_domplate.js.html">.\content\firebug\domplate.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_editor.js.html">.\content\firebug\editor.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_errors.js.html">.\content\firebug\errors.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_external_changeeditor.js.html">.\content\firebug\external\changeeditor.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_external_editors.js.html">.\content\firebug\external\editors.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_external_editorToContextMenu.js.html">.\content\firebug\external\editorToContextMenu.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_external_externalEditors.js.html">.\content\firebug\external\externalEditors.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_firebug.js.html">.\content\firebug\firebug.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_html.js.html">.\content\firebug\html.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_infotip.js.html">.\content\firebug\infotip.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_insideOutBox.js.html">.\content\firebug\insideOutBox.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_inspector.js.html">.\content\firebug\inspector.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_jsonViewer.js.html">.\content\firebug\jsonViewer.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_knownIssues.js.html">.\content\firebug\knownIssues.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_layout.js.html">.\content\firebug\layout.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_lib.js.html">.\content\firebug\lib.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_lib_htmlLib.js.html">.\content\firebug\lib\htmlLib.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_navigationHistory.js.html">.\content\firebug\navigationHistory.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_net.js.html">.\content\firebug\net.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_plugin.js.html">.\content\firebug\plugin.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_profiler.js.html">.\content\firebug\profiler.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_reps.js.html">.\content\firebug\reps.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_script.js.html">.\content\firebug\script.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_search.js.html">.\content\firebug\search.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_shortcuts.js.html">.\content\firebug\shortcuts.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_sourceBox.js.html">.\content\firebug\sourceBox.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_sourceCache.js.html">.\content\firebug\sourceCache.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_sourceFile.js.html">.\content\firebug\sourceFile.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_spy.js.html">.\content\firebug\spy.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_start-button_startButtonOverlay.js.html">.\content\firebug\start-button\startButtonOverlay.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_svgViewer.js.html">.\content\firebug\svgViewer.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_tabCache.js.html">.\content\firebug\tabCache.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_tabContext.js.html">.\content\firebug\tabContext.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_tableRep.js.html">.\content\firebug\tableRep.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_tabWatcher.js.html">.\content\firebug\tabWatcher.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_trace.js.html">.\content\firebug\trace.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_traceConsole.js.html">.\content\firebug\traceConsole.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_traceModule.js.html">.\content\firebug\traceModule.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_xmlViewer.js.html">.\content\firebug\xmlViewer.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/content_firebug_xpcom.js.html">.\content\firebug\xpcom.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/defaults_preferences_firebug.js.html">.\defaults\preferences\firebug.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/defaults_preferences_tracingConsole.js.html">.\defaults\preferences\tracingConsole.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/modules_bti_arrayreference.js.html">.\modules\bti\arrayreference.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/modules_bti_breakpoint.js.html">.\modules\bti\breakpoint.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/modules_bti_browser.js.html">.\modules\bti\browser.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/modules_bti_browsercontext.js.html">.\modules\bti\browsercontext.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/modules_bti_bti.js.html">.\modules\bti\bti.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/modules_bti_compilationunit.js.html">.\modules\bti\compilationunit.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/modules_bti_functionreference.js.html">.\modules\bti\functionreference.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/modules_bti_javascriptstack.js.html">.\modules\bti\javascriptstack.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/modules_bti_lib.js.html">.\modules\bti\lib.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/modules_bti_objectreference.js.html">.\modules\bti\objectreference.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/modules_bti_primitive.js.html">.\modules\bti\primitive.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/modules_bti_property.js.html">.\modules\bti\property.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/modules_bti_stackframe.js.html">.\modules\bti\stackframe.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/modules_bti_variable.js.html">.\modules\bti\variable.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/modules_bti_mozilla_ClientBrowserTools.js.html">.\modules\bti_mozilla\ClientBrowserTools.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/modules_debuggerHalter.js.html">.\modules\debuggerHalter.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/modules_firebug-annotations.js.html">.\modules\firebug-annotations.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/modules_firebug-channel-listener.js.html">.\modules\firebug-channel-listener.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/modules_firebug-http-observer.js.html">.\modules\firebug-http-observer.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/modules_firebug-service-breakpoints.js.html">.\modules\firebug-service-breakpoints.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/modules_firebug-service.js.html">.\modules\firebug-service.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/modules_firebug-trace-service.js.html">.\modules\firebug-trace-service.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/modules_moduleLoader.js.html">.\modules\moduleLoader.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/modules_observer-service.js.html">.\modules\observer-service.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/modules_require.js.html">.\modules\require.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+            <div>
+                <h2><a href="symbols/src/modules_storageService.js.html">.\modules\storageService.js</a></h2>
+                
+                <dl>
+                    
+                    
+                    
+                    
+                </dl>
+            </div>
+            <hr />
+            
+
+        </div>
+        <div class="fineprint" style="clear:both">
+            
+            Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.3.0 on Tue Mar 22 2011 14:52:18 GMT+0100 (CET)
+        </div>
+    </div>      
+</body>
+</html>

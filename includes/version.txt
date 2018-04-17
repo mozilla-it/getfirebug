@@ -1,0 +1,1 @@
+<a onclick="window.location.href='https://getfirebug.com/downloads/'; return false;" href="https://getfirebug.com/downloads">Install Firebug</a>

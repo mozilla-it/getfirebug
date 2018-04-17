@@ -1,0 +1,17 @@
+.dirContent {
+    font-family: "trebuchet ms",helvetica,sans-serif;
+    font-size: 13px;
+}
+
+.dirContent A {
+}
+
+.dirContent TR {
+    vertical-align: middle;
+}
+
+.dirContent .lastModified {
+    color: gray;
+    font-size: 12px;
+    padding-left: 50px;
+}

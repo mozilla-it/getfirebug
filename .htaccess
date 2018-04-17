@@ -1,0 +1,94 @@
+Options +Multiviews
+
+<ifModule mod_gzip.c>
+  mod_gzip_on Yes
+  mod_gzip_dechunk Yes
+  mod_gzip_item_include file \.(html?|txt|css|js|php|pl)$
+  mod_gzip_item_include handler ^cgi-script$
+  mod_gzip_item_include mime ^text/.*
+  mod_gzip_item_include mime ^application/x-javascript.*
+  mod_gzip_item_exclude mime ^image/.*
+  mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
+</ifModule>
+
+<ifModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 seconds"
+  ExpiresByType text/html "access plus 1 seconds"
+  ExpiresByType image/gif "access plus 2592000 seconds"
+  ExpiresByType image/jpeg "access plus 2592000 seconds"
+  ExpiresByType image/png "access plus 2592000 seconds"
+  ExpiresByType text/css "access plus 604800 seconds"
+  ExpiresByType text/javascript "access plus 216000 seconds"
+  ExpiresByType application/x-javascript "access plus 216000 seconds"
+  ExpiresByType application/ogg "access plus 2592000 seconds"
+  ExpiresByType video/mp4 "access plus 2592000 seconds"
+</ifModule>
+
+<ifModule mod_headers.c>
+  <filesMatch "\\.(ico|pdf|flv|jpg|jpeg|png|gif|swf)$">
+    Header set Cache-Control "max-age=2592000, public"
+  </filesMatch>
+  <filesMatch "\\.(css)$">
+    Header set Cache-Control "max-age=604800, public"
+  </filesMatch>
+  <filesMatch "\\.(js)$">
+    Header set Cache-Control "max-age=216000, private"
+  </filesMatch>
+  <filesMatch "\\.(xml|txt)$">
+    Header set Cache-Control "max-age=216000, public, must-revalidate"
+  </filesMatch>
+  <filesMatch "\\.(html|htm|php)$">
+    Header set Cache-Control "max-age=1, private, must-revalidate"
+  </filesMatch>
+</ifModule>
+
+<ifModule mod_headers.c>
+  Header unset ETag
+</ifModule>
+FileETag None
+
+<ifModule mod_headers.c>
+  Header unset Last-Modified
+</ifModule>
+
+AddType application/ogg .ogv
+AddType video/mp4 .mp4
+ErrorDocument 404 /404.php
+
+# Redirects
+
+RedirectPermanent /workingGroup/index.html https://getfirebug.com/getinvolved
+RedirectPermanent /docs.html    https://getfirebug.com/wiki/
+RedirectPermanent /extensions/index.html https://getfirebug.com/wiki/index.php/Firebug_Extensions
+RedirectPermanent /extensions  https://getfirebug.com/wiki/index.php/Firebug_Extensions
+RedirectPermanent /lite.html    https://getfirebug.com/firebuglite
+RedirectPermanent /using.html   https://getfirebug.com/enable
+RedirectPermanent /html.html    https://getfirebug.com/html
+RedirectPermanent /css.html https://getfirebug.com/css.php
+RedirectPermanent /layout.html  https://getfirebug.com/layout
+RedirectPermanent /net.html https://getfirebug.com/network
+RedirectPermanent /js.html  https://getfirebug.com/javascript
+RedirectPermanent /errors.html  https://getfirebug.com/errors
+RedirectPermanent /dom.html https://getfirebug.com/dom
+RedirectPermanent /cl.html  https://getfirebug.com/commandline
+RedirectPermanent /logging.html https://getfirebug.com/logging
+RedirectPermanent /faq.html    https://getfirebug.com/wiki/index.php/FAQ
+RedirectPermanent /keyboard.html    https://getfirebug.com/wiki/index.php/Keyboard_and_Mouse_Shortcuts
+RedirectPermanent /contribute.html    https://getfirebug.com/getinvolved
+RedirectPermanent /tests/content/testbot/results/index.php    https://getfirebug.com/testresults
+RedirectPermanent /firstaid   https://getfirebug.com/wiki/index.php/I_found_a_Firebug_Bug!
+RedirectPermanent /newfeature   https://getfirebug.com/wiki/index.php/I_am_missing_a_feature_in_Firebug!
+RedirectPermanent /roadmap   https://getfirebug.com/wiki/index.php/Firebug_Roadmap
+RedirectPermanent /merging-into-firefox-developer-tools   http://bit.ly/1SYp0TZ
+Redirect /unifying-firebug-and-firefox-devtools   http://bit.ly/1t4ytjt
+
+# Releases directory
+RedirectPermanent /releases/oldIndex.html      http://getfirebug.com/downloads
+RedirectPermanent /releases/allReleases.html   http://getfirebug.com/downloads
+RedirectPermanent /releases/extensions.html    http://getfirebug.com/wiki/index.php/Firebug_Extensions
+
+# Tests directory
+RedirectMatch permanent /tests/content/testlists/firebug([\d\.]*)\.html$   http://getfirebug.com/tests/$1/firebug.html
+RedirectMatch permanent /tests/content/branches/([\d\.]+)(.*)$             http://getfirebug.com/tests/$1$2
+RedirectPermanent /tests/issues                                            http://getfirebug.com/tests/manual/issues

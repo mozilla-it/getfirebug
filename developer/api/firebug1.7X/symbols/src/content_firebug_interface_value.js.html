@@ -1,0 +1,119 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=UTF-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/**
+<span class='line'>  2</span>  * Software License Agreement (BSD License)
+<span class='line'>  3</span>  * 
+<span class='line'>  4</span>  * Copyright (c) 2010 IBM Corporation.
+<span class='line'>  5</span>  * All rights reserved.
+<span class='line'>  6</span>  * 
+<span class='line'>  7</span>  * Redistribution and use of this software in source and binary forms, with or without modification,
+<span class='line'>  8</span>  * are permitted provided that the following conditions are met:
+<span class='line'>  9</span>  * 
+<span class='line'> 10</span>  * * Redistributions of source code must retain the above
+<span class='line'> 11</span>  *   copyright notice, this list of conditions and the
+<span class='line'> 12</span>  *   following disclaimer.
+<span class='line'> 13</span>  * 
+<span class='line'> 14</span>  * * Redistributions in binary form must reproduce the above
+<span class='line'> 15</span>  *   copyright notice, this list of conditions and the
+<span class='line'> 16</span>  *   following disclaimer in the documentation and/or other
+<span class='line'> 17</span>  *   materials provided with the distribution.
+<span class='line'> 18</span>  * 
+<span class='line'> 19</span>  * * Neither the name of IBM nor the names of its
+<span class='line'> 20</span>  *   contributors may be used to endorse or promote products
+<span class='line'> 21</span>  *   derived from this software without specific prior
+<span class='line'> 22</span>  *   written permission of IBM.
+<span class='line'> 23</span>  * 
+<span class='line'> 24</span>  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR
+<span class='line'> 25</span>  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+<span class='line'> 26</span>  * FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+<span class='line'> 27</span>  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+<span class='line'> 28</span>  * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+<span class='line'> 29</span>  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
+<span class='line'> 30</span>  * IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+<span class='line'> 31</span>  * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+<span class='line'> 32</span>  */</span><span class="WHIT">
+<span class='line'> 33</span> 
+<span class='line'> 34</span> </span><span class="COMM">/**
+<span class='line'> 35</span>  * Describes a value referenced by a variable.
+<span class='line'> 36</span>  * A value represents data in a program - for example a number, string or object.
+<span class='line'> 37</span>  * 
+<span class='line'> 38</span>  * @constructor
+<span class='line'> 39</span>  * @param type type of value
+<span class='line'> 40</span>  * @param data underlying data value, based on the type of value
+<span class='line'> 41</span>  * @type Value
+<span class='line'> 42</span>  * @return a new Value
+<span class='line'> 43</span>  * @version 1.0
+<span class='line'> 44</span>  */</span><span class="WHIT">
+<span class='line'> 45</span> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">Value</span><span class="PUNC">(</span><span class="NAME">type</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">data</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 46</span> </span><span class="WHIT">	</span><span class="NAME">this.type</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">type</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 47</span> </span><span class="WHIT">	</span><span class="NAME">this.data</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">data</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 48</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 49</span> 
+<span class='line'> 50</span> </span><span class="COMM">/**
+<span class='line'> 51</span>  * Returns the type of data this value contains as a {@link String}.
+<span class='line'> 52</span>  * One of the following is returned:
+<span class='line'> 53</span>  * &lt;ul>
+<span class='line'> 54</span>  * &lt;li>&lt;code>object&lt;/code>&lt;/li>
+<span class='line'> 55</span>  * &lt;li>&lt;code>function&lt;/code>&lt;/li>
+<span class='line'> 56</span>  * &lt;li>&lt;code>boolean&lt;/code>&lt;/li>
+<span class='line'> 57</span>  * &lt;li>&lt;code>number&lt;/code>&lt;/li>
+<span class='line'> 58</span>  * &lt;li>&lt;code>string&lt;/code>&lt;/li>
+<span class='line'> 59</span>  * &lt;li>&lt;code>undefined&lt;/code>&lt;/li>
+<span class='line'> 60</span>  * &lt;/ul>
+<span class='line'> 61</span>  * &lt;p>
+<span class='line'> 62</span>  * &lt;ul>
+<span class='line'> 63</span>  * &lt;li>TODO: is an array also a special data type?&lt;/li>
+<span class='line'> 64</span>  * &lt;li>TODO: do we need to distinguish between null and undefined?&lt;/li>
+<span class='line'> 65</span>  * &lt;/ul>
+<span class='line'> 66</span>  * &lt;/p>
+<span class='line'> 67</span>  * @function
+<span class='line'> 68</span>  * @returns the type of data this value contains
+<span class='line'> 69</span>  */</span><span class="WHIT">
+<span class='line'> 70</span> </span><span class="NAME">Value.prototype.getType</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 71</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.type</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 72</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 73</span> 
+<span class='line'> 74</span> </span><span class="COMM">/**
+<span class='line'> 75</span>  * Returns the underlying data associated with this value.
+<span class='line'> 76</span>  * &lt;table border="1">
+<span class='line'> 77</span>  * 	&lt;tr>
+<span class='line'> 78</span>  * 		&lt;th>Value Type&lt;/th>
+<span class='line'> 79</span>  * 		&lt;th>Return Type&lt;/th>
+<span class='line'> 80</span>  *  &lt;/tr>
+<span class='line'> 81</span>  *  &lt;tr>
+<span class='line'> 82</span>  *		&lt;td>object&lt;/td>
+<span class='line'> 83</span>  *		&lt;td>an array of {@link Variable}'s representing the properties of the object&lt;/td>
+<span class='line'> 84</span>  *	&lt;/tr>
+<span class='line'> 85</span>  *	&lt;tr>
+<span class='line'> 86</span>  *		&lt;td>function&lt;/td>
+<span class='line'> 87</span>  *		&lt;td>TODO&lt;/td>
+<span class='line'> 88</span>  *	&lt;/tr>
+<span class='line'> 89</span>  *	&lt;tr>
+<span class='line'> 90</span>  *		&lt;td>boolean&lt;/td>
+<span class='line'> 91</span>  *		&lt;td>a boolean value&lt;/td>
+<span class='line'> 92</span>  *	&lt;/tr>
+<span class='line'> 93</span>  *	&lt;tr>
+<span class='line'> 94</span>  *		&lt;td>number&lt;/td>
+<span class='line'> 95</span>  *		&lt;td>a number value&lt;/td>
+<span class='line'> 96</span>  *	&lt;/tr>
+<span class='line'> 97</span>  *	&lt;tr>
+<span class='line'> 98</span>  *		&lt;td>string&lt;/td>
+<span class='line'> 99</span>  *		&lt;td>returns a {@link String}&lt;/td>
+<span class='line'>100</span>  *	&lt;/tr>
+<span class='line'>101</span>  *	&lt;tr>
+<span class='line'>102</span>  *		&lt;td>undefined&lt;/td>
+<span class='line'>103</span>  *		&lt;td>returns null&lt;/td>
+<span class='line'>104</span>  *	&lt;/tr>
+<span class='line'>105</span>  * &lt;/table>
+<span class='line'>106</span>  * 
+<span class='line'>107</span>  * @function
+<span class='line'>108</span>  * @returns the underlying data value or &lt;code>null&lt;/code> if undefined
+<span class='line'>109</span>  */</span><span class="WHIT">
+<span class='line'>110</span> </span><span class="NAME">Value.prototype.getData</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>111</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.data</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>112</span> </span><span class="PUNC">}</span><span class="PUNC">;</span></pre></body></html>

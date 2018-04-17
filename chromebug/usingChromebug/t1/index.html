@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Using Chromebug To Navigate To Firebug Source</title>
+   <base href="http://getfirebug.com/" />  
+<style type="text/css" media="screen">@import "/firebug.css";</style>
+</head>
+
+<body>
+<div id="main">
+<img class="corner cornerTopLeft" src="/blank.gif"/>
+<img class="corner cornerTopRight" src="/blank.gif"/>
+
+<div id="topNav">
+    <div><a href="http://blog.getfirebug.com/">blog</a></div>
+    <div><a href="http://groups.google.com/group/firebug">discuss</a></div>
+    <div><a href="/contribute.html">contribute</a></div>
+    <div><a href="/docs.html">documentation</a></div>
+</div>
+
+<a href="/"><img class="header" src="/header.png"/></a>
+
+<div id="content">
+    <div class="columns">
+        <div class="fullColumn">
+            <br/>
+            <h1>Chromebug For Firebug</h1>
+
+			<h2>Start Chromebug</h2>
+            <p>Using the operating system command line, add the command line parameter 'chromebug'. 
+            For example to run Chromebug for firefox on windows:</p>
+            <pre>firefox.exe -chromebug</pre>
+            <p>This causes firefox to load chromebug as a XUL application, then Chromebug starts Firefox.
+            For other operating systems, adjust the executable name; for other XUL applications use
+            the appropriate starter application.</p>
+            
+             
+            <h2>Open Firebug on your test page</h2>
+            <p>Ok, you can do that       </p>
+			
+			<h2>Click Inspect in Chromebug</h2>
+			<p>Just like Firebug, for XUL. Slower and sometimes you have to coax it along</p>
+			<p><img src="/chromebug/usingChromebug/t1/OneInspect.jpg"/></p>
+			<h2>Select your target UI element</h2>
+			<p>Here I am trying to figure out why the source line on Style is wrong, so I pick the style</p>
+			<p><img src="/chromebug/usingChromebug/t1/TwoInspectStyleTab.jpg"/></p>
+			<h2>Study the HTML for the panel</h2>
+            <p>Here I can see that the object is in class "cssSelector", very often a good clue for the code in Firebug.</p>
+            <p><img src="/chromebug/usingChromebug/t1/ThreePanelHTML.jpg"/></p>
+            <h2>Firebug Source</h2>
+            <p>Searching for "cssSelector" shows css.js has the domplate that created the panel. There 
+            we see the the sourcelink is rule.sourcelink, so we look for that in the source </p>
+            <p><img src="/chromebug/usingChromebug/t1/FourSource.jpg"/></p>
+            <p>Then we are at the line we want:</p>
+            <p><img src="/chromebug/usingChromebug/t1/FiveGotIt.jpg"/></p>
+        </div>
+    </div>
+
+        <div class="footer">
+        <p>Firebug is a free Firefox extension. <a href="/#install">Ready to install?</a></p>
+        <p id="legal">Firebug is a registered trademark of <a href="http://www.parakey.com">Parakey, Inc.</a></p>
+
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

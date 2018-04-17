@@ -1,0 +1,69 @@
+#googBtn[disabled="true"], #mbBtn[disabled="true"], #amazonBtn[disabled="true"]
+{
+    cursor: default;
+}
+
+#moneyBox
+{
+    margin-top: 20px;
+    text-align: center;
+    min-height: 150px;
+    height: 150px;
+}
+
+#moneyBox input[type="image"]
+{
+    vertical-align: middle;
+}
+
+#payOnline form
+{
+    display: inline;
+    vertical-align: middle; /* For IE6, since the attr selector above is ignored */
+}
+
+#methodForm
+{
+    margin-bottom: 15px;
+}
+
+#vendorBox, #amazonTextBox
+{
+    margin-top: 10px;
+}
+
+#amazonTextDisabled
+{
+    opacity: .1;
+    filter: Alpha(Opacity=10);
+    display: inline-block; /* Give the span layout, necessary for transparency in IE */
+}
+
+#linkForm
+{
+    margin-top: 25px;
+}
+
+#linkForm div
+{
+    margin-top: 15px;
+}
+
+#htmlField
+{
+    margin-top: 40px;
+    width: 100%;
+    height: 80px;
+}
+
+.link
+{
+    text-decoration: underline;
+    color: blue;
+}
+
+#button1-img, #button2-img
+{
+    position: relative;
+    top: 15px;
+}

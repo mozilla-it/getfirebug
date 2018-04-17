@@ -1,0 +1,18 @@
+<div id="sidenav">
+<h3>What is Firebug?</h3>
+<ul>
+<li><a href="http://getfirebug.com/faq">Firebug FAQ</a></li>
+<li><a href="http://getfirebug.com/wiki/index.php">Firebug Wiki</a></li>
+<li><a href="/enable">Enabling Firebug</a></li>
+<li><a href="/html">HTML Development</a></li>
+<li><a href="/css">CSS Development</a></li>
+<li><a href="/layout">CSS Layout</a></li>
+<li><a href="/network">Network Monitoring</a></li>
+<li><a href="/javascript">Javascript Debugging</a></li>
+<li><a href="/errors">Finding Errors</a></li>
+<li><a href="/dom">DOM Exploration</a></li>
+<li><a href="/commandline">Javascript Command Line</a></li>
+<li><a href="/logging">Javascript Logging</a></li>
+<li><a href="/cookies">Cookies</a></li>
+</ul>
+</div>

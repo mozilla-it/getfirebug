@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:em="http://www.mozilla.org/2004/em-rdf#"
+         xmlns:NC="http://home.netscape.com/NC-rdf#"
+         xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <RDF:Description RDF:about="rdf:#$XuZKT2"
+                   em:version="0.2a3">
+    <em:targetApplication RDF:resource="rdf:#$.uZKT2"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="urn:mozilla:install-manifest"
+                   em:updateKey="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDH/JeBGzh7UCU/IspzFuwCbx3eZxaAH0SBr862D8lOHi4aVeRgj2bynAsBlqdTBgNR6wQum2TSoXpFTnxNjYV1DoqbLqCDdIZ6cB+gfLiNX9YnFKWs/nYpuGd2Ebs+WQf36/Sr/FDSt86j93Piz87rj77gwrAafhDw9GM0qhgFAwIDAQAB" />
+  <RDF:Description RDF:about="rdf:#$.uZKT2"
+                   em:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   em:minVersion="3.0.*"
+                   em:maxVersion="3.9.*"
+                   em:updateLink="http://getfirebug.com/releases/crossfire/0.2/crossfire-0.2a3.xpi" />
+  <RDF:Seq RDF:about="rdf:#$WuZKT2">
+    <RDF:li RDF:resource="rdf:#$XuZKT2"/>
+  </RDF:Seq>
+  <RDF:Description RDF:about="urn:mozilla:extension:crossfire@almaden.ibm.com"
+                   em:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBAFXQskQd3TIJvWaUtzQpB95yBvRu2UO5ikinp+b948jNx7Pz5cmdgC72IlrCmtHbkEFEkOo4wGAoilrECZzvSyUI/WdSsiNcXJ8e+ZadNXqZxqHisFDaOV5wGzl7zG5lkXl5WmMQK3r6cOPS5wbLAAPblksX10AZV/D0hK8HK35/">
+    <em:updates RDF:resource="rdf:#$WuZKT2"/>
+  </RDF:Description>
+</RDF:RDF>

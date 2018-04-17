@@ -1,0 +1,3 @@
+You don't need to download the file.
+
+If you do download the .xpi file, drag and drop it on to Firefox or use Open File to install.

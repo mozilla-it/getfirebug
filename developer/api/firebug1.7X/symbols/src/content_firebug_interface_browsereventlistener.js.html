@@ -1,0 +1,170 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=UTF-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/**
+<span class='line'>  2</span>  * Software License Agreement (BSD License)
+<span class='line'>  3</span>  *
+<span class='line'>  4</span>  * Copyright (c) 2010 IBM Corporation.
+<span class='line'>  5</span>  * All rights reserved.
+<span class='line'>  6</span>  *
+<span class='line'>  7</span>  * Redistribution and use of this software in source and binary forms, with or without modification,
+<span class='line'>  8</span>  * are permitted provided that the following conditions are met:
+<span class='line'>  9</span>  *
+<span class='line'> 10</span>  * * Redistributions of source code must retain the above
+<span class='line'> 11</span>  *   copyright notice, this list of conditions and the
+<span class='line'> 12</span>  *   following disclaimer.
+<span class='line'> 13</span>  *
+<span class='line'> 14</span>  * * Redistributions in binary form must reproduce the above
+<span class='line'> 15</span>  *   copyright notice, this list of conditions and the
+<span class='line'> 16</span>  *   following disclaimer in the documentation and/or other
+<span class='line'> 17</span>  *   materials provided with the distribution.
+<span class='line'> 18</span>  *
+<span class='line'> 19</span>  * * Neither the name of IBM nor the names of its
+<span class='line'> 20</span>  *   contributors may be used to endorse or promote products
+<span class='line'> 21</span>  *   derived from this software without specific prior
+<span class='line'> 22</span>  *   written permission of IBM.
+<span class='line'> 23</span>  *
+<span class='line'> 24</span>  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR
+<span class='line'> 25</span>  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+<span class='line'> 26</span>  * FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+<span class='line'> 27</span>  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+<span class='line'> 28</span>  * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+<span class='line'> 29</span>  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
+<span class='line'> 30</span>  * IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+<span class='line'> 31</span>  * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+<span class='line'> 32</span>  */</span><span class="WHIT">
+<span class='line'> 33</span> </span><span class="COMM">/**
+<span class='line'> 34</span>  * Describes the event listener functions supported by a {@link Browser}.
+<span class='line'> 35</span>  *
+<span class='line'> 36</span>  * @constructor
+<span class='line'> 37</span>  * @type BrowserEventListener
+<span class='line'> 38</span>  * @return a new {@link BrowserEventListener}
+<span class='line'> 39</span>  * @version 1.0
+<span class='line'> 40</span>  */</span><span class="WHIT">
+<span class='line'> 41</span> </span><span class="NAME">Browser.EventListener</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 42</span> 
+<span class='line'> 43</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'> 44</span>      * Notification that execution has suspended in the specified
+<span class='line'> 45</span>      * compilation unit.
+<span class='line'> 46</span>      *
+<span class='line'> 47</span>      * @function
+<span class='line'> 48</span>      * @param compilationUnit the {@link CompilationUnit} execution has suspended in
+<span class='line'> 49</span>      * @param lineNumber the line number execution has suspended at
+<span class='line'> 50</span>      */</span><span class="WHIT">
+<span class='line'> 51</span> </span><span class="WHIT">    </span><span class="NAME">onBreak</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">compilationUnit</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">lineNumber</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 52</span> 
+<span class='line'> 53</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'> 54</span>      * TODO:
+<span class='line'> 55</span>      */</span><span class="WHIT">
+<span class='line'> 56</span> </span><span class="WHIT">    </span><span class="NAME">onConsoleDebug</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 57</span> 
+<span class='line'> 58</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'> 59</span>      * TODO:
+<span class='line'> 60</span>      */</span><span class="WHIT">
+<span class='line'> 61</span> </span><span class="WHIT">    </span><span class="NAME">onConsoleError</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 62</span> 
+<span class='line'> 63</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'> 64</span>      * Notification the specified information messages have been logged.
+<span class='line'> 65</span>      *
+<span class='line'> 66</span>      * @function
+<span class='line'> 67</span>      * @param browserContext the {@link BrowserContext} the messages were logged from
+<span class='line'> 68</span>      * @param messages array of messages as {@link String}'s
+<span class='line'> 69</span>      */</span><span class="WHIT">
+<span class='line'> 70</span> </span><span class="WHIT">    </span><span class="NAME">onConsoleInfo</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">browserContext</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">messages</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 71</span> 
+<span class='line'> 72</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'> 73</span>      * Notification the specified messages have been logged.
+<span class='line'> 74</span>      *
+<span class='line'> 75</span>      * @function
+<span class='line'> 76</span>      * @param browserContext the {@link BrowserContext} the messages were logged from
+<span class='line'> 77</span>      * @param messages array of messages as {@link String}'s
+<span class='line'> 78</span>      */</span><span class="WHIT">
+<span class='line'> 79</span> </span><span class="WHIT">    </span><span class="NAME">onConsoleLog</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">browserContext</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">messages</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 80</span> 
+<span class='line'> 81</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'> 82</span>      * Notification the specified warning messages have been logged.
+<span class='line'> 83</span>      *
+<span class='line'> 84</span>      * @function
+<span class='line'> 85</span>      * @param browserContext the {@link BrowserContext} the messages were logged from
+<span class='line'> 86</span>      * @param messages array of messages as {@link String}'s
+<span class='line'> 87</span>      */</span><span class="WHIT">
+<span class='line'> 88</span> </span><span class="WHIT">    </span><span class="NAME">onConsoleWarn</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">browserContext</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">messages</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 89</span> 
+<span class='line'> 90</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'> 91</span>      * Notification the specified browser context has been created. This notification
+<span class='line'> 92</span>      * is sent when a new context is created and before any scripts are compiled in
+<span class='line'> 93</span>      * the new context.
+<span class='line'> 94</span>      *
+<span class='line'> 95</span>      * @function
+<span class='line'> 96</span>      * @param browserContext the {@link BrowserContext} that was created
+<span class='line'> 97</span>      */</span><span class="WHIT">
+<span class='line'> 98</span> </span><span class="WHIT">    </span><span class="NAME">onContextCreated</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">browserContext</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 99</span> 
+<span class='line'>100</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'>101</span>      * Notification the focus browser context has been changed.
+<span class='line'>102</span>      *
+<span class='line'>103</span>      * @function
+<span class='line'>104</span>      * @param fromContext the previous {@link BrowserContext} that had focus or &lt;code>null&lt;/code>
+<span class='line'>105</span>      * @param toContext the {@link BrowserContext} that now has focus or &lt;code>null&lt;/code>
+<span class='line'>106</span>      */</span><span class="WHIT">
+<span class='line'>107</span> </span><span class="WHIT">    </span><span class="NAME">onContextChanged</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">fromContext</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">toContext</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>108</span> 
+<span class='line'>109</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'>110</span>      * Notification the specified browser context has been destroyed.
+<span class='line'>111</span>      *
+<span class='line'>112</span>      * @function
+<span class='line'>113</span>      * @param browserContext the {@link BrowserContext} that was destroyed
+<span class='line'>114</span>      */</span><span class="WHIT">
+<span class='line'>115</span> </span><span class="WHIT">    </span><span class="NAME">onContextDestroyed</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">browserContext</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>116</span> 
+<span class='line'>117</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'>118</span>      * Notification the specified browser context has completed loading.
+<span class='line'>119</span>      *
+<span class='line'>120</span>      * @function
+<span class='line'>121</span>      * @param browserContext the {@link BrowserContext} that has completed loading
+<span class='line'>122</span>      */</span><span class="WHIT">
+<span class='line'>123</span> </span><span class="WHIT">    </span><span class="NAME">onContextLoaded</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">browserContext</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>124</span> 
+<span class='line'>125</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'>126</span>      * Notification the connection to the remote browser has been closed.
+<span class='line'>127</span>      *
+<span class='line'>128</span>      * @function
+<span class='line'>129</span>      * @param browser the {@link Browser} that has been disconnected
+<span class='line'>130</span>      */</span><span class="WHIT">
+<span class='line'>131</span> </span><span class="WHIT">    </span><span class="NAME">onDisconnect</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">browser</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>132</span> 
+<span class='line'>133</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'>134</span>      * TODO:
+<span class='line'>135</span>      */</span><span class="WHIT">
+<span class='line'>136</span> </span><span class="WHIT">    </span><span class="NAME">onInspectNode</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>137</span> 
+<span class='line'>138</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'>139</span>      * Notification the specified execution context has resumed execution.
+<span class='line'>140</span>      *
+<span class='line'>141</span>      * @function
+<span class='line'>142</span>      * @param javaScriptContext the {@link JavaScriptContext} that has resumed
+<span class='line'>143</span>      */</span><span class="WHIT">
+<span class='line'>144</span> </span><span class="WHIT">    </span><span class="NAME">onResume</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">javaScriptContext</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>145</span> 
+<span class='line'>146</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'>147</span>      * Notification the specified compilation unit has been compiled (loaded)
+<span class='line'>148</span>      * in its browser context.
+<span class='line'>149</span>      *
+<span class='line'>150</span>      * @function
+<span class='line'>151</span>      * @param compilationUnit the {@link CompilationUnit} that has been compiled
+<span class='line'>152</span>      */</span><span class="WHIT">
+<span class='line'>153</span> </span><span class="WHIT">    </span><span class="NAME">onScript</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">compilationUnit</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'>154</span> 
+<span class='line'>155</span> </span><span class="WHIT">    </span><span class="COMM">/**
+<span class='line'>156</span>      * Notification the specified breakpoint has been installed or cleared.
+<span class='line'>157</span>      *
+<span class='line'>158</span>      * @function
+<span class='line'>159</span>      * @param breakpoint the {@link Breakpoint} that has been toggled
+<span class='line'>160</span>      */</span><span class="WHIT">
+<span class='line'>161</span> </span><span class="WHIT">    </span><span class="NAME">onToggleBreakpoint</span><span class="PUNC">:</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">breakpoint</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>162</span> 
+<span class='line'>163</span> </span><span class="PUNC">}</span></pre></body></html>

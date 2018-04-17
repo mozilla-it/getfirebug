@@ -1,0 +1,183 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=UTF-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/* See license.txt for terms of usage */</span><span class="WHIT">
+<span class='line'>  2</span> 
+<span class='line'>  3</span> </span><span class="COMM">// ************************************************************************************************</span><span class="WHIT">
+<span class='line'>  4</span> </span><span class="COMM">// Module</span><span class="WHIT">
+<span class='line'>  5</span> 
+<span class='line'>  6</span> </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">EXPORTED_SYMBOLS</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="STRN">"JavaScriptContext"</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>  7</span> 
+<span class='line'>  8</span> </span><span class="COMM">// ************************************************************************************************</span><span class="WHIT">
+<span class='line'>  9</span> </span><span class="COMM">// JavaScriptContext</span><span class="WHIT">
+<span class='line'> 10</span> 
+<span class='line'> 11</span> </span><span class="COMM">/**
+<span class='line'> 12</span>  * Describes the execution of JavaScript within a browser context. An execution
+<span class='line'> 13</span>  * context pertains to one or more compilation units (JavaScript scripts)
+<span class='line'> 14</span>  * that may contain breakpoints. An execution context can suspend and resume
+<span class='line'> 15</span>  * and provides stack frames when suspended.
+<span class='line'> 16</span>  * 
+<span class='line'> 17</span>  * @constructor
+<span class='line'> 18</span>  * @param browser the browser context the execution context is contained in
+<span class='line'> 19</span>  * @type JavaScriptContext
+<span class='line'> 20</span>  * @return a new JavaScriptContext
+<span class='line'> 21</span>  * @version 1.0
+<span class='line'> 22</span>  */</span><span class="WHIT">
+<span class='line'> 23</span> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">JavaScriptContext</span><span class="PUNC">(</span><span class="NAME">browserContext</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 24</span> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 25</span> </span><span class="WHIT">    </span><span class="NAME">this.browserContext</span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">browserContext</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 26</span> </span><span class="WHIT">    </span><span class="NAME">this.is_suspended</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 27</span> </span><span class="WHIT">    </span><span class="NAME">this.frames</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 28</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 29</span> 
+<span class='line'> 30</span> </span><span class="COMM">// ************************************************************************************************</span><span class="WHIT">
+<span class='line'> 31</span> </span><span class="COMM">// API</span><span class="WHIT">
+<span class='line'> 32</span> 
+<span class='line'> 33</span> </span><span class="COMM">/**
+<span class='line'> 34</span>  * Returns the browser context this execution context is contained in.
+<span class='line'> 35</span>  * &lt;p>
+<span class='line'> 36</span>  * This function does not require communication with
+<span class='line'> 37</span>  * the browser.
+<span class='line'> 38</span>  * &lt;/p>
+<span class='line'> 39</span>  * @function
+<span class='line'> 40</span>  * @returns a {@link BrowserContext}
+<span class='line'> 41</span>  */</span><span class="WHIT">
+<span class='line'> 42</span> </span><span class="NAME">JavaScriptContext.prototype.getBrowserContext</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 43</span> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 44</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.browserContext</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 45</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 46</span> 
+<span class='line'> 47</span> </span><span class="COMM">/**
+<span class='line'> 48</span>  * Returns whether this execution context is currently suspended.
+<span class='line'> 49</span>  * &lt;p>
+<span class='line'> 50</span>  * This function does not require communication with
+<span class='line'> 51</span>  * the browser.
+<span class='line'> 52</span>  * &lt;/p>
+<span class='line'> 53</span>  * @function
+<span class='line'> 54</span>  * @returns a boolean indicating whether this execution context is currently suspended
+<span class='line'> 55</span>  */</span><span class="WHIT">
+<span class='line'> 56</span> </span><span class="NAME">JavaScriptContext.prototype.isSuspended</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 57</span> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 58</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.is_suspended</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 59</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 60</span> 
+<span class='line'> 61</span> </span><span class="COMM">/**
+<span class='line'> 62</span>  * Returns whether this execution context has terminated. Returns &lt;code>true&lt;/code>
+<span class='line'> 63</span>  * if this execution context has terminated, otherwise &lt;code>false&lt;/code>.
+<span class='line'> 64</span>  * &lt;p>
+<span class='line'> 65</span>  * This function does not require communication with
+<span class='line'> 66</span>  * the browser.
+<span class='line'> 67</span>  * &lt;/p>
+<span class='line'> 68</span>  * @function
+<span class='line'> 69</span>  * @returns a boolean indicating whether this execution context has terminated
+<span class='line'> 70</span>  */</span><span class="WHIT">
+<span class='line'> 71</span> </span><span class="NAME">JavaScriptContext.prototype.isTerminated</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 72</span> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 73</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">this.getBrowserContext</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">exists</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 74</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 75</span> 
+<span class='line'> 76</span> </span><span class="COMM">/**
+<span class='line'> 77</span>  * Returns the breakpoint this execution context is currently suspended at
+<span class='line'> 78</span>  * or &lt;code>null&lt;/code> if none.
+<span class='line'> 79</span>  * &lt;p>
+<span class='line'> 80</span>  * This function does not require communication with
+<span class='line'> 81</span>  * the browser.
+<span class='line'> 82</span>  * &lt;/p>
+<span class='line'> 83</span>  * @function
+<span class='line'> 84</span>  * @returns the {@link Breakpoint} this execution context is suspended at or &lt;code>null&lt;/code>
+<span class='line'> 85</span>  */</span><span class="WHIT">
+<span class='line'> 86</span> </span><span class="NAME">JavaScriptContext.prototype.getBreakpoint</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 87</span> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 88</span> </span><span class="WHIT">    </span><span class="COMM">// TODO:</span><span class="WHIT">
+<span class='line'> 89</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 90</span> 
+<span class='line'> 91</span> </span><span class="COMM">/**
+<span class='line'> 92</span>  * Requests to suspend this execution context asynchronously iff this context is in a running
+<span class='line'> 93</span>  * state. The request will be sent to the browser and an &lt;code>onBreak&lt;/code> event will be
+<span class='line'> 94</span>  * sent asynchronously by the {@link Browser} when the underlying execution context suspends.
+<span class='line'> 95</span>  * 
+<span class='line'> 96</span>  * @function
+<span class='line'> 97</span>  */</span><span class="WHIT">
+<span class='line'> 98</span> </span><span class="NAME">JavaScriptContext.prototype.suspend</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 99</span> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>100</span> </span><span class="WHIT">    </span><span class="COMM">//TODO:</span><span class="WHIT">
+<span class='line'>101</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>102</span> 
+<span class='line'>103</span> </span><span class="COMM">/**
+<span class='line'>104</span>  * Requests to resume this execution context asynchronously iff this context is in a suspended
+<span class='line'>105</span>  * state. The request will be sent to the browser and an &lt;code>onResume&lt;/code> event will be
+<span class='line'>106</span>  * sent asynchronously by the {@link Browser} when the underlying execution context resumes.
+<span class='line'>107</span>  * 
+<span class='line'>108</span>  * @function
+<span class='line'>109</span>  */</span><span class="WHIT">
+<span class='line'>110</span> </span><span class="NAME">JavaScriptContext.prototype.resume</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>111</span> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>112</span> </span><span class="WHIT">    </span><span class="COMM">//TODO:</span><span class="WHIT">
+<span class='line'>113</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>114</span> 
+<span class='line'>115</span> </span><span class="COMM">/**
+<span class='line'>116</span>  * Requests all frames in this execution context asynchronously. Stack frames are only available
+<span class='line'>117</span>  * when an execution context is suspended. Stack frames will be retrieved from the browser (if required) and
+<span class='line'>118</span>  * reported to the listener function when available. The listener function may be called before or
+<span class='line'>119</span>  * after this function returns. If this execution context is not suspended an empty array is reported.
+<span class='line'>120</span>  * 
+<span class='line'>121</span>  * @function
+<span class='line'>122</span>  * @param listener a function that accepts an array of {@link StackFrame}'s.
+<span class='line'>123</span>  */</span><span class="WHIT">
+<span class='line'>124</span> </span><span class="NAME">JavaScriptContext.prototype.getStackFrames</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">listener</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>125</span> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>126</span> </span><span class="WHIT">    </span><span class="COMM">// TODO:</span><span class="WHIT">
+<span class='line'>127</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>128</span> 
+<span class='line'>129</span> </span><span class="COMM">// ************************************************************************************************</span><span class="WHIT">
+<span class='line'>130</span> </span><span class="COMM">// Private</span><span class="WHIT">
+<span class='line'>131</span> 
+<span class='line'>132</span> </span><span class="COMM">/**
+<span class='line'>133</span>  * Sets this execution context as currently suspended. Fires notification
+<span class='line'>134</span>  * of the suspend to registered listeners. Subclasses may call this method
+<span class='line'>135</span>  * when a suspend occurs.
+<span class='line'>136</span>  * &lt;p>
+<span class='line'>137</span>  * Has no effect if this execution context is already suspended.
+<span class='line'>138</span>  * &lt;/p>
+<span class='line'>139</span>  * 
+<span class='line'>140</span>  * @function
+<span class='line'>141</span>  * @param compilationUnit the compilation unit where the suspend occurred
+<span class='line'>142</span>  * @param lineNumber the line number the suspend occurred at
+<span class='line'>143</span>  */</span><span class="WHIT">
+<span class='line'>144</span> </span><span class="NAME">JavaScriptContext.prototype._suspended</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">compilationUnit</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">lineNumber</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>145</span> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>146</span> </span><span class="WHIT">    </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">this.is_suspended</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>147</span> </span><span class="WHIT">    </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>148</span> </span><span class="WHIT">        </span><span class="NAME">this.is_suspended</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">true</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>149</span> </span><span class="WHIT">        </span><span class="NAME">this.getBrowserContext</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">getBrowser</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">_dispatch</span><span class="PUNC">(</span><span class="STRN">"onBreak"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="NAME">compilationUnit</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">lineNumber</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>150</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>151</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>152</span> 
+<span class='line'>153</span> </span><span class="COMM">/**
+<span class='line'>154</span>  * Sets this execution context as currently running. Fires notification
+<span class='line'>155</span>  * of the resume to registered listeners. Subclasses may call this method
+<span class='line'>156</span>  * when a resume occurs.
+<span class='line'>157</span>  * &lt;p>
+<span class='line'>158</span>  * Has no effect if this execution context is already running.
+<span class='line'>159</span>  * &lt;/p>
+<span class='line'>160</span>  * 
+<span class='line'>161</span>  * @function
+<span class='line'>162</span>  */</span><span class="WHIT">
+<span class='line'>163</span> </span><span class="NAME">JavaScriptContext.prototype._resumed</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>164</span> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>165</span> </span><span class="WHIT">    </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this.is_suspended</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>166</span> </span><span class="WHIT">    </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>167</span> </span><span class="WHIT">        </span><span class="NAME">this.is_suspended</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>168</span> </span><span class="WHIT">        </span><span class="NAME">this.getBrowserContext</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">getBrowser</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">_dispatch</span><span class="PUNC">(</span><span class="STRN">"onResume"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="KEYW">this</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>169</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>170</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>171</span> 
+<span class='line'>172</span> </span><span class="COMM">// ************************************************************************************************</span><span class="WHIT">
+<span class='line'>173</span> </span><span class="COMM">// CommonJS</span><span class="WHIT">
+<span class='line'>174</span> 
+<span class='line'>175</span> </span><span class="NAME">exports</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">JavaScriptContext</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>176</span> </span></pre></body></html>

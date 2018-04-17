@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<gupdate xmlns='http://www.google.com/update2/response' protocol='2.0'>
+  <app appid='mdaojmoeahmmokaflgbannaopagamgoj'>
+    <updatecheck codebase='https://getfirebug.com/releases/lite/chrome/beta/firebug-lite-beta.crx' version='1.4.0.11967' />
+  </app>
+</gupdate>

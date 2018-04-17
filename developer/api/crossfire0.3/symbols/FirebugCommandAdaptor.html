@@ -1,0 +1,1328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="generator" content="JsDoc Toolkit" />
+        
+        <title>Firebug API Reference - FirebugCommandAdaptor</title>
+
+        <style type="text/css">
+        /* See license.txt for terms of usage */
+
+body {
+    font-size: 12px;
+    font-family: Lucida Grande, Arial, sans-serif;
+}
+
+/************************************************************************************************/
+
+#container {
+    margin-top: 93px;
+    border-top: solid rgb(230, 230, 230) 25px;
+    width: 880px;
+}
+
+#header img {
+    z-index: 200;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#index {
+    float: left;
+    width: 250px; /*xxxHonza 160px*/
+    left: 8px;
+    background-color: rgb(230, 230, 230); /* #F3F3F3 */
+    padding: 8px;
+    padding-top: 35px;
+}
+
+#content
+{
+    margin-top: -20px;
+    margin-left: 280px; /*xxxHonza 190px*/
+    width: 600px;
+}
+
+/************************************************************************************************/
+
+h1
+{
+    color: #444444;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0;
+    margin: 1em 0 0 .3em;
+}
+
+hr
+{
+    border: none 0;
+    border-top: 1px solid #7F8FB1;
+    height: 1px;
+}
+
+pre.code
+{
+    display: block;
+    padding: 8px;
+    border: 1px dashed #ccc;
+}
+
+a {
+    color: SlateBlue;
+    font-weight: bold;
+}
+
+/************************************************************************************************/
+
+/* cllClasses.tmpl */
+.allClassesMenu {
+}
+
+/************************************************************************************************/
+
+.reportIssue {
+    margin-left: 310px;
+}
+
+/************************************************************************************************/
+
+.classList
+{
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 0 8px;
+    font-family: arial, sans-serif;
+    font-size: 1em;
+    overflow: auto;
+}
+
+.classList li
+{
+    padding: 0;
+    margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+    line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+    background-color: #7F8FB1;
+    color: #fff;
+    font-size:130%;
+    text-align: left;
+    padding: 2px 6px 2px 6px;
+    border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+    vertical-align: top;
+    padding: 4px;
+    border-bottom: 1px #7F8FB1 solid;
+    border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+    border-left: 1px #7F8FB1 solid;
+    width: 140px;
+    text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+    line-height: 15px;
+    color: #002EBE;
+    font-family: "Courier New",Courier,monospace;
+    font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+    text-align: left;
+    font-size: 13px;
+    line-height: 15px;
+}
+
+.description {
+    line-height: 17px !important;
+}
+
+.summaryTable td.nameDescription, .description
+{
+    line-height: 15px;
+    padding: 4px;
+    padding-left: 4px;
+    font-size: 12px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+    list-style: square;
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+.detailList {
+    margin-left: 20px; 
+    line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+    font-weight: bold;
+    padding-bottom: 6px;
+    margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+    color: #777;
+    font-style: italic;
+}
+
+.fineprint
+{
+    text-align: right;
+    font-size: 10px;
+}
+
+        </style>
+	</head>
+
+<body>
+    <div id="container">
+<!-- ============================== header ================================= -->	
+        <!-- begin static/header.html -->
+        <div id="header">
+    <img src="http://getfirebug.com/developer/api/header.png"/>
+</div>
+        <!-- end static/header.html -->
+
+<!-- ============================== classes index ============================ -->
+        <div id="index">
+            <!-- begin publish.classesIndex -->
+            <!-- Top Menu -->
+<div align="center">
+<a href="../index.html">Class Index</a> |
+<a href="../files.html">File Index</a>
+</div>
+<hr />
+
+<!-- List of Modules (objects derived from Firebug.Module) -->
+
+<h2>Modules</h2>
+<ul class="classList">
+    
+    <li><a href="../symbols/CrossfireModule.html">CrossfireModule</a></li>
+    
+</ul><hr />
+
+
+<!-- List of Panels (objects derived from Firebug.Panel) -->
+
+
+<!-- List of Domplate templates (usually objects derived from Firebug.Rep) -->
+
+
+<!-- List of all Services (XPCOM) objects -->
+
+
+<!-- List of all dialog objects -->
+
+
+<!-- List of all classes -->
+<h2>All Classes</h2>
+<ul class="classList">
+    
+    <li><i><a href="../symbols/_global_.html">_global_</a></i></li>
+    
+    <li><a href="../symbols/CommandLineHandler.html">CommandLineHandler</a></li>
+    
+    <li><a href="../symbols/CrossfireModule.html">CrossfireModule</a></li>
+    
+    <li><a href="../symbols/CrossfireSocketTransport.html">CrossfireSocketTransport</a></li>
+    
+    <li><a href="../symbols/EventPacket.html">EventPacket</a></li>
+    
+    <li><a href="../symbols/FirebugCommandAdaptor.html">FirebugCommandAdaptor</a></li>
+    
+    <li><a href="../symbols/RequestPacket.html">RequestPacket</a></li>
+    
+    <li><a href="../symbols/ResponsePacket.html">ResponsePacket</a></li>
+    
+</ul>
+<hr />
+            <!-- end publish.classesIndex -->
+        </div>
+
+        <div id="content">
+            <a class="reportIssue" href="http://code.google.com/p/fbug/issues/entry?template=API Reference Report">Report Doc Issue</a>
+             |
+            <a href="http://getfirebug.com/wiki/index.php/Firebug_Source_Code_Comments">How To Comment Firebug Code</a>
+<!-- ============================== class title ============================ -->
+            <h1 class="classTitle">
+                
+                Class FirebugCommandAdaptor
+            </h1>
+
+<!-- ============================== class summary ========================== -->			
+            
+            
+            <p class="description">
+                
+                
+                <br />
+                
+                    <br /><i>Defined in: </i> <a href="../symbols/src/firefox_chrome_content_FirebugCommandAdaptor.js.html">FirebugCommandAdaptor.js</a>.
+                
+            </p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class FirebugCommandAdaptor.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/FirebugCommandAdaptor.html#constructor">FirebugCommandAdaptor</a></b>()
+							</div>
+							<div class="description"></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class FirebugCommandAdaptor.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">FirebugCommandAdaptor.<b><a href="../symbols/FirebugCommandAdaptor.html#.backtrace">backtrace</a></b>(args)
+								</div>
+								<div class="description">Returns a backtrace (stacktrace) of frames.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">FirebugCommandAdaptor.<b><a href="../symbols/FirebugCommandAdaptor.html#.changebreakpoint">changebreakpoint</a></b>(args)
+								</div>
+								<div class="description">Return the breakpoint object with the specified id.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">FirebugCommandAdaptor.<b><a href="../symbols/FirebugCommandAdaptor.html#.clearbreakpoint">clearbreakpoint</a></b>(args)
+								</div>
+								<div class="description">Remove the breakpoint object with the specified id.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">FirebugCommandAdaptor.<b><a href="../symbols/FirebugCommandAdaptor.html#.continue">continue</a></b>(args)
+								</div>
+								<div class="description">Continue execution of javascript if suspended,
+if no <code>stepaction</code> is passed, simply resumes execution.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">FirebugCommandAdaptor.<b><a href="../symbols/FirebugCommandAdaptor.html#.evaluate">evaluate</a></b>(args)
+								</div>
+								<div class="description">evaluate a Javascript expression.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">FirebugCommandAdaptor.<b><a href="../symbols/FirebugCommandAdaptor.html#.frame">frame</a></b>(args)
+								</div>
+								<div class="description">Returns a frame.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">FirebugCommandAdaptor.<b><a href="../symbols/FirebugCommandAdaptor.html#.getbreakpoint">getbreakpoint</a></b>(args)
+								</div>
+								<div class="description">Return the breakpoint object with the specified id.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">FirebugCommandAdaptor.<b><a href="../symbols/FirebugCommandAdaptor.html#.getbreakpoints">getbreakpoints</a></b>()
+								</div>
+								<div class="description">Return all the breakpoints in this context.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">FirebugCommandAdaptor.<b><a href="../symbols/FirebugCommandAdaptor.html#.inspect">inspect</a></b>(args)
+								</div>
+								<div class="description">Tells Firebug to enter 'inspect' mode.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">FirebugCommandAdaptor.<b><a href="../symbols/FirebugCommandAdaptor.html#.lookup">lookup</a></b>(args)
+								</div>
+								<div class="description">Lookup an object by it's handle.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">FirebugCommandAdaptor.<b><a href="../symbols/FirebugCommandAdaptor.html#.scope">scope</a></b>(args)
+								</div>
+								<div class="description">Returns a particular scope for the specified frame.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">FirebugCommandAdaptor.<b><a href="../symbols/FirebugCommandAdaptor.html#.scopes">scopes</a></b>(args)
+								</div>
+								<div class="description">Returns all the scopes for a frame.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">FirebugCommandAdaptor.<b><a href="../symbols/FirebugCommandAdaptor.html#.script">script</a></b>(args)
+								</div>
+								<div class="description">Retrieve a single script</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">FirebugCommandAdaptor.<b><a href="../symbols/FirebugCommandAdaptor.html#.scripts">scripts</a></b>(args)
+								</div>
+								<div class="description">Retrieve all known scripts.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">FirebugCommandAdaptor.<b><a href="../symbols/FirebugCommandAdaptor.html#.serialize">serialize</a></b>(obj, incContext)
+								</div>
+								<div class="description">prepare a javascript object to be serialized into JSON.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">FirebugCommandAdaptor.<b><a href="../symbols/FirebugCommandAdaptor.html#.setbreakpoint">setbreakpoint</a></b>(args)
+								</div>
+								<div class="description">Set a breakpoint and return its id.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">FirebugCommandAdaptor.<b><a href="../symbols/FirebugCommandAdaptor.html#.source">source</a></b>()
+								</div>
+								<div class="description">source command.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">FirebugCommandAdaptor.<b><a href="../symbols/FirebugCommandAdaptor.html#.suspend">suspend</a></b>()
+								</div>
+								<div class="description">Try to suspend any currently running Javascript.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>FirebugCommandAdaptor</b>()
+				</div>
+				
+				<div class="description">
+					
+					
+				</div>
+				
+				
+				
+				
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name=".backtrace"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">FirebugCommandAdaptor.</span><b>backtrace</b>(args)
+					
+					</div>
+					<div class="description">
+						Returns a backtrace (stacktrace) of frames.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>args</b>
+									
+								</dt>
+								<dd>Arguments object</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Number}</span> <b>args.fromFrame</b>
+									
+								</dt>
+								<dd><code>fromFrame</code>: the frame to start the trace from.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Number}</span> <b>args.toFrame</b>
+									
+								</dt>
+								<dd><code>toFrame</code>: the frame to to stop the trace at.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>args.includeScopes</b>
+									
+								</dt>
+								<dd><code>includeScopes</code> defaults to false.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".changebreakpoint"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">FirebugCommandAdaptor.</span><b>changebreakpoint</b>(args)
+					
+					</div>
+					<div class="description">
+						Return the breakpoint object with the specified id.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>args</b>
+									
+								</dt>
+								<dd>Arguments object</dd>
+							
+								<dt>
+									<b>args.breakpoint</b>
+									
+								</dt>
+								<dd><code>breakpoint</code>: the id of the breakpoint you want to change.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".clearbreakpoint"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">FirebugCommandAdaptor.</span><b>clearbreakpoint</b>(args)
+					
+					</div>
+					<div class="description">
+						Remove the breakpoint object with the specified id.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>args</b>
+									
+								</dt>
+								<dd>Arguments object</dd>
+							
+								<dt>
+									<b>args.breakpoint</b>
+									
+								</dt>
+								<dd><code>breakpoint</code>: the id of the breakpoint you want to remove.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".continue"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">FirebugCommandAdaptor.</span><b>continue</b>(args)
+					
+					</div>
+					<div class="description">
+						Continue execution of javascript if suspended,
+if no <code>stepaction</code> is passed, simply resumes execution.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>args</b>
+									
+								</dt>
+								<dd>Arguments object.</dd>
+							
+								<dt>
+									<b>args.stepaction</b>
+									
+								</dt>
+								<dd><code>stepaction</code>: 'in', 'next', or 'out'.</dd>
+							
+								<dt>
+									<b>args.stepcount</b>
+									
+								</dt>
+								<dd><code>stepcount</code>: currently ignored.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".evaluate"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">FirebugCommandAdaptor.</span><b>evaluate</b>(args)
+					
+					</div>
+					<div class="description">
+						evaluate a Javascript expression.
+If a frame argument is passed, evaluates the expression in that frame,
+otherwise the expression is evaluated in the context's global scope.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>args</b>
+									
+								</dt>
+								<dd>Arguments object.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>args.expression</b>
+									
+								</dt>
+								<dd>A string of Javascript to be evaluated.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Number}</span> <b>args.frame</b>
+									
+								</dt>
+								<dd>Optional frame to evaluate in.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".frame"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">FirebugCommandAdaptor.</span><b>frame</b>(args)
+					
+					</div>
+					<div class="description">
+						Returns a frame.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>args</b>
+									
+								</dt>
+								<dd>Arguments object.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Number}</span> <b>args.number</b>
+									
+								</dt>
+								<dd><code>number</code>: the number (index) of the requested frame.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>args.includeScopes</b>
+									
+								</dt>
+								<dd><code>includeScopes</code> defaults to true.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getbreakpoint"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">FirebugCommandAdaptor.</span><b>getbreakpoint</b>(args)
+					
+					</div>
+					<div class="description">
+						Return the breakpoint object with the specified id.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>args</b>
+									
+								</dt>
+								<dd>Arguments object.</dd>
+							
+								<dt>
+									<b>args.breakpoint</b>
+									
+								</dt>
+								<dd><code>breakpoint</code>: the handle of the breakpoint you want to get.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getbreakpoints"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">FirebugCommandAdaptor.</span><b>getbreakpoints</b>()
+					
+					</div>
+					<div class="description">
+						Return all the breakpoints in this context.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".inspect"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">FirebugCommandAdaptor.</span><b>inspect</b>(args)
+					
+					</div>
+					<div class="description">
+						Tells Firebug to enter 'inspect' mode.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>args</b>
+									
+								</dt>
+								<dd>Arguments object</dd>
+							
+								<dt>
+									<b>args.xpath</b>
+									
+								</dt>
+								<dd><code>xpath</code>: optional xpath for the node to inspect.</dd>
+							
+								<dt>
+									<b>args.selector</b>
+									
+								</dt>
+								<dd><code>selector</code>: optional css selector for a specific node to inspect</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".lookup"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">FirebugCommandAdaptor.</span><b>lookup</b>(args)
+					
+					</div>
+					<div class="description">
+						Lookup an object by it's handle.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>args</b>
+									
+								</dt>
+								<dd>Arguments object</dd>
+							
+								<dt>
+									<b>args.handle</b>
+									
+								</dt>
+								<dd>the handle id to look up.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".scope"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">FirebugCommandAdaptor.</span><b>scope</b>(args)
+					
+					</div>
+					<div class="description">
+						Returns a particular scope for the specified frame.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>args</b>
+									
+								</dt>
+								<dd>Arguments object.</dd>
+							
+								<dt>
+									<b>args.number</b>
+									
+								</dt>
+								<dd><code>number</code>: scope index</dd>
+							
+								<dt>
+									<b>args.frameNumber</b>
+									
+								</dt>
+								<dd><code>frameNumber</code>: optional frame index. defaults to 0</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".scopes"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">FirebugCommandAdaptor.</span><b>scopes</b>(args)
+					
+					</div>
+					<div class="description">
+						Returns all the scopes for a frame.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>args</b>
+									
+								</dt>
+								<dd>Arguments object.</dd>
+							
+								<dt>
+									<b>args.frameNumber</b>
+									
+								</dt>
+								<dd><code>frameNumber</code>: optional frame index. defaults to 0</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".script"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">FirebugCommandAdaptor.</span><b>script</b>(args)
+					
+					</div>
+					<div class="description">
+						Retrieve a single script
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>args</b>
+									
+								</dt>
+								<dd>Arguments object.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>args.includeSource</b>
+									
+								</dt>
+								<dd><code>includeSource</code></dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>args.url</b>
+									
+								</dt>
+								<dd>url of the script to return.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".scripts"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">FirebugCommandAdaptor.</span><b>scripts</b>(args)
+					
+					</div>
+					<div class="description">
+						Retrieve all known scripts.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>args</b>
+									
+								</dt>
+								<dd>Arguments object.</dd>
+							
+								<dt>
+									<b>args.includeSource</b>
+									
+								</dt>
+								<dd><code>includeSource</code>: boolean</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".serialize"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">FirebugCommandAdaptor.</span><b>serialize</b>(obj, incContext)
+					
+					</div>
+					<div class="description">
+						prepare a javascript object to be serialized into JSON.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>obj</b>
+									
+								</dt>
+								<dd>the javascript thing to serialize</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Boolean}</span> <b>incContext</b>
+									
+								</dt>
+								<dd>boolean indicates whether the context id field should be included.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".setbreakpoint"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">FirebugCommandAdaptor.</span><b>setbreakpoint</b>(args)
+					
+					</div>
+					<div class="description">
+						Set a breakpoint and return its id.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>args</b>
+									
+								</dt>
+								<dd>Arguments object</dd>
+							
+								<dt>
+									<b>args.target</b>
+									
+								</dt>
+								<dd><code>target</code>: the url of the file to set the breakpoint in.</dd>
+							
+								<dt>
+									<b>args.line</b>
+									
+								</dt>
+								<dd><code>line</code>: line number to set the breakpoint at.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".source"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">FirebugCommandAdaptor.</span><b>source</b>()
+					
+					</div>
+					<div class="description">
+						source command. Return the source code for every script in this context.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".suspend"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">FirebugCommandAdaptor.</span><b>suspend</b>()
+					
+					</div>
+					<div class="description">
+						Try to suspend any currently running Javascript.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.3.0 on Mon Nov 08 2010 16:30:44 GMT-0800 (PST)
+		</div>
+    </div>
+</body>
+</html>

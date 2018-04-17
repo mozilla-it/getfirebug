@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:NS1="http://www.mozilla.org/2004/em-rdf#"
+         xmlns:NC="http://home.netscape.com/NC-rdf#"
+         xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <RDF:Description RDF:about="rdf:#$XwNcb2"
+                   NS1:version="1.5.4">
+    <NS1:targetApplication RDF:resource="rdf:#$.wNcb2"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="urn:mozilla:extension:firebug@software.joehewitt.com"
+                   NS1:signature="MIGTMA0GCSqGSIb3DQEBDQUAA4GBAGzQg8GsvtZv0nDCpqLf4D0mCLx6pjq3I4ezexpNWwjv2uc4qOQrMqk997wTUOsh4NPXZ5cjryXp8ecabi1TRZGXn1L0q+UC4Q2YCBmWSrQ/0lZDP7TD+psPqmWt2X/IghmrWr5d6HjvUctFEqbRO4JkUeYG4mRwtPnhgVWR+0xb">
+    <NS1:updates RDF:resource="rdf:#$WwNcb2"/>
+  </RDF:Description>
+  <RDF:Seq RDF:about="rdf:#$WwNcb2">
+    <RDF:li RDF:resource="rdf:#$XwNcb2"/>
+  </RDF:Seq>
+  <RDF:Description RDF:about="rdf:#$.wNcb2"
+                   NS1:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   NS1:minVersion="1.5"
+                   NS1:maxVersion="3.9"
+                   NS1:updateLink="http://getfirebug.com/releases/firebug/1.5/firebug-1.5.4.xpi"
+                   NS1:updateInfoURL="http://getfirebug.com/updateInfo/firebug1.5.xml"
+                   NS1:updateHash="sha256:02ab2093e8bc0663bd8299aec41e13b58b4b0213276d5d12eab7b7c735be7980" />
+</RDF:RDF>

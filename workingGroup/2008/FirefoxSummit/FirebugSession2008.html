@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Firebug Session 2008</title>
+
+    <!-- metadata -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="author" content="Jan Odvarko" />
+
+    <!-- styles/javascripts -->
+    <link rel="stylesheet" type="text/css" media="screen, projection, print" href="slidy.css" />
+    <link rel="stylesheet" type="text/css" media="screen, projection, print"  href="restyle.css" />
+    <script src="slidy.js" charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="background getfirebug">
+   <img title="GetFirebug logo" id="head-icon" src="http://getfirebug.com/header.png"  
+        type="image/png" alt="GetFirebug logo" id="head-logo-fallback" />
+   
+   <div class="content"></div>
+</div>
+
+<!-- Slidy content - START -->
+<div class="slide getfirebug">
+    <h1>Extension Points</h1>
+    <ul> 
+        <li>User Interface</li>
+        <ul> 
+            <li>Tabs</li>
+            <li>Toolbar buttons, context menus</li>
+            <li>Custom logging</li>
+        </ul>
+        <li>Internals</li>
+        <ul> 
+            <li>Events (init, shutdown, ...)</li>
+            <li>Listeners (network monitor, console, ...)</li>
+        </ul>
+    </ul>
+</div>
+
+<div class="slide getfirebug">
+    <h1>Extension Architecture</h1>
+    <ul>
+        <li>Page Oriented</li>
+    </ul>
+    <p style="text-align:center;">
+        <img src="architecture1.png"/>
+    </p>  
+</div>
+
+<div class="slide getfirebug">
+    <h1>Extension Improvements</h1>
+    <ul>
+        <li>More extension points</li>
+        <li>Support for UI (HTML) rich UI repository</li>
+        <li>Integration points for existing IDEs</li>
+        <li>Integration with web-services</li>
+    </ul>
+</div>
+
+<div class="slide getfirebug">
+    <h1>Firebug Extensions</h1>
+    <ul>
+        <li><b>YSlow</b> Performance analyzer</li>
+        <li><b>Chromebug</b> Firebug for Firefox extensions</li>
+        <li><b>Firecookie</b> for easy access to cookie information</li>
+        <li><b>FirePHP</b> to integrating server-provided PHP debugging information with the Firebug UI</li>
+        <li><b>Pixel Perfect</b> for overlaying mock-ups on top of the real thing to ensure you've got a good implementation</li>
+        <li><b>Rainbow</b> for JavaScript syntax highlighting</li>
+        <li>...</li>
+        <p class="smaller"><code>http://www.softwareishard.com/blog/firebug/list-of-firebug-extensions/</code></p>
+    <ul>
+</div>
+
+<!-- Slidy content - END -->
+</body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Graphic version="1.0" viewHeight="304" viewWidth="809" d:locked="false" xmlns="http://ns.adobe.com/fxg/2008" xmlns:d="http://ns.adobe.com/fxg/2008/dt">
+  <BitmapGraphic visible="false" source="@Embed('FirebugOnBreakPoint.assets/images/Background.png')" repeat="false" d:locked="true" d:userLabel="Background"/>
+  <BitmapGraphic width="809" height="304" source="@Embed('FirebugOnBreakPoint.assets/images/Layer 1.png')" repeat="false" d:userLabel="Layer_1"/>
+  <BitmapGraphic width="809" height="304" source="@Embed('FirebugOnBreakPoint.assets/images/Shape 1.png')" repeat="false" d:userLabel="Shape_1"/>
+  <TextGraphic fontFamily="Myriad Pro" fontSize="24" color="#ff0013" whiteSpaceCollapse="preserve" x="311" y="64" d:userLabel="1">
+    <content><p><span>1</span></p></content>
+  </TextGraphic>
+  <BitmapGraphic width="809" height="304" source="@Embed('FirebugOnBreakPoint.assets/images/Shape 2.png')" repeat="false" d:userLabel="Shape_2"/>
+  <BitmapGraphic width="809" height="304" source="@Embed('FirebugOnBreakPoint.assets/images/Shape 3.png')" repeat="false" d:userLabel="Shape_3"/>
+  <TextGraphic fontFamily="Myriad Pro" fontSize="24" color="#ff0013" whiteSpaceCollapse="preserve" x="37" y="229" d:userLabel="2">
+    <content><p><span>2</span></p></content>
+  </TextGraphic>
+  <BitmapGraphic width="809" height="304" source="@Embed('FirebugOnBreakPoint.assets/images/Shape 5.png')" repeat="false" d:userLabel="Shape_5"/>
+  <TextGraphic fontFamily="Myriad Pro" fontSize="24" color="#ff0013" whiteSpaceCollapse="preserve" x="630" y="225" d:userLabel="3">
+    <content><p><span>3</span></p></content>
+  </TextGraphic>
+  <BitmapGraphic width="809" height="304" source="@Embed('FirebugOnBreakPoint.assets/images/Shape 6.png')" repeat="false" d:userLabel="Shape_6"/>
+  <BitmapGraphic width="809" height="304" source="@Embed('FirebugOnBreakPoint.assets/images/Shape 7.png')" repeat="false" d:userLabel="Shape_7"/>
+  <TextGraphic fontFamily="Myriad Pro" fontSize="24" color="#ff0013" whiteSpaceCollapse="preserve" x="519" y="85" d:userLabel="4">
+    <content><p><span>4</span></p></content>
+  </TextGraphic>
+  <BitmapGraphic width="809" height="304" source="@Embed('FirebugOnBreakPoint.assets/images/Shape 8.png')" repeat="false" d:userLabel="Shape_8"/>
+  <BitmapGraphic width="809" height="304" source="@Embed('FirebugOnBreakPoint.assets/images/Shape 4.png')" repeat="false" d:userLabel="Shape_4"/>
+</Graphic>

@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Firefox Summit 2008 Firebug and Chromebug</title>
+
+
+<!-- metadata -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="generator" content="S5" />
+    <meta name="version" content="S5 1.1" />
+    <meta name="presdate" content="20060209" />
+    <meta name="author" content="John J. Barton" />
+    <meta name="company" content="IBM Almaden Research Center" />
+
+<!--<link rel="stylesheet" type="text/css" media="screen, projection, print" href="http://www.w3.org/Talks/Tools/Slidy/slidy.css" />
+
+<link rel="stylesheet" type="text/css" media="screen, projection, print"
+ href="http://www.w3.org/Talks/Tools/Slidy/w3c-blue.css" />
+-->
+<link rel="stylesheet" type="text/css" media="screen, projection, print" href="slidy.css" />
+<link rel="stylesheet" type="text/css" media="screen, projection, print"  href="restyle.css" />
+<style type="text/css">
+ul.compactList li {
+	line-height: 100%;
+	margin: 0em;
+}
+span.fade {
+	color: gray;
+}
+</style>
+<script src="slidy.js" charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="background getfirebug">
+
+   <img  title="GetFirebug logo" id="head-icon" src="http://getfirebug.com/header.png"  type="image/png"
+   alt="GetFirebug logo" id="head-logo-fallback" />
+   <div class="content">
+   </div>
+</div>
+<div class="slide getfirebug">
+<h1>Firebug 1.0</h1>
+<ul>
+<li>Joe Hewitt: web development evolved</li>
+<li>Integrated with Firefox: </li>
+<ul>
+<li>at your finger tips, instant on</li>
+<li>direct reflection of DOM, CSS</li>
+<li>inspect, direct manipulation of debugger</li>
+</ul>
+<li>Huge hit with Web 2.0 developers</li>
+<li>Open sourced Dec. 2006</li>
+<li>Active development ended w/1.05 ~ May 2007</li>
+</ul>
+</div>
+<div class="slide getfirebug">
+<h1>Firebug 1.0 vs Web 2.0</h1>
+<ul>
+<li>Firebug awesome, but no <code>eval()</code> debugging</li>
+<ul>
+<li>eval() widely used in Web 2.0</li>
+<li>Basis for Dojo toolkit, JSON data</li>
+<li>No debugging support for eval() in Firebug or Venkman</li>
+</ul>
+<li>Extend Firebug to support <code>eval()</code>?</li>
+</ul>
+</div>
+<div class="slide getfirebug"> 
+<h1>Firebug 1.1</h1>
+<ul>
+<li>Features</li>
+<ul>
+<li>eval() debugging</li>
+<li>executable lines marked</li>
+<li>Call stack side panel</li>
+<li><i>partial</i> Firefox 3.0 compatiblity</li>
+<li>New XHR spy implementation</li>
+ <div class="rhs"><i>...but it was slow</i></div>
+<li>extended plugin architecture</li>
+<li>editor interaction API</li>
+<li>bug fixes</li>
+</ul></ul>
+
+
+</div>
+<div class="slide getfirebug"><h1>Firebug 1.2</h1>
+
+<h2>New Enablement UI</h2>
+<ul>
+<li>No cost option</li>
+<li>Independent Console/Script/Net controls</li>
+</ul> 
+ <div class="rhs"><i>...but regressions...</i></div>
+<h2>Performance</h2>
+<ul>
+<li>re-write javascript debugger</li>
+<li>MD5 instead of encodeURIComponent for eval()</li>
+</ul>
+<h2>bug fixes</h2>
+
+</div>
+
+<div class="slide getfirebug"><h1>1.3: Testing and Extensions?</h1>
+<h2>Extensions</h2>
+<ul class="compactList">
+<li>Firebug Code Coverage</li>
+<li>Firebug Net Panel History Overlay</li>
+<li>LiveCoder</li>
+<li>Firecookie</li>
+<li>FirePHP</li>
+ <div class="rhs"><i>Solidify base, features by extension</i></div>
+<li>Firequark</li>
+<li>Jiffy</li>
+<li>Pixel Perfect</li>
+<li>Rainbow For Firebug</li>
+<li>YSlow</li>
+</ul>
+</div>
+
+<div class="slide getfirebug"><h1>Chromebug: Firebug for Chrome</h1>
+<ul>
+<li>Multi-window/multi-DOM support</li>
+<li><code>chrome</code> urls, Firefox components, extensions</li>
+<li>Avoid eating your own arm</li>
+<li>Goal: do more than Venkman+DOMInspector</li>
+<li>demo</li>
+</ul>
+</div>
+<div class="slide getfirebug"><h1>Firebug Architecture</h1>
+<h2>Visual Architecture (Chromebug Inspect Demo)</h2>
+
+</div>
+<div class="slide getfirebug"><h1>Firebug Architecture</h1>
+<h2>Firebug sees Firefox; Users See Tabs</h2>
+
+</div>
+<div class="slide getfirebug"><h1>Problems at the Moz Interface</h1>
+<h3><code>onScriptCreated(jsdIScript<span class="fade">, frame</span>)</code> Needs</h3>
+<ul class="compactList">
+<li>script type identifiers (top, inner, eval, event, inline)</li>
+<li>info on compilation unit structure (top vs inner)</li>
+<li>filtering on origin window</li>
+<li>a stack frame (ditto all jsd)</li>
+<li>documented event structure</li>
+</ul>
+<h3>Missing info</h3>
+<ul class="compactList">
+<li>Event handlers</li>
+<li>Memory queries and GC events</li>
+<li>Closure sizes and contents</li>
+<li><code>setTimeout</code> and <code>setInterval</code> inspection</li>
+</ul>
+<h3>More Function</h3>
+<ul><li>Control Program Counter, Call stack</li></ul>
+</div>
+
+<div class="slide getfirebug"><h1>Beyond 1.4</h1>
+<ul>
+<li>Why is this <span style="color:green;">green</span>? Break on mutation events</li>
+<li>What's happening now? Event/Execution monitoring</li>
+<li>It's Javascript stupid: Direct JSON support</li>
+<li>Make it so: Update w/o reload</li>
+<li>It's perfect now: save edits</li>
+<li>No, it's your fault: Integrated JS/C++ crash analysis</li>
+<li>I've seen this before: socialized error correction</li>
+<li>Cross Site Debugging</li> 
+</ul>
+</div>
+
+<div class="slide getfirebug"><h1>Firebug 2.0</h1>
+<ul>
+<li>jsDebug 2.0 for Web 2.0</li>
+<ul>
+<li>JSD Built in support for dynamics</li>
+<li>redesign API (stack frames pls!)</li>
+<li>Writable PC/frames</li>
+<li>All-event hook</li>
+<li>GC/Memory hooks</li>
+<li>Migrate firebug-service via shim API</li>
+</ul>
+<li>Mozilla 2</li>
+<ul>
+<li>Debug Support for Tamarin</li>
+</ul>
+</div>
+ 
+ 
+ 
+<div  class="slide getfirebug"><h1>Discussion</h1>
+<ul>
+<li>Joe Hewitt's Firebug  is web development evolved</li>
+<ul><li>but it's a bug-eat-bug world out there</li></ul>
+<li>Development tools need our support</li>
+<ul><li>Javascript is not a toy language, it's a vital economic engine</li></ul>
+<ul><li>We need to build more and better development tools for Javascript</li></ul>
+<ul><li>We need to attract JS development tools developers!</li></ul>
+</ul>
+</div>
+</body>
+</html>

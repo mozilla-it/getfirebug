@@ -1,0 +1,448 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Firebug</title>
+
+    <!-- metadata -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="author" content="Jan Odvarko" />
+
+    <!-- styles/javascripts -->
+    <link rel="stylesheet" type="text/css" media="screen, projection, print" href="slidy.css" />
+    <link rel="stylesheet" type="text/css" media="screen, projection, print"  href="restyle.css" />
+    <script src="slidy.js" charset="utf-8" type="text/javascript"></script>
+    <script src="jquery-1.2.6.js" charset="utf-8" type="text/javascript"></script>
+    <script src="javascript_cookies.js" charset="utf-8" type="text/javascript"></script>
+    <script src="lib.js" charset="utf-8" type="text/javascript"></script>
+    <style type="text/css">
+    .listItem {
+      color: black;
+    }
+    .screenshot {
+        border: 4px solid #D1D1D1;
+        margin: 7px;
+    }
+    </style>
+</head>
+<body>
+
+<div class="background getfirebug">
+   <img title="GetFirebug logo" id="head-icon" src="header.png"
+        type="image/png" alt="GetFirebug logo" id="head-logo-fallback" />
+
+   <div class="content"></div>
+</div>
+
+<!-- Slidy content - Title Page - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<div class="slide getfirebug titlepage">
+    <h2>Dynamic and Graphical<br/>Web Page Breakpoints</h2>
+    <h4 style="color:gray">WWW2010, April 26-30, 2010<br/>Raleigh, North Carolina</h4>
+    <div>John J. Barton, IBM Almaden Research Center</div>
+    <div>Jan Odvárko, Mozilla Corp.</div>
+    <p align="center">
+        <a href="http://www.getfirebug.com">getfirebug.com</a>
+    </p>
+<p align="center">
+<b>Note these slides are also demos if you open Firebug 1.5+ and reload</b>
+</p>
+</div>
+
+<!-- Web Page Debuggging - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<div class="slide getfirebug">
+    <h1>Web Page Debugging</h1>
+    <ul>
+    <li><i>Web Debugging is Important:</i> the World Wide Web!</li>
+    <li><i>Web Debugging is Difficult:</i> Web 2.0, big apps, complex pages.</li>
+    <li><i>Web Debugging is extra important and difficult:</i> User Interface debugging!</li>
+    </ul>
+</div>
+<!-- Firebug Introduction - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<div class="slide getfirebug">
+    <h1>Firebug: Firefox Extension</h1>
+
+    <table>
+        <tr valign="top">
+            <td width="50%">
+                <div><img src="images/firefox_with_firebug.png"/></div>
+                <div>Click the icon to open Firebug UI.</div>
+            </td>
+            <td>
+                <img src="images/firefox_with_firebug_opened.png" align="right"/>
+            </td>
+        </tr>
+    </table>
+    <ul>
+        <li><b>Firebug</b> a Web Page debugger embedded in Firefox.</li>
+        <li>HTML, CSS inspection, Javascript debugging, Net traffic view, ... </li>
+        <li>&gt;2 million users</li>
+    </ul>
+    <p style="text-align: center;">Javascript breakpoint debugger integrated with UI inspector</p>
+</div>
+<!-- New Kinds of Breakpoints - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<div class="slide getfirebug">
+    <h1>New Kinds of Breakpoints</h1>
+    <h3 style="color:green">Breakpoints: Quintessential feature of debuggers</h3>
+    <ol>
+    <li>Find the line of source you want to investigate</li>
+    <li>Set a breakpoint</li>
+    <li>Run the program</li>
+    <li>Debugger halts execution, you poke around</li>
+    </ol>
+</div>
+
+<!-- Setting Breakpoints - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<div class="slide getfirebug">
+    <h1>Setting Breakpoints</h1>
+    <h3 style="color:green">Real systems are hard to debug</h3>
+    <ul>
+    <li><b>Large programs</b>: you forget which line of code does what</li>
+    <li><b>Frameworks</b>: your code is lost in a sea of other code</li>
+    <li><b>Multi-developer</b>: your code and 26 other folks too</li>
+    </ul>
+    <p style="text-align: center;">Conventional breakpoints require comprehensive code understanding</p>
+
+    <dl style="margin-left: 5%"><dt>Contribution</dt><dd>implementation of dynamic and user-interface-event breakpoints in a production debugger</dd></dl>
+</div>
+
+<!-- Dynamic Javascript - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<div class="slide getfirebug">
+    <h1>Dynamic Javascript Breakpoints</h1>
+    <table>
+        <tr valign="top">
+            <td>
+                <ul>
+                    <li>Widely used by JS frameworks</li>
+                        <ul>
+                            <li>e.g. <code>eval()</code> in dojo</li>
+                        </ul>
+                    <li>No identifiers for eval() buffers</li>
+                    <ul><li>Breakpoints require unique buffer ids</li></ul>
+                </ul>
+            </td>
+            <td width="40%">
+                <img src="images/load_dynamic_code_example.png"
+                    style="border: 1px solid rgb(236, 233, 216);"
+                    align="right"/>
+            </td>
+        </tr>
+    </table>
+    <h3>Implementations</h3>
+    <ol>
+        <li>Hack in identifiers with <code>//@ src=URL</code> at the end of buffers, or</li>
+        <li>Compute MD5 hash of buffers to identify them.</li>
+    </ol>
+    <p style="text-align: center;">Detailed implementation depends on non-standard javascript debug APIs</p>
+</div>
+
+<!-- Dynamic JS demo - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<div class="slide getfirebug">
+    <h1>Generated Filename</h1>
+    <h3 style="color:green; font-size: 22px;">Dynamic Javascript with Generated Filename</h3>
+    <table>
+        <tr valign="top">
+            <td width="50%">
+                <ol>
+                    <li>Load the duck and cat functions by AJAX <button id="evalAnonLoad">Load Anonymous Animals</button></li>
+                    <li>Open the Firebug Script Panel and select evaluated script, then set a breakpoint on line 10</li>
+                    <li>Call the Duck and Cat functions <button id="evalAnonProdAnimals">Prod Anonymous Animals</button></li>
+                    <li>You should halt in the debugger on a breakpoint in dynamically created source code</li>
+                </ol>
+            </td>
+        <tr valign="top">
+        </tr>
+            <td>
+                <img src="images/eval_anon_script_panel_on_break.png" align="right"/>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script>
+function loadAnonAnimals()
+{
+    //  Load the code dynamically
+    var req = new XMLHttpRequest();
+    req.open('GET','data/payloadCatsAndDucksAnon.js', false);
+    req.send(null);
+    eval( req.responseText);  // line 23
+    document.getElementById('evalAnonLoad').disabled = true;
+}
+function prodAnonAnimals()
+{
+    //  Now use the code
+    Animals.prod( new Animals.Duck());
+    Animals.prod( new Animals.Cat());
+}
+function prodError()
+{
+    Animal.prod();  // call point of error
+}
+window.addEventListener('load', function connectEvalAnonDemoButtons()
+{
+    var elt = document.getElementById('evalAnonLoad');
+    elt.removeAttribute('disabled');
+    elt.addEventListener('click', loadAnonAnimals, false);
+    document.getElementById('evalAnonProdAnimals').addEventListener('click', prodAnonAnimals, false);
+}, false);
+</script>
+
+<!-- UI Oriented breakpoints - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<div class="slide getfirebug">
+    <h1>Graphical Breakpoints</h1>
+    <h3>Problem</h3>
+    <ul>
+    <li>Debugging is reasoning back from (bad) results to causes</li>
+    <li>When the result is part of a stream, time helps us find the cause</li>
+    <li>When the result is graphical, causes are harder to find</li>
+    </ul>
+    <h3>Solution</h3>
+    <ul>
+    <li> Breakpoint on UI events, modification, activations, errors </li>
+    <li><span style="color:green">Recognize</span> rather then <span style="color:green">Recall</span></li>
+    </ul>
+    <p style="text-align: center;">Two examples, XHR and HTML </p>
+</div>
+
+<!-- Network Event breakpoints - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<div class="slide getfirebug">
+    <h1>Network Event breakpoints</h1>
+    <table>
+        <tr valign="top">
+            <td>
+                <ul>
+                    <li>AJAX applications wide spread</li>
+                    <li>Firebug Net panel shows requests, response</li>
+                    <li>Which JS function caused the request?</li>
+                </ul>
+             </td>
+             <td>
+             <img class="screenshot" src="images/network_breakpoint.png" align="right"/>
+             </td>
+        </tr>
+    </table>
+    <h3>Implementation</h3>
+    <ol>
+        <li>Intercept request start calls, </li>
+        <li>Compare XHR URLs to XHR breakpoints</li>
+        <li>Halt Javascript and open debugger on match.</li>
+    </ol>
+
+</div>
+
+<!-- Break On Next Network Event - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<div class="slide getfirebug">
+    <h1>Break On Network Event</h1>
+    <table>
+        <tr valign="top">
+            <td width="50%">
+                <ol>
+                    <li>Select the Firebug Net Panel</li>
+                    <li>Click the <span style="color:green">Break on XHR</span> button (<img src="images/breakOnXHR.png"/>)</li>
+                    <li>Execute XHR:
+                      <button onclick="demoGeneratedXHRBreak(event);">XHR</button>
+                    </li>
+                    <li>Firebug will break on the XHR event</li>
+                </ol>
+            </td>
+            <td>
+                <img class="screenshot" src="images/xhr_on_break.png" align="right"/>
+            </td>
+        </tr>
+    </table>
+    <h3 style="color:green; font-size: 22px;">Conditional Network Breakpoints</h3>
+    <ul>
+    <li>
+    <code>http://.../xhrDemo.json?param=<span style="color:green">1</span></code>
+    <button onclick="executeRequest(event, 1);">Run</button>
+    </li>
+    <li>
+    <code>http://.../xhrDemo.json?param=<span style="color:green">2</span></code>
+    <button onclick="executeRequest(event, 2);">Run</button>
+    </li>
+    <ul>
+</div>
+
+<script>
+function demoGeneratedXHRBreak()
+{
+    var request = new XMLHttpRequest();
+    request.open("POST", "data/xhrDemo.json", true);
+    request.send(null);
+}
+function executeRequest(event, value)
+{
+    cancelEvent(event);
+
+    var request = new XMLHttpRequest();
+    request.open("POST", "data/xhrDemo.json?param=" + value, true);
+    request.send(null);
+}
+</script>
+
+<!-- User Interface Modification Breakpoints - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<div class="slide getfirebug">
+    <h1>UI Modification Breakpoints</h1>
+    <table>
+        <tr valign="top">
+            <td width="50%">
+                <img src="images/attribute_modification_example.png"
+                    style="border: 1px solid rgb(236, 233, 216);"
+                    align="right"/>
+            </td>
+        </tr>
+        <tr valign="top">
+            <td>
+                <li>Dynamic UI construction</li>
+                <ul>
+                    <li>Break on addition/removal of elements</li>
+                </ul>
+                <li>Dynamic UI modification</li>
+                <ul>
+                    <li>Break on attribute modification</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+    <h3>Implementation</h3>
+    <ol>
+    <li>DOM Mutation Event handlers (standard)</li>
+    <li>Halt Javascript and open debugger</li>
+    </ol>
+</div>
+
+<!-- Breakpoints on DOM (HTML) Mutation Events - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<div class="slide getfirebug">
+    <h1>Breakpoints on HTML Events</h1>
+    <table>
+        <tr valign="top">
+            <td width="50%">
+                <ol>
+                    <li>Use HTML Inspector <img src="images/inspector.png"/>
+                    to find <span id="breakOnAttribute" style="color:green">this element</span></li>
+                    <li>Right click on the element and pick <i>Break On Attribute Change</i> menu item.</li>
+                    <li>Click this button <button onclick="demoGeneratedHTMLBreak();">Break On Attribute Change</button></li>
+                </ol>
+            </td>
+        <tr valign="top">
+        </tr>
+            <td>
+                <img src="images/html_mutation_on_break.png" align="right"/>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script>
+function demoGeneratedHTMLBreak()
+{
+    var element = document.getElementById("breakOnAttribute");
+    var value = element.getAttribute("style");
+    if (value.indexOf("green") > 0)
+        element.setAttribute("style", "color:red");
+    else
+        element.setAttribute("style", "color:green");
+}
+</script>
+
+<!-- Cookies - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<div class="slide getfirebug">
+    <h1>Breakpoints on Cookies</h1>
+    <h3 style="color:green; font-size: 22px;">Extensible Breakpoints</h3>
+    <table ID="Table2"><tr valign="top">
+        <td>
+            <ul>
+                <li><span style="color: green">Cookies</span> panel</li>
+                <li>Manage Cookies & Permissons</li>
+                <li><span style="color:green">Break On Next Cookie Change</span>
+                    <img src="images/cookie_breakNext.png" /></li>
+                <li><span style="color:green">Conditional Breakpoints</span></li>
+                <button onclick="onAddCookie(event)">Add Cookie</button>
+                <button onclick="onChangeCookie(event)">Change Cookie</button>
+            </ul>
+        </td>
+        <td>
+            <img class="screenshot" src="images/cookies-panel.png"/>
+        </td>
+    </tr></table>
+</div>
+<script type="text/javascript">
+var domain = ".getfirebug.com";
+
+function onAddCookie()
+{
+    var time = (new Date()).getTime();
+    Set_Cookie("_TestCookie", "Some Value", time + 3600 * 1000,
+        "/");
+}
+
+onAddCookie();
+
+function onChangeCookie()
+{
+    var time = (new Date()).getTime();
+    Set_Cookie("_TestCookie", "New Value: " + time, time + 3600 * 1000,
+        "/");
+}
+</script>
+
+<!-- Related Work  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<div class="slide getfirebug">
+    <h1>Related Work</h1>
+    <ul>
+    <img class="screenshot" src="images/break_from_anywhere.png" align="right"/>
+        <li>Contribution: Dynamic and Graphical Breakpoints</li>
+            <ul>
+                <li>Find source by breaking into it</li>
+                <li>Broad integration of graphics and breakpoints</li>
+                <li>Coherent user experience: break into code from anywhere</li>
+                <li>Same ideas should work in all browsers</li>
+            </ul>
+        <li>Other breakpoints we implement overlap:</li>
+        <ul>
+            <li><span style="color:green">Break on Error</span> resemble Eclipse
+                <span style="color:green">break on exception</span></li>
+            <li><span style="color:green">Break on DOM changes</span> resemble break on
+                <span style="color:green">memory writes</span></li>
+        </ul>
+        <li>Other graphically-oriented debuggers: Whyline, Firecrystal</li>
+        <ul>
+            <li>Not easily integrated with breakpoint debugging.</li>
+        </ul>
+    </ul>
+</div>
+
+<!-- Summary Links + Questions  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<div class="slide getfirebug">
+    <h1>Summary & Links. Questions?</h1>
+    <table>
+        <tr valign="top">
+            <td width="80%">
+                <li>Dynamic and Graphical Breakpoints for Web debugging</li>
+                <ul><li>For large user interface systems on the Web</li></ul>
+                <li>Deployed in <b>Firebug 1.5</b></li>
+                <ul>
+                    <li><b>Home:</b>
+                        <a href="http://getfirebug.com">getfirebug.com</a></li>
+                    <li><b>Blog:</b>
+                        <a href="http://blog.getfirebug.com">blog.getfirebug.com</a></li>
+                    <li><b>Discusssion Group:</b>
+                        <a href="http://groups.google.com/group/firebug">groups.google.com/group/firebug</a></li>
+                    <li><b>Issue List:</b>
+                        <a href="http://code.google.com/p/fbug/issues/list">code.google.com/p/fbug/issues/list</a></li>
+                </ul>
+            </td>
+            <td>
+                <img src="images/firebug-large.png" align="right"
+                    style="padding-top: 200px"/>
+            </td>
+        </tr>
+    </table>
+    <ul>
+    </ul>
+</div>
+
+<!-- Slidy content - END - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+</body>
+</html>

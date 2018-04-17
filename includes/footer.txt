@@ -1,0 +1,49 @@
+<div id="footer" class="group">
+
+<div class="nav">
+<h3>Firebug</h3>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/downloads">Downloads</a></li>
+<li><a href="http://getfirebug.com/wiki/">Resources</a></li>
+<li><a href="/whatisfirebug">What is Firebug</a>
+</li>
+<li><a href="/community">Community</a></li>
+<li><a href="/getinvolved">Get Involved</a></li>
+<li><a href="http://blog.getfirebug.com/">Blog</a></li>
+</ul>
+</div>
+
+<div id="legal">
+<div id="copyright">
+<img src="/img/mozilla-logo.png" width="41" height="31" alt="Firefox Logo" />
+<p><span>Copyright &copy; 2005-2010 Mozilla.</span> All rights reserved.</p>
+</div>
+
+<ul>
+<li><a href="http://www.mozilla.com/en-US/privacy-policy.html">Privacy Policy</a></li>
+<li><a href="http://www.mozilla.com/en-US/about/legal.html">Legal Notices</a></li>
+
+</ul>
+</div>
+<div class="bigfirebug"></div>
+
+
+</div> <!-- /END footer -->
+</div> <!-- /END wrap -->
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-21831241-1']);
+  _gaq.push(['_setDomainName', '.getfirebug.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</body>
+</html>

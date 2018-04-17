@@ -1,0 +1,1151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="generator" content="JsDoc Toolkit" />
+        
+        <title>Firebug API Reference - Firebug.HTMLLib</title>
+
+        <style type="text/css">
+        /* See license.txt for terms of usage */
+
+body {
+    font-size: 12px;
+    font-family: Lucida Grande, Arial, sans-serif;
+}
+
+/************************************************************************************************/
+
+#container {
+    margin-top: 93px;
+    border-top: solid rgb(230, 230, 230) 25px;
+    width: 880px;
+}
+
+#header img {
+    z-index: 200;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+#index {
+    float: left;
+    width: 250px; /*xxxHonza 160px*/
+    left: 8px;
+    background-color: rgb(230, 230, 230); /* #F3F3F3 */
+    padding: 8px;
+    padding-top: 35px;
+}
+
+#content
+{
+    margin-top: -20px;
+    margin-left: 280px; /*xxxHonza 190px*/
+    width: 600px;
+}
+
+/************************************************************************************************/
+
+h1
+{
+    color: #444444;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0;
+    margin: 1em 0 0 .3em;
+}
+
+hr
+{
+    border: none 0;
+    border-top: 1px solid #7F8FB1;
+    height: 1px;
+}
+
+pre.code
+{
+    display: block;
+    padding: 8px;
+    border: 1px dashed #ccc;
+}
+
+a {
+    color: SlateBlue;
+    font-weight: bold;
+}
+
+/************************************************************************************************/
+
+/* cllClasses.tmpl */
+.allClassesMenu {
+}
+
+/************************************************************************************************/
+
+.reportIssue {
+    margin-left: 310px;
+}
+
+/************************************************************************************************/
+
+.classList
+{
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 0 8px;
+    font-family: arial, sans-serif;
+    font-size: 1em;
+    overflow: auto;
+}
+
+.classList li
+{
+    padding: 0;
+    margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+    line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+    background-color: #7F8FB1;
+    color: #fff;
+    font-size:130%;
+    text-align: left;
+    padding: 2px 6px 2px 6px;
+    border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+    vertical-align: top;
+    padding: 4px;
+    border-bottom: 1px #7F8FB1 solid;
+    border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+    border-left: 1px #7F8FB1 solid;
+    width: 140px;
+    text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+    line-height: 15px;
+    color: #002EBE;
+    font-family: "Courier New",Courier,monospace;
+    font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+    text-align: left;
+    font-size: 13px;
+    line-height: 15px;
+}
+
+.description {
+    line-height: 17px !important;
+}
+
+.summaryTable td.nameDescription, .description
+{
+    line-height: 15px;
+    padding: 4px;
+    padding-left: 4px;
+    font-size: 12px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+    list-style: square;
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+.detailList {
+    margin-left: 20px; 
+    line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+    font-weight: bold;
+    padding-bottom: 6px;
+    margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+    color: #777;
+    font-style: italic;
+}
+
+.fineprint
+{
+    text-align: right;
+    font-size: 10px;
+}
+
+        </style>
+	</head>
+
+<body>
+    <div id="container">
+<!-- ============================== header ================================= -->	
+        <!-- begin static/header.html -->
+        <div id="header">
+    <img src="http://getfirebug.com/developer/api/header.png"/>
+</div>
+        <!-- end static/header.html -->
+
+<!-- ============================== classes index ============================ -->
+        <div id="index">
+            <!-- begin publish.classesIndex -->
+            <!-- Top Menu -->
+<div align="center">
+<a href="../index.html">Class Index</a> |
+<a href="../files.html">File Index</a>
+</div>
+<hr />
+
+<!-- List of Modules (objects derived from Firebug.Module) -->
+
+<h2>Modules</h2>
+<ul class="classList">
+    
+    <li><a href="../symbols/Firebug.ActivableModule.html">Firebug.ActivableModule</a></li>
+    
+    <li><a href="../symbols/Firebug.Activation.html">Firebug.Activation</a></li>
+    
+    <li><a href="../symbols/Firebug.CommandLine.Popup.html">Firebug.CommandLine.Popup</a></li>
+    
+    <li><a href="../symbols/Firebug.Module.html">Firebug.Module</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.html">Firebug.NetMonitor</a></li>
+    
+    <li><a href="../symbols/Firebug.PanelActivation.html">Firebug.PanelActivation</a></li>
+    
+    <li><a href="../symbols/Firebug.Search.html">Firebug.Search</a></li>
+    
+    <li><a href="../symbols/Firebug.Spy.html">Firebug.Spy</a></li>
+    
+    <li><a href="../symbols/Firebug.StartButton.html">Firebug.StartButton</a></li>
+    
+    <li><a href="../symbols/Firebug.SVGViewerModel.html">Firebug.SVGViewerModel</a></li>
+    
+    <li><a href="../symbols/Firebug.XMLViewerModel.html">Firebug.XMLViewerModel</a></li>
+    
+</ul><hr />
+
+
+<!-- List of Panels (objects derived from Firebug.Panel) -->
+
+<h2>Panels</h2>
+<ul class="classList">
+    
+    <li><a href="../symbols/Firebug.ActivablePanel.html">Firebug.ActivablePanel</a></li>
+    
+    <li><a href="../symbols/Firebug.Panel.html">Firebug.Panel</a></li>
+    
+    <li><a href="../symbols/Firebug.SourceBoxPanel.html">Firebug.SourceBoxPanel</a></li>
+    
+</ul><hr />
+
+
+<!-- List of Domplate templates (usually objects derived from Firebug.Rep) -->
+
+<h2>Templates</h2>
+<ul class="classList">
+    
+    <li><a href="../symbols/Firebug.DisabledPanelBox.html">Firebug.DisabledPanelBox</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetInfoBody.html">Firebug.NetMonitor.NetInfoBody</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetInfoHeaders.html">Firebug.NetMonitor.NetInfoHeaders</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetInfoPostData.html">Firebug.NetMonitor.NetInfoPostData</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetRequestEntry.html">Firebug.NetMonitor.NetRequestEntry</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetRequestTable.html">Firebug.NetMonitor.NetRequestTable</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.SizeInfoTip.html">Firebug.NetMonitor.SizeInfoTip</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.TimeInfoTip.html">Firebug.NetMonitor.TimeInfoTip</a></li>
+    
+    <li><a href="../symbols/Firebug.ScriptPanel.WarningRep.html">Firebug.ScriptPanel.WarningRep</a></li>
+    
+    <li><a href="../symbols/Firebug.Spy.XHR.html">Firebug.Spy.XHR</a></li>
+    
+    <li><a href="../symbols/Firebug.SVGViewerModel.ParseError.html">Firebug.SVGViewerModel.ParseError</a></li>
+    
+    <li><a href="../symbols/Firebug.XMLViewerModel.ParseError.html">Firebug.XMLViewerModel.ParseError</a></li>
+    
+</ul><hr />
+
+
+<!-- List of all Services (XPCOM) objects -->
+
+<h2>Services (XPCOM)</h2>
+<ul class="classList">
+    
+    <li><a href="../symbols/httpRequestObserver.html">httpRequestObserver</a></li>
+    
+    <li><a href="../symbols/observerService.html">observerService</a></li>
+    
+</ul><hr />
+
+
+<!-- List of all dialog objects -->
+
+
+<!-- List of all classes -->
+<h2>All Classes</h2>
+<ul class="classList">
+    
+    <li><i><a href="../symbols/_global_.html">_global_</a></i></li>
+    
+    <li><a href="../symbols/annotationService.html">annotationService</a></li>
+    
+    <li><a href="../symbols/ArrayReference.html">ArrayReference</a></li>
+    
+    <li><a href="../symbols/Breakpoint.html">Breakpoint</a></li>
+    
+    <li><a href="../symbols/Browser.html">Browser</a></li>
+    
+    <li><a href="../symbols/Browser.EventListener.html">Browser.EventListener</a></li>
+    
+    <li><a href="../symbols/BrowserContext.html">BrowserContext</a></li>
+    
+    <li><a href="../symbols/CompilationUnit.html">CompilationUnit</a></li>
+    
+    <li><a href="../symbols/Firebug.ActivableModule.html">Firebug.ActivableModule</a></li>
+    
+    <li><a href="../symbols/Firebug.ActivablePanel.html">Firebug.ActivablePanel</a></li>
+    
+    <li><a href="../symbols/Firebug.Activation.html">Firebug.Activation</a></li>
+    
+    <li><a href="../symbols/Firebug.CommandLine.Popup.html">Firebug.CommandLine.Popup</a></li>
+    
+    <li><a href="../symbols/Firebug.DisabledPanelBox.html">Firebug.DisabledPanelBox</a></li>
+    
+    <li><a href="../symbols/Firebug.HTMLLib.html">Firebug.HTMLLib</a></li>
+    
+    <li><a href="../symbols/Firebug.HTMLLib.DOMWalker.html">Firebug.HTMLLib.DOMWalker</a></li>
+    
+    <li><a href="../symbols/Firebug.HTMLLib.NodeSearch.html">Firebug.HTMLLib.NodeSearch</a></li>
+    
+    <li><a href="../symbols/Firebug.HTMLLib.SelectorSearch.html">Firebug.HTMLLib.SelectorSearch</a></li>
+    
+    <li><a href="../symbols/Firebug.HTMLModule.DebuggerListener.html">Firebug.HTMLModule.DebuggerListener</a></li>
+    
+    <li><a href="../symbols/Firebug.Module.html">Firebug.Module</a></li>
+    
+    <li><a href="../symbols/Firebug.NavigationHistory.html">Firebug.NavigationHistory</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.html">Firebug.NetMonitor</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetInfoBody.html">Firebug.NetMonitor.NetInfoBody</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetInfoHeaders.html">Firebug.NetMonitor.NetInfoHeaders</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetInfoPostData.html">Firebug.NetMonitor.NetInfoPostData</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetRequestEntry.html">Firebug.NetMonitor.NetRequestEntry</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetRequestTable.html">Firebug.NetMonitor.NetRequestTable</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.SizeInfoTip.html">Firebug.NetMonitor.SizeInfoTip</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.TimeInfoTip.html">Firebug.NetMonitor.TimeInfoTip</a></li>
+    
+    <li><a href="../symbols/Firebug.Panel.html">Firebug.Panel</a></li>
+    
+    <li><a href="../symbols/Firebug.PanelActivation.html">Firebug.PanelActivation</a></li>
+    
+    <li><a href="../symbols/Firebug.ScriptPanel.WarningRep.html">Firebug.ScriptPanel.WarningRep</a></li>
+    
+    <li><a href="../symbols/Firebug.Search.html">Firebug.Search</a></li>
+    
+    <li><a href="../symbols/Firebug.SourceBoxDecorator.html">Firebug.SourceBoxDecorator</a></li>
+    
+    <li><a href="../symbols/Firebug.SourceBoxPanel.html">Firebug.SourceBoxPanel</a></li>
+    
+    <li><a href="../symbols/Firebug.Spy.html">Firebug.Spy</a></li>
+    
+    <li><a href="../symbols/Firebug.Spy.XHR.html">Firebug.Spy.XHR</a></li>
+    
+    <li><a href="../symbols/Firebug.Spy.XMLHttpRequestSpy.html">Firebug.Spy.XMLHttpRequestSpy</a></li>
+    
+    <li><a href="../symbols/Firebug.StartButton.html">Firebug.StartButton</a></li>
+    
+    <li><a href="../symbols/Firebug.SVGViewerModel.html">Firebug.SVGViewerModel</a></li>
+    
+    <li><a href="../symbols/Firebug.SVGViewerModel.ParseError.html">Firebug.SVGViewerModel.ParseError</a></li>
+    
+    <li><a href="../symbols/Firebug.XMLViewerModel.html">Firebug.XMLViewerModel</a></li>
+    
+    <li><a href="../symbols/Firebug.XMLViewerModel.ParseError.html">Firebug.XMLViewerModel.ParseError</a></li>
+    
+    <li><a href="../symbols/FunctionReference.html">FunctionReference</a></li>
+    
+    <li><a href="../symbols/httpRequestObserver.html">httpRequestObserver</a></li>
+    
+    <li><a href="../symbols/IntoStepper.html">IntoStepper</a></li>
+    
+    <li><a href="../symbols/JavaScriptStack.html">JavaScriptStack</a></li>
+    
+    <li><a href="../symbols/LineStepper.html">LineStepper</a></li>
+    
+    <li><a href="../symbols/LiteralRegExp.html">LiteralRegExp</a></li>
+    
+    <li><a href="../symbols/ObjectPersister.html">ObjectPersister</a></li>
+    
+    <li><a href="../symbols/ObjectReference.html">ObjectReference</a></li>
+    
+    <li><a href="../symbols/observerService.html">observerService</a></li>
+    
+    <li><a href="../symbols/OutStepper.html">OutStepper</a></li>
+    
+    <li><a href="../symbols/Primitive.html">Primitive</a></li>
+    
+    <li><a href="../symbols/Property.html">Property</a></li>
+    
+    <li><a href="../symbols/StackFrame.html">StackFrame</a></li>
+    
+    <li><a href="../symbols/TextSearch.html">TextSearch</a></li>
+    
+    <li><a href="../symbols/top.Firebug.html">top.Firebug</a></li>
+    
+    <li><a href="../symbols/Variable.html">Variable</a></li>
+    
+</ul>
+<hr />
+            <!-- end publish.classesIndex -->
+        </div>
+
+        <div id="content">
+            <a class="reportIssue" href="http://code.google.com/p/fbug/issues/entry?template=API Reference Report">Report Doc Issue</a>
+             |
+            <a href="http://getfirebug.com/wiki/index.php/Firebug_Source_Code_Comments">How To Comment Firebug Code</a>
+<!-- ============================== class title ============================ -->
+            <h1 class="classTitle">
+                
+                Class Firebug.HTMLLib
+            </h1>
+
+<!-- ============================== class summary ========================== -->			
+            
+            
+            <p class="description">
+                
+                Static utility class. Contains utilities used for displaying and       searching a HTML tree.
+                <br />
+                
+                    <br /><i>Defined in: </i> <a href="../symbols/src/content_firebug_lib_htmlLib.js.html">htmlLib.js</a>.
+                
+            </p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class Firebug.HTMLLib.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/Firebug.HTMLLib.html#constructor">Firebug.HTMLLib</a></b>()
+							</div>
+							<div class="description"></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class Firebug.HTMLLib.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Firebug.HTMLLib.<b><a href="../symbols/Firebug.HTMLLib.html#.findNextSibling">findNextSibling</a></b>(node)
+								</div>
+								<div class="description">Finds the next sibling of the given node.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Firebug.HTMLLib.<b><a href="../symbols/Firebug.HTMLLib.html#.findNodeAttrBox">findNodeAttrBox</a></b>(objectNodeBox, attrName)
+								</div>
+								<div class="description">Locates the attribute domplate node for a given element domplate.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Firebug.HTMLLib.<b><a href="../symbols/Firebug.HTMLLib.html#.getSourceHref">getSourceHref</a></b>(element)
+								</div>
+								<div class="description">Retrieves the source URL for any external resource associated with a node.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Firebug.HTMLLib.<b><a href="../symbols/Firebug.HTMLLib.html#.getSourceText">getSourceText</a></b>(element)
+								</div>
+								<div class="description">Retrieves the source text for inline script and style elements.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Firebug.HTMLLib.<b><a href="../symbols/Firebug.HTMLLib.html#.getTextElementTextBox">getTextElementTextBox</a></b>(nodeBox)
+								</div>
+								<div class="description">Locates the text domplate node for a given text element domplate.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Firebug.HTMLLib.<b><a href="../symbols/Firebug.HTMLLib.html#.hasCommentChildren">hasCommentChildren</a></b>(element)
+								</div>
+								<div class="description">Determines if the given node has any children which are comments.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Firebug.HTMLLib.<b><a href="../symbols/Firebug.HTMLLib.html#.hasNoElementChildren">hasNoElementChildren</a></b>(element)
+								</div>
+								<div class="description">Determines if the given node has any children which are elements.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Firebug.HTMLLib.<b><a href="../symbols/Firebug.HTMLLib.html#.isContainerElement">isContainerElement</a></b>(element)
+								</div>
+								<div class="description">Determines if the given element is a container element.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Firebug.HTMLLib.<b><a href="../symbols/Firebug.HTMLLib.html#.isEmptyElement">isEmptyElement</a></b>(element)
+								</div>
+								<div class="description">Determines if a given element is empty.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Firebug.HTMLLib.<b><a href="../symbols/Firebug.HTMLLib.html#.isSourceElement">isSourceElement</a></b>(element)
+								</div>
+								<div class="description">Determines if the given element is the source for a non-DOM resource suchas Javascript source or CSS definition.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Firebug.HTMLLib.<b><a href="../symbols/Firebug.HTMLLib.html#.isWhitespaceText">isWhitespaceText</a></b>(node)
+								</div>
+								<div class="description">Determines if the given node consists solely of whitespace text.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>Firebug.HTMLLib</b>()
+				</div>
+				
+				<div class="description">
+					
+					
+				</div>
+				
+				
+				
+				
+					
+					
+					
+					
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name=".findNextSibling"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Firebug.HTMLLib.</span><b>findNextSibling</b>(node)
+					
+					</div>
+					<div class="description">
+						Finds the next sibling of the given node. If theFirebug#showTextNodesWithWhitespace parameter is set to true, the nextsibling may be a whitespace, otherwise the next is the first adjacentnon-whitespace node.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Node}</span> <b>node</b>
+									
+								</dt>
+								<dd>Node to analyze.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>Next sibling node, if one exists</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".findNodeAttrBox"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Firebug.HTMLLib.</span><b>findNodeAttrBox</b>(objectNodeBox, attrName)
+					
+					</div>
+					<div class="description">
+						Locates the attribute domplate node for a given element domplate. This method willonly examine notes marked with the "nodeAttr" class that are the directchildren of the given element.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>objectNodeBox</b>
+									
+								</dt>
+								<dd>The domplate element to look up the attribute for.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>attrName</b>
+									
+								</dt>
+								<dd>Attribute name</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>Attribute's domplate node</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getSourceHref"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Firebug.HTMLLib.</span><b>getSourceHref</b>(element)
+					
+					</div>
+					<div class="description">
+						Retrieves the source URL for any external resource associated with a node.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Element}</span> <b>element</b>
+									
+								</dt>
+								<dd>Element to examine</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>URL of the external resouce.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getSourceText"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Firebug.HTMLLib.</span><b>getSourceText</b>(element)
+					
+					</div>
+					<div class="description">
+						Retrieves the source text for inline script and style elements.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Element}</span> <b>element</b>
+									
+								</dt>
+								<dd>Script or style element</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>Source text</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getTextElementTextBox"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Firebug.HTMLLib.</span><b>getTextElementTextBox</b>(nodeBox)
+					
+					</div>
+					<div class="description">
+						Locates the text domplate node for a given text element domplate.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>nodeBox</b>
+									
+								</dt>
+								<dd>Text element domplate</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>Element's domplate text node</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".hasCommentChildren"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Firebug.HTMLLib.</span><b>hasCommentChildren</b>(element)
+					
+					</div>
+					<div class="description">
+						Determines if the given node has any children which are comments.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Element}</span> <b>element</b>
+									
+								</dt>
+								<dd>Element to test.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>true if immediate children of type Comment exist, false otherwise</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".hasNoElementChildren"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Firebug.HTMLLib.</span><b>hasNoElementChildren</b>(element)
+					
+					</div>
+					<div class="description">
+						Determines if the given node has any children which are elements.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Element}</span> <b>element</b>
+									
+								</dt>
+								<dd>Element to test.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>true if immediate children of type Element exist, false otherwise</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".isContainerElement"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Firebug.HTMLLib.</span><b>isContainerElement</b>(element)
+					
+					</div>
+					<div class="description">
+						Determines if the given element is a container element.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Element}</span> <b>element</b>
+									
+								</dt>
+								<dd>Element to test</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>True if the element is a container element.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".isEmptyElement"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Firebug.HTMLLib.</span><b>isEmptyElement</b>(element)
+					
+					</div>
+					<div class="description">
+						Determines if a given element is empty. When theFirebug#showTextNodesWithWhitespace parameter is true, an element isconsidered empty if it has no child elements and is self closing. Whenfalse, an element is considered empty if the only children are whitespacenodes.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Element}</span> <b>element</b>
+									
+								</dt>
+								<dd>Element to test</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>true if the element is empty, false otherwise</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".isSourceElement"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Firebug.HTMLLib.</span><b>isSourceElement</b>(element)
+					
+					</div>
+					<div class="description">
+						Determines if the given element is the source for a non-DOM resource suchas Javascript source or CSS definition.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Element}</span> <b>element</b>
+									
+								</dt>
+								<dd>Element to test</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>true if the element is a source element</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".isWhitespaceText"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Firebug.HTMLLib.</span><b>isWhitespaceText</b>(node)
+					
+					</div>
+					<div class="description">
+						Determines if the given node consists solely of whitespace text.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Node}</span> <b>node</b>
+									
+								</dt>
+								<dd>Node to test.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>true if the node is a whitespace text node</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.3.0 on Fri Feb 11 2011 13:31:54 GMT+0100 (CET)
+		</div>
+    </div>
+</body>
+</html>

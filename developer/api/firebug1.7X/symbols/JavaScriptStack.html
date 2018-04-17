@@ -1,0 +1,777 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="generator" content="JsDoc Toolkit" />
+        
+        <title>Firebug API Reference - JavaScriptStack</title>
+
+        <style type="text/css">
+        /* See license.txt for terms of usage */
+
+body {
+    font-size: 12px;
+    font-family: Lucida Grande, Arial, sans-serif;
+}
+
+/************************************************************************************************/
+
+#container {
+    margin-top: 93px;
+    border-top: solid rgb(230, 230, 230) 25px;
+    width: 880px;
+}
+
+#header img {
+    z-index: 200;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+#index {
+    float: left;
+    width: 250px; /*xxxHonza 160px*/
+    left: 8px;
+    background-color: rgb(230, 230, 230); /* #F3F3F3 */
+    padding: 8px;
+    padding-top: 35px;
+}
+
+#content
+{
+    margin-top: -20px;
+    margin-left: 280px; /*xxxHonza 190px*/
+    width: 600px;
+}
+
+/************************************************************************************************/
+
+h1
+{
+    color: #444444;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0;
+    margin: 1em 0 0 .3em;
+}
+
+hr
+{
+    border: none 0;
+    border-top: 1px solid #7F8FB1;
+    height: 1px;
+}
+
+pre.code
+{
+    display: block;
+    padding: 8px;
+    border: 1px dashed #ccc;
+}
+
+a {
+    color: SlateBlue;
+    font-weight: bold;
+}
+
+/************************************************************************************************/
+
+/* cllClasses.tmpl */
+.allClassesMenu {
+}
+
+/************************************************************************************************/
+
+.reportIssue {
+    margin-left: 310px;
+}
+
+/************************************************************************************************/
+
+.classList
+{
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 0 8px;
+    font-family: arial, sans-serif;
+    font-size: 1em;
+    overflow: auto;
+}
+
+.classList li
+{
+    padding: 0;
+    margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+    line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+    background-color: #7F8FB1;
+    color: #fff;
+    font-size:130%;
+    text-align: left;
+    padding: 2px 6px 2px 6px;
+    border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+    vertical-align: top;
+    padding: 4px;
+    border-bottom: 1px #7F8FB1 solid;
+    border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+    border-left: 1px #7F8FB1 solid;
+    width: 140px;
+    text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+    line-height: 15px;
+    color: #002EBE;
+    font-family: "Courier New",Courier,monospace;
+    font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+    text-align: left;
+    font-size: 13px;
+    line-height: 15px;
+}
+
+.description {
+    line-height: 17px !important;
+}
+
+.summaryTable td.nameDescription, .description
+{
+    line-height: 15px;
+    padding: 4px;
+    padding-left: 4px;
+    font-size: 12px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+    list-style: square;
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+.detailList {
+    margin-left: 20px; 
+    line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+    font-weight: bold;
+    padding-bottom: 6px;
+    margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+    color: #777;
+    font-style: italic;
+}
+
+.fineprint
+{
+    text-align: right;
+    font-size: 10px;
+}
+
+        </style>
+	</head>
+
+<body>
+    <div id="container">
+<!-- ============================== header ================================= -->	
+        <!-- begin static/header.html -->
+        <div id="header">
+    <img src="http://getfirebug.com/developer/api/header.png"/>
+</div>
+        <!-- end static/header.html -->
+
+<!-- ============================== classes index ============================ -->
+        <div id="index">
+            <!-- begin publish.classesIndex -->
+            <!-- Top Menu -->
+<div align="center">
+<a href="../index.html">Class Index</a> |
+<a href="../files.html">File Index</a>
+</div>
+<hr />
+
+<!-- List of Modules (objects derived from Firebug.Module) -->
+
+<h2>Modules</h2>
+<ul class="classList">
+    
+    <li><a href="../symbols/Firebug.ActivableModule.html">Firebug.ActivableModule</a></li>
+    
+    <li><a href="../symbols/Firebug.Activation.html">Firebug.Activation</a></li>
+    
+    <li><a href="../symbols/Firebug.CommandLine.Popup.html">Firebug.CommandLine.Popup</a></li>
+    
+    <li><a href="../symbols/Firebug.Module.html">Firebug.Module</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.html">Firebug.NetMonitor</a></li>
+    
+    <li><a href="../symbols/Firebug.PanelActivation.html">Firebug.PanelActivation</a></li>
+    
+    <li><a href="../symbols/Firebug.Search.html">Firebug.Search</a></li>
+    
+    <li><a href="../symbols/Firebug.Spy.html">Firebug.Spy</a></li>
+    
+    <li><a href="../symbols/Firebug.StartButton.html">Firebug.StartButton</a></li>
+    
+    <li><a href="../symbols/Firebug.SVGViewerModel.html">Firebug.SVGViewerModel</a></li>
+    
+    <li><a href="../symbols/Firebug.XMLViewerModel.html">Firebug.XMLViewerModel</a></li>
+    
+</ul><hr />
+
+
+<!-- List of Panels (objects derived from Firebug.Panel) -->
+
+<h2>Panels</h2>
+<ul class="classList">
+    
+    <li><a href="../symbols/Firebug.ActivablePanel.html">Firebug.ActivablePanel</a></li>
+    
+    <li><a href="../symbols/Firebug.Panel.html">Firebug.Panel</a></li>
+    
+    <li><a href="../symbols/Firebug.SourceBoxPanel.html">Firebug.SourceBoxPanel</a></li>
+    
+</ul><hr />
+
+
+<!-- List of Domplate templates (usually objects derived from Firebug.Rep) -->
+
+<h2>Templates</h2>
+<ul class="classList">
+    
+    <li><a href="../symbols/Firebug.DisabledPanelBox.html">Firebug.DisabledPanelBox</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetInfoBody.html">Firebug.NetMonitor.NetInfoBody</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetInfoHeaders.html">Firebug.NetMonitor.NetInfoHeaders</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetInfoPostData.html">Firebug.NetMonitor.NetInfoPostData</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetRequestEntry.html">Firebug.NetMonitor.NetRequestEntry</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetRequestTable.html">Firebug.NetMonitor.NetRequestTable</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.SizeInfoTip.html">Firebug.NetMonitor.SizeInfoTip</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.TimeInfoTip.html">Firebug.NetMonitor.TimeInfoTip</a></li>
+    
+    <li><a href="../symbols/Firebug.ScriptPanel.WarningRep.html">Firebug.ScriptPanel.WarningRep</a></li>
+    
+    <li><a href="../symbols/Firebug.Spy.XHR.html">Firebug.Spy.XHR</a></li>
+    
+    <li><a href="../symbols/Firebug.SVGViewerModel.ParseError.html">Firebug.SVGViewerModel.ParseError</a></li>
+    
+    <li><a href="../symbols/Firebug.XMLViewerModel.ParseError.html">Firebug.XMLViewerModel.ParseError</a></li>
+    
+</ul><hr />
+
+
+<!-- List of all Services (XPCOM) objects -->
+
+<h2>Services (XPCOM)</h2>
+<ul class="classList">
+    
+    <li><a href="../symbols/httpRequestObserver.html">httpRequestObserver</a></li>
+    
+    <li><a href="../symbols/observerService.html">observerService</a></li>
+    
+</ul><hr />
+
+
+<!-- List of all dialog objects -->
+
+
+<!-- List of all classes -->
+<h2>All Classes</h2>
+<ul class="classList">
+    
+    <li><i><a href="../symbols/_global_.html">_global_</a></i></li>
+    
+    <li><a href="../symbols/annotationService.html">annotationService</a></li>
+    
+    <li><a href="../symbols/ArrayReference.html">ArrayReference</a></li>
+    
+    <li><a href="../symbols/Breakpoint.html">Breakpoint</a></li>
+    
+    <li><a href="../symbols/Browser.html">Browser</a></li>
+    
+    <li><a href="../symbols/Browser.EventListener.html">Browser.EventListener</a></li>
+    
+    <li><a href="../symbols/BrowserContext.html">BrowserContext</a></li>
+    
+    <li><a href="../symbols/CompilationUnit.html">CompilationUnit</a></li>
+    
+    <li><a href="../symbols/Firebug.ActivableModule.html">Firebug.ActivableModule</a></li>
+    
+    <li><a href="../symbols/Firebug.ActivablePanel.html">Firebug.ActivablePanel</a></li>
+    
+    <li><a href="../symbols/Firebug.Activation.html">Firebug.Activation</a></li>
+    
+    <li><a href="../symbols/Firebug.CommandLine.Popup.html">Firebug.CommandLine.Popup</a></li>
+    
+    <li><a href="../symbols/Firebug.DisabledPanelBox.html">Firebug.DisabledPanelBox</a></li>
+    
+    <li><a href="../symbols/Firebug.HTMLLib.html">Firebug.HTMLLib</a></li>
+    
+    <li><a href="../symbols/Firebug.HTMLLib.DOMWalker.html">Firebug.HTMLLib.DOMWalker</a></li>
+    
+    <li><a href="../symbols/Firebug.HTMLLib.NodeSearch.html">Firebug.HTMLLib.NodeSearch</a></li>
+    
+    <li><a href="../symbols/Firebug.HTMLLib.SelectorSearch.html">Firebug.HTMLLib.SelectorSearch</a></li>
+    
+    <li><a href="../symbols/Firebug.HTMLModule.DebuggerListener.html">Firebug.HTMLModule.DebuggerListener</a></li>
+    
+    <li><a href="../symbols/Firebug.Module.html">Firebug.Module</a></li>
+    
+    <li><a href="../symbols/Firebug.NavigationHistory.html">Firebug.NavigationHistory</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.html">Firebug.NetMonitor</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetInfoBody.html">Firebug.NetMonitor.NetInfoBody</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetInfoHeaders.html">Firebug.NetMonitor.NetInfoHeaders</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetInfoPostData.html">Firebug.NetMonitor.NetInfoPostData</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetRequestEntry.html">Firebug.NetMonitor.NetRequestEntry</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetRequestTable.html">Firebug.NetMonitor.NetRequestTable</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.SizeInfoTip.html">Firebug.NetMonitor.SizeInfoTip</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.TimeInfoTip.html">Firebug.NetMonitor.TimeInfoTip</a></li>
+    
+    <li><a href="../symbols/Firebug.Panel.html">Firebug.Panel</a></li>
+    
+    <li><a href="../symbols/Firebug.PanelActivation.html">Firebug.PanelActivation</a></li>
+    
+    <li><a href="../symbols/Firebug.ScriptPanel.WarningRep.html">Firebug.ScriptPanel.WarningRep</a></li>
+    
+    <li><a href="../symbols/Firebug.Search.html">Firebug.Search</a></li>
+    
+    <li><a href="../symbols/Firebug.SourceBoxDecorator.html">Firebug.SourceBoxDecorator</a></li>
+    
+    <li><a href="../symbols/Firebug.SourceBoxPanel.html">Firebug.SourceBoxPanel</a></li>
+    
+    <li><a href="../symbols/Firebug.Spy.html">Firebug.Spy</a></li>
+    
+    <li><a href="../symbols/Firebug.Spy.XHR.html">Firebug.Spy.XHR</a></li>
+    
+    <li><a href="../symbols/Firebug.Spy.XMLHttpRequestSpy.html">Firebug.Spy.XMLHttpRequestSpy</a></li>
+    
+    <li><a href="../symbols/Firebug.StartButton.html">Firebug.StartButton</a></li>
+    
+    <li><a href="../symbols/Firebug.SVGViewerModel.html">Firebug.SVGViewerModel</a></li>
+    
+    <li><a href="../symbols/Firebug.SVGViewerModel.ParseError.html">Firebug.SVGViewerModel.ParseError</a></li>
+    
+    <li><a href="../symbols/Firebug.XMLViewerModel.html">Firebug.XMLViewerModel</a></li>
+    
+    <li><a href="../symbols/Firebug.XMLViewerModel.ParseError.html">Firebug.XMLViewerModel.ParseError</a></li>
+    
+    <li><a href="../symbols/FunctionReference.html">FunctionReference</a></li>
+    
+    <li><a href="../symbols/httpRequestObserver.html">httpRequestObserver</a></li>
+    
+    <li><a href="../symbols/IntoStepper.html">IntoStepper</a></li>
+    
+    <li><a href="../symbols/JavaScriptStack.html">JavaScriptStack</a></li>
+    
+    <li><a href="../symbols/LineStepper.html">LineStepper</a></li>
+    
+    <li><a href="../symbols/LiteralRegExp.html">LiteralRegExp</a></li>
+    
+    <li><a href="../symbols/ObjectPersister.html">ObjectPersister</a></li>
+    
+    <li><a href="../symbols/ObjectReference.html">ObjectReference</a></li>
+    
+    <li><a href="../symbols/observerService.html">observerService</a></li>
+    
+    <li><a href="../symbols/OutStepper.html">OutStepper</a></li>
+    
+    <li><a href="../symbols/Primitive.html">Primitive</a></li>
+    
+    <li><a href="../symbols/Property.html">Property</a></li>
+    
+    <li><a href="../symbols/StackFrame.html">StackFrame</a></li>
+    
+    <li><a href="../symbols/TextSearch.html">TextSearch</a></li>
+    
+    <li><a href="../symbols/top.Firebug.html">top.Firebug</a></li>
+    
+    <li><a href="../symbols/Variable.html">Variable</a></li>
+    
+</ul>
+<hr />
+            <!-- end publish.classesIndex -->
+        </div>
+
+        <div id="content">
+            <a class="reportIssue" href="http://code.google.com/p/fbug/issues/entry?template=API Reference Report">Report Doc Issue</a>
+             |
+            <a href="http://getfirebug.com/wiki/index.php/Firebug_Source_Code_Comments">How To Comment Firebug Code</a>
+<!-- ============================== class title ============================ -->
+            <h1 class="classTitle">
+                
+                Class JavaScriptStack
+            </h1>
+
+<!-- ============================== class summary ========================== -->			
+            <br />Version
+                   1.0.<br />
+            
+            
+            <p class="description">
+                
+                
+                <br />
+                
+                    <br /><i>Defined in: </i> <a href="../symbols/src/modules_bti_javascriptstack.js.html">javascriptstack.js</a>.
+                
+            </p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class JavaScriptStack.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/JavaScriptStack.html#constructor">JavaScriptStack</a></b>()
+							</div>
+							<div class="description">Describes the execution of JavaScript within a browser context.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class JavaScriptStack.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/JavaScriptStack.html#getBreakpoint">getBreakpoint</a></b>()
+								</div>
+								<div class="description">Returns the breakpoint this execution context is currently suspended ator <code>null</code> if none.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/JavaScriptStack.html#getStackFrames">getStackFrames</a></b>(listener)
+								</div>
+								<div class="description">Requests all frames in this execution context asynchronously.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/JavaScriptStack.html#isSuspended">isSuspended</a></b>()
+								</div>
+								<div class="description">Returns whether this execution context is currently suspended.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/JavaScriptStack.html#resume">resume</a></b>()
+								</div>
+								<div class="description">Requests to resume this execution context asynchronously iff this context is in a suspendedstate.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/JavaScriptStack.html#suspend">suspend</a></b>()
+								</div>
+								<div class="description">Requests to suspend this execution context asynchronously iff this context is in a runningstate.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>JavaScriptStack</b>()
+				</div>
+				
+				<div class="description">
+					Describes the execution of JavaScript within a browser context. A Stackcan be suspended, then provide stack frames, and then be resumed.
+					
+				</div>
+				
+				
+				
+				
+					
+					
+					
+					
+					
+						<dl class="detailList">
+						<dt class="heading">Returns:</dt>
+						
+								<dd>a new JavaScriptStack</dd>
+						
+						</dl>
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="getBreakpoint"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getBreakpoint</b>()
+					
+					</div>
+					<div class="description">
+						Returns the breakpoint this execution context is currently suspended ator <code>null</code> if none.<p>This function does not require communication withthe browser.</p>
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>the <a href="../symbols/Breakpoint.html">Breakpoint</a> this execution context is suspended at or <code>null</code></dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getStackFrames"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getStackFrames</b>(listener)
+					
+					</div>
+					<div class="description">
+						Requests all frames in this execution context asynchronously. Stack frames are only availablewhen an execution context is suspended. Stack frames will be retrieved from the browser (if required) andreported to the listener function when available. The listener function may be called before orafter this function returns. If this execution context is not suspended an empty array is reported.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>listener</b>
+									
+								</dt>
+								<dd>a function that accepts an array of <a href="../symbols/StackFrame.html">StackFrame</a>'s.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="isSuspended"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>isSuspended</b>()
+					
+					</div>
+					<div class="description">
+						Returns whether this execution context is currently suspended.<p>This function does not require communication withthe browser.</p>
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>a boolean indicating whether this execution context is currently suspended</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="resume"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>resume</b>()
+					
+					</div>
+					<div class="description">
+						Requests to resume this execution context asynchronously iff this context is in a suspendedstate. The request will be sent to the browser and an <code>onResume</code> event will besent asynchronously by the <a href="../symbols/Browser.html">Browser</a> when the underlying execution context resumes.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="suspend"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>suspend</b>()
+					
+					</div>
+					<div class="description">
+						Requests to suspend this execution context asynchronously iff this context is in a runningstate. The request will be sent to the browser and an <code>onBreak</code> event will besent asynchronously by the <a href="../symbols/Browser.html">Browser</a> when the underlying execution context suspends.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.3.0 on Fri Feb 11 2011 13:31:55 GMT+0100 (CET)
+		</div>
+    </div>
+</body>
+</html>

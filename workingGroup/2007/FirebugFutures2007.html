@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Firebug Futures Viewed From 2007</title>
+
+
+<!-- metadata -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="generator" content="S5" />
+    <meta name="version" content="S5 1.1" />
+    <meta name="presdate" content="20060209" />
+    <meta name="author" content="John J. Barton" />
+    <meta name="company" content="IBM Almaden Research Center" />
+
+<!--<link rel="stylesheet" type="text/css" media="screen, projection, print" href="http://www.w3.org/Talks/Tools/Slidy/slidy.css" />
+
+<link rel="stylesheet" type="text/css" media="screen, projection, print"
+ href="http://www.w3.org/Talks/Tools/Slidy/w3c-blue.css" />
+-->
+<link rel="stylesheet" type="text/css" media="screen, projection, print" href="slidy.css" />
+<link rel="stylesheet" type="text/css" media="screen, projection, print"  href="restyle.css" />
+<script src="slidy.js" charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="background getfirebug">
+
+   <img  title="GetFirebug logo" id="head-icon" src="http://getfirebug.com/header.png"  type="image/png"
+   alt="GetFirebug logo" id="head-logo-fallback" />
+   <div class="content">
+   </div>
+</div>
+<div class="slide getfirebug">
+<h1>Firebug 1.0</h1>
+<ul>
+<li>Joe Hewitt: web development evolved</li>
+<li>Integrated with Firefox: </li>
+<ul>
+<li>at your finger tips, instant on</li>
+<li>direct reflection of DOM, CSS</li>
+<li>inspect, direct manipulation of debugger</li>
+</ul>
+<li>Huge hit with Web 2.0 developers</li>
+<li>Open sourced Dec. 2006</li>
+<li>Active development ended w/1.05 ~ May 2007</li>
+</ul>
+</div>
+<div class="slide getfirebug"><h1>Firebug 1.0 vs Web 2.0</h1>
+<ul>
+<li>Firebug awesome, but no <code>eval()</code> debugging</li>
+<ul>
+<li>eval() widely used in Web 2.0</li>
+<li>Basis for Dojo toolkit, JSON data</li>
+<li>No debugging support for eval() in Firebug or Venkman</li>
+</ul>
+<li>How to extend Firebug to support <code>eval()</code>?</li>
+<ul><li>Ok, in reality it looked like a bug fix at first...</li></ul>
+</div>
+<div class="slide getfirebug"><h1>Fix <code>eval()</code></h1>
+<h3>Example code, dynamic Javascript eval</h3>
+<pre>
+//  Load the code dynamically
+var req = new XMLHttpRequest();
+req.open('GET','payloadCatsAndDucks.js', false);
+req.send(null);
+eval( req.responseText );  // line 23
+
+//  Now use the code
+prod( new duck() );
+prod( new cat() );
+prod();  // call point of error
+</pre>
+
+</div>
+<div class="slide getfirebug"><h1><code>eval()</code> in Firebug 1.0</h1>
+<pre>
+//  Load the code dynamically
+var req = new XMLHttpRequest();
+req.open('GET','payloadCatsAndDucks.js', false);
+req.send(null);
+eval( req.responseText);  // line 23
+                                       function prod( animal) { // line 24
+//  Now use the code                       animal.say();
+prod( new duck());                     };
+prod( new cat());
+prod();  // call point of error        var duck = function() {
+                                          this.say = function() {
+                                             dump('quack\n');
+                                          };
+                                        }
+                                        var cat = function() {
+                                          this.say = function() {
+                                              dump('meow\n');
+                                          };
+                                        }
+</pre>
+<h3>The <code>eval()</code> code looks overlaid on caller</h3>
+</div>
+<div class="slide getfirebug"><h1>Fix <code>eval()</code></h1>
+<ul>
+<li><code>jsd.scriptHook(script)</code> (script means "function" in Mozilla JS)</li>
+<ul><li>script can be top-level, nested, event, eval, or Function</li></ul>
+<ul><li>both top-level and eval scripts have no <code>functionName</code></li></ul>
+<ul><li>top-level scripts are on top of the stack, eval are not: we have a test</li></ul>
+<ul><li>Ooops: no stack frame in this scriptHook!</li></ul>
+<ul><li>Ok, set a breakpoint in the script at PC=0, return</li></ul>
+<li>jsd.breakpointHook(frame, type, rv)</li>
+<ul><li>Remove our breakpoint, use <code>frame</code> to decide if we have an eval</li></ul>
+<ul><li>Create a unique ID for buffer, <code>data:</code> URL</li></ul>
+<ul><li>Store <code>eval</code> source and metadata in side table</ul>
+<li>Breakpoints, stack traces, error messages:</li>
+<ul><li>Detect eval-frames, use side table</li></ul>
+</ul>
+</div>
+
+<div class="slide getfirebug"><h1>Firebug 1.1.0 beta</h1>
+<ul>
+<li>Ok, its big hack, but it works!</li>
+<ul><li>Did I mention that <code>eval()</code> is critical to Web 2.0?</li></ul>
+<ul><li>Did I mention that Firebug 1.0 was open source but not active?</li></ul>
+<ul><li>How to complete contribution?</li></ul>
+<li>Create 1.1 to contribute <code>eval()</code> debugging</li>
+<ul>
+<li>Build alpha versions</li>
+<li>Incorporate key bug fixes to draw users</li>
+<li>Contribute to discussion group to build trust</li>
+<li>Recruit to broaden impact: Max Stepanov from Aptana joins</li>
+<li>Beta releases, respond to bug reports</li>
+</ul>
+</ul>
+<h2 style="text-align: center"><a href="CallDynLoadedFunction.html" target="_blank">Demo time</a></h2>
+</div>
+
+<div class="slide getfirebug">
+<h1>Firebug 1.1.0</h1>
+<ul>
+<li>Features</li>
+<ul>
+<li>eval()</li>
+<li>executable lines marked</li>
+<li>Call stack side panel</li>
+<li>Firefox 3.0 compatiblity</li>
+<li>New XHR spy implementation</li>
+<li>extended plugin architecture</li>
+<li>editor interaction API</li>
+<li>bug fixes</li>
+</ul>
+<li>Firebug 1.1.0b7 1471 downloads in Oct. 2007</li>
+<ul><li>Firebug-1.1.0b9 will be 1.1.0. Probably.</li></ul>
+<li>...but it's slow</li>
+</ul>
+</div>
+<div class="slide getfirebug"><h1>Firebug 1.2</h1>
+<ul>
+<li>Performance</li>
+<ul>
+<li>create performance tests (done)</li>
+<li>MD5 instead of encodeURIComponent (done)</li>
+<li>Delay add line numbers (in debug)</li>
+<li>re-do script side tables</li>
+<li>performance analyze</li>
+<li>static/dynamic user interaction (?)</li>
+</ul>
+<li>new Function() (done)</li>
+<li>bug fixes</li>
+</ul>
+</div>
+
+<div class="slide getfirebug"><h1>Beyond 1.2</h1>
+<ul><li>Expand dev team <i>Not announced!</i></li>
+<ul>
+<li>John Barton, IBM Almaden</li>
+<li>Max Stepanov <a href="http://www.aptana.com">Aptana</a>, JSD expert</li>
+<li><a href="http://stevesouders.com/bio.html">Steve Souders</a>, the YSlow guy, Yahoo</li>
+<li><a href="http://almaer.com/dion/cv/index.html">Dion Almaer</a> Google, Ajaxian founder</li>
+<li><a href="http://www.joehewitt.com">Joe Hewitt</a> Facebook, Firebug creator</li>
+<li> TBD Mozilla, the Firefox people</li>
+</ul>
+<li>Invest time to create corporate sponsors</li>
+<ul>
+<li>To sustain Firebug open source effort</li>
+<li>On-site demos/talks</li>
+<li>Encourage company-specific plugins</li>
+<li>Intern program</li>
+</ul>
+</ul>
+</div>
+
+<div class="slide getfirebug"><h1>Beyond 1.2</h1>
+<h2>Chromebug: Firebug for Chrome</h2>
+<ul>
+<li>Multi-window/multi-DOM support</li>
+<li><code>chrome</code> urls, Firefox components, extensions</li>
+<li>Avoid eating your own arm</li>
+<li>Goal: do more than Venkman+DOMInspector</li>
+<li>demo</li>
+</ul>
+</div>
+
+<div class="slide getfirebug"><h1>Beyond 1.2</h1>
+<h2>More ambitious features</h2>
+<ul>
+<li>Break on mutation events </li>
+<li>Event/Execution monitoring</li>
+<li>Direct JSON support</li>
+<li>Update w/o reload</li>
+<div class="rhs"><i>Need to size and prioritize these</i></div>
+<li>In-place edit assistance</li>
+<li>Integrated JS/C++ crash analysis</li>
+<li>GC/Memory footprint tools</li>
+<li>...could go on for pages</li>
+</ul>
+</div>
+
+<div class="slide getfirebug"><h1>Firebug 2.0</h1>
+<ul>
+<li>jsDebug 2.0 for Web 2.0</li>
+<ul>
+<li>JSD Built in support for dynamics</li>
+<li>redesign API (stack frames pls!)</li>
+<li>Writable PC/frames</li>
+<li>All-event hook</li>
+<li>GC/Memory hooks</li>
+<li>Migrate firebug-service via shim API</li>
+</ul>
+<li>Mozilla 2</li>
+<ul>
+<li>Debug Support for Tamarin</li>
+</ul>
+<li>Webkit</li>
+<ul><li>implement jsDebug 2.0 for webkit</li></ul>
+<ul><li>primary focus would be mobile</li></ul>
+</ul>
+</div>
+<div class="slide getfirebug"><h1>Logisitics: status</h1>
+<ul>
+<li>Source <a href="http://code.google.com/p/fbug/source">svn at code.google.com</a></li>
+<ul><li>trunk - 1.05 (stable) </li></ul>
+<ul><li>branches/eval - 1.1.0b9 (beta, no tracing) </li></ul>
+<ul><li>branches/firebug1.1 - 1.1.0 (beta w/tracing) </li></ul>
+<ul><li>branches/firebug1.2 - 1.2aX (unstable) </li></ul>
+<li>Downloads</li>
+<ul><li><a href="http://www.getfirebug.com/">1.0:  getfirebug.com </a>Nice, compelling, easy install</li></ul>
+<ul><li><a href="http://fireclipse.xucia.com/">1.1.0b: fireclipse.xucia.com</a> obscure, adequate</li></ul>
+<li>Documentation</li>
+<ul><li><a href="http://code.google.com/p/fbug/issues/list">Bug tracking on code.google.com</a> kinda lame</li></ul>
+<ul><li><a href="http://groups.google.com/group/firebug">Discussion group</a></li></ul>
+<ul><li><a href="http://groups.google.com/group/firebug/web/faq-about-firebug">FAQ</a> short</li></ul>
+<ul><li><a href="http://www.getfirebug.com/docs.html">1.0 docs</a> nice but Needs up date for 1.1</li></ul>
+</ul>
+</div>
+<div class="slide getfirebug"><h1>Logisitics: dual track?</h1>
+<h2>Firebug 1.1.1</h2>
+<ul>
+<li>Bug fix/contained feature migration track</li>
+<li>Merge diffs from 1.2</li>
+<li>Pro: shorter release cycle</li>
+<li>Con: shorter release cycle</li>
+<li>Con: patch management overhead</li>
+<li>Summary: would require a dedicated engineer</li>
+</ul><h3><i>Would be nice, but its not practical now</i></h3>
+</div>
+<div class="slide getfirebug"><h1>Logisitics: multi-track?</h1>
+<h2>Firebug 1.2feature1a</h2>
+<ul>
+<li>Create feature branches</li>
+<li>Each feature branch to track 1.2, merge on accept</li>
+<li>Pro: independent feature progress</li>
+<li>Con: loss of oppportunisitic fixes</li>
+<li>Con: coordination on main branch</li>
+<li>Summary: a good choice for mixed-commitment team</li>
+</ul>
+</div>
+<div class="slide getfirebug"><h1>Logisitics: release</h1>
+<ul>
+<li>A growing, diverse group relies on Firebug</li>
+<ul><li>Need a stable fallback release</li></ul>
+<li>Complex, multiple use-model tool</li>
+<ul><li>Plan for long beta cycle</li></ul>
+<li>Many cool short and long range ideas</li>
+<ul><li>Cool ideas need user input too</li></ul>
+<li>Proposal: Four download pages on GetFirebug</li>
+<ul>
+<li>Firebug Museum: old stable releases (no updates) </li>
+<li>Firebug Stable: one stable release</li>
+<li>Firebug Dev: beta release (updates to self then stable) </li>
+<li>Firebug Labs: experimental features (updates to self then beta on merge)</li>
+</ul>
+</ul>
+</div>
+<div  class="slide getfirebug"><h1>Call to action</h1>
+<ul>
+<li>Joe Hewitt's Firebug  is web development evolved</li>
+<ul><li>but it's a bug-eat-bug world out there</li></ul>
+<li>Development tools need our support</li>
+<ul><li>Javascript is not a toy language, it's a vital economic engine</li></ul>
+<ul><li>We need to build more and better development tools for Javascript</li></ul>
+<ul><li>We need to attract JS development tools developers!</li></ul>
+</ul>
+</div>
+</body>
+</html>

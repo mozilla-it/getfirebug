@@ -1,0 +1,18 @@
+<div id="sidenav" class="sponsors">
+<ul>
+<li>
+    <a href="http://www.mozilla.org"><img src="img/mozilla-logo.jpg"/></a>
+    <br/>
+    <a href="http://www.mozilla.org">mozilla.org</a>
+</li>
+<li>
+    <a href="http://www.ibm.com"><img src="img/ibm-logo.png"/></a>
+    <br/>
+    <a href="http://www.ibm.com">ibm.com</a>
+</li>
+<li>
+    <h3>Your Logo Here</h3>
+    <a href="getinvolved">Join us</a>
+</li>
+</ul>
+</div>

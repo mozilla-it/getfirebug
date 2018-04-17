@@ -1,0 +1,1220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="generator" content="JsDoc Toolkit" />
+        
+        <title>Firebug API Reference - _global_</title>
+
+        <style type="text/css">
+        /* See license.txt for terms of usage */
+
+body {
+    font-size: 12px;
+    font-family: Lucida Grande, Arial, sans-serif;
+}
+
+/************************************************************************************************/
+
+#container {
+    margin-top: 93px;
+    border-top: solid rgb(230, 230, 230) 25px;
+    width: 880px;
+}
+
+#header img {
+    z-index: 200;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+#index {
+    float: left;
+    width: 250px; /*xxxHonza 160px*/
+    left: 8px;
+    background-color: rgb(230, 230, 230); /* #F3F3F3 */
+    padding: 8px;
+    padding-top: 35px;
+}
+
+#content
+{
+    margin-top: -20px;
+    margin-left: 280px; /*xxxHonza 190px*/
+    width: 600px;
+}
+
+/************************************************************************************************/
+
+h1
+{
+    color: #444444;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0;
+    margin: 1em 0 0 .3em;
+}
+
+hr
+{
+    border: none 0;
+    border-top: 1px solid #7F8FB1;
+    height: 1px;
+}
+
+pre.code
+{
+    display: block;
+    padding: 8px;
+    border: 1px dashed #ccc;
+}
+
+a {
+    color: SlateBlue;
+    font-weight: bold;
+}
+
+/************************************************************************************************/
+
+/* cllClasses.tmpl */
+.allClassesMenu {
+}
+
+/************************************************************************************************/
+
+.reportIssue {
+    margin-left: 310px;
+}
+
+/************************************************************************************************/
+
+.classList
+{
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 0 8px;
+    font-family: arial, sans-serif;
+    font-size: 1em;
+    overflow: auto;
+}
+
+.classList li
+{
+    padding: 0;
+    margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+    line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+    background-color: #7F8FB1;
+    color: #fff;
+    font-size:130%;
+    text-align: left;
+    padding: 2px 6px 2px 6px;
+    border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+    vertical-align: top;
+    padding: 4px;
+    border-bottom: 1px #7F8FB1 solid;
+    border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+    border-left: 1px #7F8FB1 solid;
+    width: 140px;
+    text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+    line-height: 15px;
+    color: #002EBE;
+    font-family: "Courier New",Courier,monospace;
+    font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+    text-align: left;
+    font-size: 13px;
+    line-height: 15px;
+}
+
+.description {
+    line-height: 17px !important;
+}
+
+.summaryTable td.nameDescription, .description
+{
+    line-height: 15px;
+    padding: 4px;
+    padding-left: 4px;
+    font-size: 12px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+    list-style: square;
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+.detailList {
+    margin-left: 20px; 
+    line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+    font-weight: bold;
+    padding-bottom: 6px;
+    margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+    color: #777;
+    font-style: italic;
+}
+
+.fineprint
+{
+    text-align: right;
+    font-size: 10px;
+}
+
+        </style>
+	</head>
+
+<body>
+    <div id="container">
+<!-- ============================== header ================================= -->	
+        <!-- begin static/header.html -->
+        <div id="header">
+    <img src="http://getfirebug.com/developer/api/header.png"/>
+</div>
+        <!-- end static/header.html -->
+
+<!-- ============================== classes index ============================ -->
+        <div id="index">
+            <!-- begin publish.classesIndex -->
+            <!-- Top Menu -->
+<div align="center">
+<a href="../index.html">Class Index</a> |
+<a href="../files.html">File Index</a>
+</div>
+<hr />
+
+<!-- List of Modules (objects derived from Firebug.Module) -->
+
+<h2>Modules</h2>
+<ul class="classList">
+    
+    <li><a href="../symbols/Firebug.ActivableModule.html">Firebug.ActivableModule</a></li>
+    
+    <li><a href="../symbols/Firebug.Activation.html">Firebug.Activation</a></li>
+    
+    <li><a href="../symbols/Firebug.CommandLine.Popup.html">Firebug.CommandLine.Popup</a></li>
+    
+    <li><a href="../symbols/Firebug.Inspector.html">Firebug.Inspector</a></li>
+    
+    <li><a href="../symbols/Firebug.Module.html">Firebug.Module</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.html">Firebug.NetMonitor</a></li>
+    
+    <li><a href="../symbols/Firebug.PanelActivation.html">Firebug.PanelActivation</a></li>
+    
+    <li><a href="../symbols/Firebug.Search.html">Firebug.Search</a></li>
+    
+    <li><a href="../symbols/Firebug.Spy.html">Firebug.Spy</a></li>
+    
+    <li><a href="../symbols/Firebug.StartButton.html">Firebug.StartButton</a></li>
+    
+    <li><a href="../symbols/Firebug.SVGViewerModel.html">Firebug.SVGViewerModel</a></li>
+    
+    <li><a href="../symbols/Firebug.XMLViewerModel.html">Firebug.XMLViewerModel</a></li>
+    
+</ul><hr />
+
+
+<!-- List of Panels (objects derived from Firebug.Panel) -->
+
+<h2>Panels</h2>
+<ul class="classList">
+    
+    <li><a href="../symbols/Firebug.ActivablePanel.html">Firebug.ActivablePanel</a></li>
+    
+    <li><a href="../symbols/Firebug.Panel.html">Firebug.Panel</a></li>
+    
+    <li><a href="../symbols/Firebug.SourceBoxPanel.html">Firebug.SourceBoxPanel</a></li>
+    
+</ul><hr />
+
+
+<!-- List of Domplate templates (usually objects derived from Firebug.Rep) -->
+
+<h2>Templates</h2>
+<ul class="classList">
+    
+    <li><a href="../symbols/Firebug.DisabledPanelBox.html">Firebug.DisabledPanelBox</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetInfoBody.html">Firebug.NetMonitor.NetInfoBody</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetInfoHeaders.html">Firebug.NetMonitor.NetInfoHeaders</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetInfoPostData.html">Firebug.NetMonitor.NetInfoPostData</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetRequestEntry.html">Firebug.NetMonitor.NetRequestEntry</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetRequestTable.html">Firebug.NetMonitor.NetRequestTable</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.SizeInfoTip.html">Firebug.NetMonitor.SizeInfoTip</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.TimeInfoTip.html">Firebug.NetMonitor.TimeInfoTip</a></li>
+    
+    <li><a href="../symbols/Firebug.ScriptPanel.WarningRep.html">Firebug.ScriptPanel.WarningRep</a></li>
+    
+    <li><a href="../symbols/Firebug.Spy.XHR.html">Firebug.Spy.XHR</a></li>
+    
+    <li><a href="../symbols/Firebug.SVGViewerModel.ParseError.html">Firebug.SVGViewerModel.ParseError</a></li>
+    
+    <li><a href="../symbols/Firebug.XMLViewerModel.ParseError.html">Firebug.XMLViewerModel.ParseError</a></li>
+    
+</ul><hr />
+
+
+<!-- List of all Services (XPCOM) objects -->
+
+<h2>Services (XPCOM)</h2>
+<ul class="classList">
+    
+    <li><a href="../symbols/httpRequestObserver.html">httpRequestObserver</a></li>
+    
+    <li><a href="../symbols/observerService.html">observerService</a></li>
+    
+</ul><hr />
+
+
+<!-- List of all dialog objects -->
+
+
+<!-- List of all classes -->
+<h2>All Classes</h2>
+<ul class="classList">
+    
+    <li><i><a href="../symbols/_global_.html">_global_</a></i></li>
+    
+    <li><a href="../symbols/annotationService.html">annotationService</a></li>
+    
+    <li><a href="../symbols/ArrayReference.html">ArrayReference</a></li>
+    
+    <li><a href="../symbols/Breakpoint.html">Breakpoint</a></li>
+    
+    <li><a href="../symbols/Browser.html">Browser</a></li>
+    
+    <li><a href="../symbols/Browser.EventListener.html">Browser.EventListener</a></li>
+    
+    <li><a href="../symbols/BrowserContext.html">BrowserContext</a></li>
+    
+    <li><a href="../symbols/CompilationUnit.html">CompilationUnit</a></li>
+    
+    <li><a href="../symbols/Firebug.ActivableModule.html">Firebug.ActivableModule</a></li>
+    
+    <li><a href="../symbols/Firebug.ActivablePanel.html">Firebug.ActivablePanel</a></li>
+    
+    <li><a href="../symbols/Firebug.Activation.html">Firebug.Activation</a></li>
+    
+    <li><a href="../symbols/Firebug.CommandLine.Popup.html">Firebug.CommandLine.Popup</a></li>
+    
+    <li><a href="../symbols/Firebug.DisabledPanelBox.html">Firebug.DisabledPanelBox</a></li>
+    
+    <li><a href="../symbols/Firebug.HTMLLib.html">Firebug.HTMLLib</a></li>
+    
+    <li><a href="../symbols/Firebug.HTMLLib.DOMWalker.html">Firebug.HTMLLib.DOMWalker</a></li>
+    
+    <li><a href="../symbols/Firebug.HTMLLib.NodeSearch.html">Firebug.HTMLLib.NodeSearch</a></li>
+    
+    <li><a href="../symbols/Firebug.HTMLLib.SelectorSearch.html">Firebug.HTMLLib.SelectorSearch</a></li>
+    
+    <li><a href="../symbols/Firebug.HTMLModule.DebuggerListener.html">Firebug.HTMLModule.DebuggerListener</a></li>
+    
+    <li><a href="../symbols/Firebug.Inspector.html">Firebug.Inspector</a></li>
+    
+    <li><a href="../symbols/Firebug.Module.html">Firebug.Module</a></li>
+    
+    <li><a href="../symbols/Firebug.NavigationHistory.html">Firebug.NavigationHistory</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.html">Firebug.NetMonitor</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetInfoBody.html">Firebug.NetMonitor.NetInfoBody</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetInfoHeaders.html">Firebug.NetMonitor.NetInfoHeaders</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetInfoPostData.html">Firebug.NetMonitor.NetInfoPostData</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetRequestEntry.html">Firebug.NetMonitor.NetRequestEntry</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.NetRequestTable.html">Firebug.NetMonitor.NetRequestTable</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.SizeInfoTip.html">Firebug.NetMonitor.SizeInfoTip</a></li>
+    
+    <li><a href="../symbols/Firebug.NetMonitor.TimeInfoTip.html">Firebug.NetMonitor.TimeInfoTip</a></li>
+    
+    <li><a href="../symbols/Firebug.Panel.html">Firebug.Panel</a></li>
+    
+    <li><a href="../symbols/Firebug.PanelActivation.html">Firebug.PanelActivation</a></li>
+    
+    <li><a href="../symbols/Firebug.ScriptPanel.WarningRep.html">Firebug.ScriptPanel.WarningRep</a></li>
+    
+    <li><a href="../symbols/Firebug.Search.html">Firebug.Search</a></li>
+    
+    <li><a href="../symbols/Firebug.SourceBoxDecorator.html">Firebug.SourceBoxDecorator</a></li>
+    
+    <li><a href="../symbols/Firebug.SourceBoxPanel.html">Firebug.SourceBoxPanel</a></li>
+    
+    <li><a href="../symbols/Firebug.Spy.html">Firebug.Spy</a></li>
+    
+    <li><a href="../symbols/Firebug.Spy.XHR.html">Firebug.Spy.XHR</a></li>
+    
+    <li><a href="../symbols/Firebug.Spy.XMLHttpRequestSpy.html">Firebug.Spy.XMLHttpRequestSpy</a></li>
+    
+    <li><a href="../symbols/Firebug.StartButton.html">Firebug.StartButton</a></li>
+    
+    <li><a href="../symbols/Firebug.SVGViewerModel.html">Firebug.SVGViewerModel</a></li>
+    
+    <li><a href="../symbols/Firebug.SVGViewerModel.ParseError.html">Firebug.SVGViewerModel.ParseError</a></li>
+    
+    <li><a href="../symbols/Firebug.XMLViewerModel.html">Firebug.XMLViewerModel</a></li>
+    
+    <li><a href="../symbols/Firebug.XMLViewerModel.ParseError.html">Firebug.XMLViewerModel.ParseError</a></li>
+    
+    <li><a href="../symbols/FunctionReference.html">FunctionReference</a></li>
+    
+    <li><a href="../symbols/httpRequestObserver.html">httpRequestObserver</a></li>
+    
+    <li><a href="../symbols/IntoStepper.html">IntoStepper</a></li>
+    
+    <li><a href="../symbols/JavaScriptStack.html">JavaScriptStack</a></li>
+    
+    <li><a href="../symbols/LineStepper.html">LineStepper</a></li>
+    
+    <li><a href="../symbols/LiteralRegExp.html">LiteralRegExp</a></li>
+    
+    <li><a href="../symbols/ObjectPersister.html">ObjectPersister</a></li>
+    
+    <li><a href="../symbols/ObjectReference.html">ObjectReference</a></li>
+    
+    <li><a href="../symbols/observerService.html">observerService</a></li>
+    
+    <li><a href="../symbols/OutStepper.html">OutStepper</a></li>
+    
+    <li><a href="../symbols/Primitive.html">Primitive</a></li>
+    
+    <li><a href="../symbols/Property.html">Property</a></li>
+    
+    <li><a href="../symbols/StackFrame.html">StackFrame</a></li>
+    
+    <li><a href="../symbols/TextSearch.html">TextSearch</a></li>
+    
+    <li><a href="../symbols/top.Firebug.html">top.Firebug</a></li>
+    
+    <li><a href="../symbols/Variable.html">Variable</a></li>
+    
+</ul>
+<hr />
+            <!-- end publish.classesIndex -->
+        </div>
+
+        <div id="content">
+            <a class="reportIssue" href="http://code.google.com/p/fbug/issues/entry?template=API Reference Report">Report Doc Issue</a>
+             |
+            <a href="http://getfirebug.com/wiki/index.php/Firebug_Source_Code_Comments">How To Comment Firebug Code</a>
+<!-- ============================== class title ============================ -->
+            <h1 class="classTitle">
+                
+                Built-In Namespace _global_
+            </h1>
+
+<!-- ============================== class summary ========================== -->			
+            
+            
+            <p class="description">
+                
+                
+                <br />
+                
+            </p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class _global_.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/_global_.html#define">define</a></b>
+								</div>
+								<div class="description">The function that handles definitions of modules.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/_global_.html#InsideOutBoxView">InsideOutBoxView</a></b>
+								</div>
+								<div class="description">View interface used to populate an InsideOutBox object.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/_global_.html#observersByTopic">observersByTopic</a></b>
+								</div>
+								<div class="description">lends observerService</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/_global_.html#req">req</a></b>
+								</div>
+								<div class="description">Main entry point.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class _global_.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#ChannelListener">ChannelListener</a></b>()
+								</div>
+								<div class="description">This object implements nsIStreamListener interface and is intended to monitor all networkchannels (nsIHttpChannel).</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#checkFirebugVersion">checkFirebugVersion</a></b>(expectedVersion)
+								</div>
+								<div class="description">Compare expected Firebug version with the current Firebug installed.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#getBrowserForWindow">getBrowserForWindow</a></b>(win)
+								</div>
+								<div class="description">Returns <browser> element for specified content window.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#getElementXPath">getElementXPath</a></b>(element)
+								</div>
+								<div class="description">Gets an XPath for an element which describes its hierarchical location.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#getInstanceForStyleSheet">getInstanceForStyleSheet</a></b>(styleSheet, ownerDocument)
+								</div>
+								<div class="description">Retrieves the instance number for a given style sheet.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#isXMLPrettyPrint">isXMLPrettyPrint</a></b>(context, win)
+								</div>
+								<div class="description">Returns true if given document is based on a XML and so displaying pretty printed XML elements.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#LogFunctionStepper">LogFunctionStepper</a></b>()
+								</div>
+								<div class="description">Tracer for learning about function stepping, not part of firebug</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#optionMenu">optionMenu</a></b>(label, option, tooltiptext)
+								</div>
+								<div class="description">Create an option menu item definition.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#preInitialize">preInitialize</a></b>()
+								</div>
+								<div class="description">lends HttpRequestObserver</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#resourceToFile">resourceToFile</a></b>(resourceURL)
+								</div>
+								<div class="description">Converts resource: to file: URL.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/_global_.html#resume">resume</a></b>()
+								</div>
+								<div class="description">Resumes tracing of dependencies and then checks if everything is loaded.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name="define"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>define</b>
+					
+					</div>
+					<div class="description">
+						The function that handles definitions of modules. Differs from
+require() in that a string for the module should be the first argument,
+and the function to execute after dependencies are loaded should
+return a value to define the module corresponding to the first argument's
+name.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/modules_require.js.html">require.js</a>.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="InsideOutBoxView"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>InsideOutBoxView</b>
+					
+					</div>
+					<div class="description">
+						View interface used to populate an InsideOutBox object.All views must implement this interface (directly or via duck typing).
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/content_firebug_insideOutBox.js.html">insideOutBox.js</a>.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="observersByTopic"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>observersByTopic</b>
+					
+					</div>
+					<div class="description">
+						lends observerService
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/modules_observer-service.js.html">observer-service.js</a>.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="req"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>req</b>
+					
+					</div>
+					<div class="description">
+						Main entry point.
+
+If the only argument to require is a string, then the module that
+is represented by that string is fetched for the appropriate context.
+
+If the first argument is an array, then it will be treated as an array
+of dependency string names to fetch. An optional function callback can
+be given, to execute when all of those dependencies are available.
+
+Make a local req variable to help Caja compliance (it assumes things
+on a require that are not standardized), and to give a short
+name for minification/local scope use.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/modules_require.js.html">require.js</a>.
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="ChannelListener"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>ChannelListener</b>()
+					
+					</div>
+					<div class="description">
+						This object implements nsIStreamListener interface and is intended to monitor all networkchannels (nsIHttpChannel). A new instance of this object is created and registered an HTTPchannel. See Firebug.TabCacheModel.onExamineResponse method.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/modules_firebug-channel-listener.js.html">firebug-channel-listener.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="checkFirebugVersion"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>checkFirebugVersion</b>(expectedVersion)
+					
+					</div>
+					<div class="description">
+						Compare expected Firebug version with the current Firebug installed.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/content_firebug_lib.js.html">lib.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>expectedVersion</b>
+									
+								</dt>
+								<dd>Expected version of Firebug.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>-1 the current version is smaller 0 the current version is the same 1 the current version is bigger</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="getBrowserForWindow"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getBrowserForWindow</b>(win)
+					
+					</div>
+					<div class="description">
+						Returns <browser> element for specified content window.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/content_firebug_lib.js.html">lib.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>win</b>
+									
+								</dt>
+								<dd>- Content window</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getElementXPath"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getElementXPath</b>(element)
+					
+					</div>
+					<div class="description">
+						Gets an XPath for an element which describes its hierarchical location.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/content_firebug_lib.js.html">lib.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>element</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="getInstanceForStyleSheet"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>getInstanceForStyleSheet</b>(styleSheet, ownerDocument)
+					
+					</div>
+					<div class="description">
+						Retrieves the instance number for a given style sheet. The instance numberis sheet's index within the set of all other sheets whose URL is the same.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/content_firebug_lib.js.html">lib.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>styleSheet</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>ownerDocument</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="isXMLPrettyPrint"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>isXMLPrettyPrint</b>(context, win)
+					
+					</div>
+					<div class="description">
+						Returns true if given document is based on a XML and so displaying pretty printed XML elements.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/content_firebug_lib.js.html">lib.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>context</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>win</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="LogFunctionStepper"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>LogFunctionStepper</b>()
+					
+					</div>
+					<div class="description">
+						Tracer for learning about function stepping, not part of firebug
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/modules_firebug-service.js.html">firebug-service.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="optionMenu"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>optionMenu</b>(label, option, tooltiptext)
+					
+					</div>
+					<div class="description">
+						Create an option menu item definition. This method is usually used in methods like:Firebug.Panel.getOptionsMenuItems or Firebug.Panel.getContextMenuItems.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/content_firebug_lib.js.html">lib.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>label</b>
+									
+								</dt>
+								<dd>Name of the string from *.properties file.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>option</b>
+									
+								</dt>
+								<dd>Name of the associated option.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String|Optional}</span> <b>tooltiptext</b>
+									
+								</dt>
+								<dd>Optional name of the string from *.properties file     that should be used as a tooltip for the menu.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="preInitialize"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>preInitialize</b>()
+					
+					</div>
+					<div class="description">
+						lends HttpRequestObserver
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/modules_firebug-http-observer.js.html">firebug-http-observer.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="resourceToFile"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>resourceToFile</b>(resourceURL)
+					
+					</div>
+					<div class="description">
+						Converts resource: to file: URL.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/content_firebug_lib.js.html">lib.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>resourceURL</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="resume"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>resume</b>()
+					
+					</div>
+					<div class="description">
+						Resumes tracing of dependencies and then checks if everything is loaded.
+						
+							<br />
+							<i>Defined in: </i> <a href="../symbols/src/modules_require.js.html">require.js</a>.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.3.0 on Tue Mar 22 2011 14:52:17 GMT+0100 (CET)
+		</div>
+    </div>
+</body>
+</html>

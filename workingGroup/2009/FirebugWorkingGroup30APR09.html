@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Firebug Working Group April 30, 2009title>
+
+
+<!-- metadata -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="generator" content="S5" />
+    <meta name="version" content="S5 1.1" />
+    <meta name="presdate" content="20060209" />
+    <meta name="author" content="John J. Barton" />
+    <meta name="company" content="IBM Almaden Research Center" />
+
+<!--<link rel="stylesheet" type="text/css" media="screen, projection, print" href="http://www.w3.org/Talks/Tools/Slidy/slidy.css" />
+
+<link rel="stylesheet" type="text/css" media="screen, projection, print"
+ href="http://www.w3.org/Talks/Tools/Slidy/w3c-blue.css" />
+-->
+<link rel="stylesheet" type="text/css" media="screen, projection, print" href="slidy.css" />
+<link rel="stylesheet" type="text/css" media="screen, projection, print"  href="restyle.css" />
+<style type="text/css">
+ul.compactList li {
+    line-height: 100%;
+    margin: 0em;
+}
+span.fade {
+    color: gray;
+}
+td {
+    align: center;
+    border-style: solid;
+}
+td.table_open {
+    border-style: none;
+}
+tr.table_open {
+    border-style: none;
+}
+td.black {
+    background-color: black;
+}
+table.usersSeeTabs {
+    margin-left:auto; margin-right:auto;
+    width: 80%;
+     border: none;
+     border-collapse: collapse;
+}
+</style>
+<script src="slidy.js" charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="background getfirebug">
+
+   <img  title="GetFirebug logo" id="head-icon" src="http://getfirebug.com/header.png"  type="image/png"
+   alt="GetFirebug logo" id="head-logo-fallback" />
+   <div class="content">
+   </div>
+</div>
+<div class="slide getfirebug">
+<h1>Firebug 1.4b1!</h1>
+<ul>
+<li>Jan 'Honza' Odvarko's net panel: JSON, search, more accurate timings</li>
+<li>   Curtis Bartley's Tabs on Top</li>
+<li>   Han Hillen's Accessibility and Key Remapping</li>
+<li>   Kevin Decker's multi-file search</li>
+<li>   Souders/Barton Simplified Activation</li>
+<li>   Stepanov/Barton Break On Next</li>
+<li>   Team: FBTest!</li>
+</ul>
+<blockquote>quick demo</blockquote>
+</div>
+<div class="slide getfirebug">
+<h1>1.5, 1.6 Strategy Proposal</h1>
+<ul>
+<li>1.5 - (Nov. 2009) - extensions, jsd2-dev</li>
+<ul>
+   <li> Deliver new features through extensions,</li>
+   <li> Distributed development, centralized testing, socialized marketing</li>
+   <li> Re-write jsd, fbs.</li>
+   </ul>
+</ul>
+<ul>
+  <li>1.6 - (Jun 2010) - jsd2</li>
+  <ul>
+   <li> Deliver new features through jsd2</li>
+   <li> Rewrite console. </li>
+   </ul>
+</ul>
+</div>
+
+<div class="slide getfirebug">
+<h1>Console Panel/Command line</h1>
+<dl>
+<dt>status: </dt>
+<dd> de facto standard API; </br> injection code horrible</dd>
+<dt> bugs:</dt>
+<dd> almost all out of date (eg "console not found").</dd>
+<dt>key enhancements</dt>
+<dd> command line across all panels (<a href="http://code.google.com/p/fbug/issues/detail?id=768">768</a>);<br>
+history in large command line (<a href="http://code.google.com/p/fbug/issues/detail?id=1390">1390, 1415, 1590, 1669, 161</a>);<br>
+hierarchical profiler output (<a href="http://code.google.com/p/fbug/issues/detail?id=322">322</a>)</dd>
+<dt>1.6</dt>
+<dd> complete re-write with ChromeObjectWrapper.</dd>
+</dl>
+
+</div>
+<div class="slide getfirebug"><h1>HTML Panel</h1>
+<dl>
+<dt> status</dt><dd> Joe Hewitt's jewel.</dd>
+<dt> bugs</dt><dd> outline out of line (Radcliffe to the rescue?)</dd>
+<dt> key enhancements</dt><dd> Computed Style Side panel<a href="http://code.google.com/p/fbug/issues/detail?id=63">63</a>);<br>
+SVG support (666, 1103, 1342);<br>
+save rendered markup (<a href="http://code.google.com/p/fbug/issues/detail?id=9">9</a>)</dd>
+<dt>    1.5-1.6</dt>
+<dd> no plans</dd>
+</dl>
+</div>
+
+<div class="slide getfirebug"><h1>CSS Panel</h1>
+<dl>
+    <dt>status</dt><dd> under appreciated orphan</dd>
+    <dt>bugs</dt><dd> no biggy</dd>
+    <dt>key enhancements</dt><dd> diff support(<a href="http://code.google.com/p/fbug/issues/detail?id=179">179</a>);<br>
+    save as(<a href="http://code.google.com/p/fbug/issues/detail?id=9">9</a>);<br>
+    support for after, before, hover, popups (1012, 551)</dd>
+    <dt>1.5</dt><dd> diff via extension (kpdecker)</dd>
+</dl>
+</div>
+
+<div class="slide getfirebug">
+    <h1>Script Panel</h1>
+    <dl>
+    <dt>status</dt>
+    <dd> bravely rowing against the tide</dd>
+    <dt>bugs</dt><dd> whack a mole</dd>
+    <dt>enhancement</dt><dd> start over.</dd>
+    <dt>1.5</dt><dd> none: all prep for 1.6</dd>
+    <dt>1.6</dt><dd> re-write <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=449452">jsd</a>; replace fbs </dd>
+    </dl>
+</div>
+
+<div class="slide getfirebug"><h1>DOM Panel</h1>
+<dl>
+    <dt>status</dt><dd> decent, but slow and feature rot</dd>
+    <dt>bugs</dt><dd> features gone missing</dd>
+    <dt>enhancement</dt><dd> customizable selections and views.</dd>
+    <dt>1.5-1.6</dt><dd> no plan</dd>
+</dl>
+</div>
+
+<div class="slide getfirebug"><h1>Net Panel</h1>
+<dl>
+    <dt>status</dt><dd> Jan 'Honza' Odvarko jewel</dd>
+    <dt>bugs</dt><dd> mostly cache related.</dd>
+    <dt>enhancements</dt><dd> integrated js events/timing; <br>
+    multi-page traffic analysis (<a href="http://code.google.com/p/fbug/issues/detail?id=1209">1209, 1681, 131</a>);<br>
+     cache reads (<a href=http://code.google.com/p/fbug/issues/detail?id=1208">1208</a>)</dd>
+    <dt>1.5/1.6</dt><dd> ?</dd>
+    </dl>
+</div>
+
+<div class="slide getfirebug"><h1>Overall UI</h1>
+<dl>
+    <dt>status</dt><dd>Function great, graphics lagging</dd>
+    <dt>bugs</dt><dd>Good but long tail</dd>
+    <dt>enhancements</dt><dd>minimize to bar (<a href="http://code.google.com/p/fbug/issues/detail?id=1678">1678</a>);<br>
+     options icons always visible;<br>
+      different locale from Firefox</dd>
+    <dt>1.5/1.6</dt><dd>none</dd>
+    </dl>
+</div>
+
+<div class="slide getfirebug">
+    <h1>Extensions</h1>
+    <h2>Key features for 1.5</h2>
+    <ul>
+     <li>Several successes without trying.</li>
+     <ul><li> YSlow, FirePHP, FireCookie</li></ul>
+     <li>NextGen, new for 1.5: </li>
+     <ul><li>Event (<a href="http://code.google.com/p/fbug/issues/detail?id=1240">1240</a>), Traces, Diff (<a href="http://code.google.com/p/fbug/issues/detail?id=1241">1241</a>), </li></ul>
+    <li>New Ideas in Extensions</li>
+    <ul>
+       <li>New extension manager(?)</li>
+       <li>Co-tested. "Certified Firebug Extension"?</li>
+       <li>Branded bundles? Eg "Souders Performance Pack for Firebug"</li>
+     </ul>
+    </ul>
+</div>
+
+
+<div class="slide getfirebug">
+    <h1>getfirebug.com</h1>
+    <ul>
+     <li>Documentation</li>
+     <ul><li>Needs work, out of date, incomplete</li><li>Blog seems to help some</li></ul>
+     <li>Releases</li>
+     <ul>
+     <li>Need docs for tracing version</li>
+     <li>Extension swarms</li>
+     </ul>
+</div>
+
+<div class="slide getfirebug">
+    <h1>Relation to Firefox</h1>
+    <ul>
+     <li>Project Connectivity</li>
+     <ul><li>Good and steadily improving.</li></ul>
+     <li>Problem Areas</li>
+     <ul>
+     <li>No JSD support</li>
+     <li>Error processing architecture</li>
+     <li>Cache/Event API incomplete and mysterious</li>
+     <li>"We are the last to know"</li>
+     </ul>
+</div>
+
+<div class="slide getfirebug">
+    <h1>Firebug Lite</h1>
+    <ul>
+     <li>Recent improvements</li>
+     <li>Status update from Mike Radcliffe</li>
+     </ul>
+</div>
+
+<div class="slide getfirebug">
+<h1>Long range issues</h1>
+    <h2><it>Must get priority</it></h2>
+    <ul>
+
+  <li>Growth in web-app complexity</li>
+  <ul>
+     <li>Large/long-lived apps (<a href="http://code.google.com/p/fbug/issues/detail?id=1187">1187</a>) Multiparty apps, js lib consolidation, 3D, interactive video, ... </li>
+   </ul>
+  <li>Project Sustainability</li>
+     <ul><li>Too much core code for 2 developers</li></ul>
+  <li>Competition</li>
+     <ul><li>IE8, WebKit+V8, Dragonfly, </li></ul>
+  <li>New directions</li>
+     <ul><li>Bespin, multi-process, other browsers.</li></ul>
+     </ul>
+
+</div>
+
+<div class="slide getfirebug"><h1>Consequences</h1>
+<h2>Something has to change</h2>
+<ul>
+<li>Scale up by extension,</li>
+    <li> Resist adding core code,</li>
+    <li>FF compatibility lower priority</li>
+    <li>Lobby for another core developer,</li>
+     <li>Focus on 1.5 on FF 3.0 and 1.6 on FF 3.6 (jjb)</li>
+      <li>1.4/1.5 on FF 3.5 will fall to others.</li>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Firebug Controls for Enabling Features</title>
+<style type="text/css" media="screen">@import "../../firebug.css";</style>
+<script type="text/javascript" src="../../jquery/jquery.js"></script>
+<script type="text/javascript" src="../../include-script.js"></script>
+</head>
+<body>
+<div id="main">
+<div id="header"></div>
+
+<div id="content">
+    <img class="topScreen" src="scriptDisabled1.4.jpg"/>
+
+    <div class="columns">
+        <div class="fullColumn">
+            <h1>Enabling Firebug 1.4</h1>
+
+            <p class="bigPara">Firebug tries to stay out of your way until <a href="#YouNeedIt">you need it</a>;
+            it goes away if <a href="#YouSuspendIt">switch to another Firefox tab</a>.
+            Firebug can be optimized for <a href="#HTML_CSS_Authors">HTML authors, CSS designers</a>,
+            <a href="#JavascriptDevs">Javascript developers</a>, and <a href="#SiteEngineers">Site Engineers</a>.
+            <it>This pages describes features of Firebug 1.4</it></p>
+
+            <div class="section" id="YouNeedId">
+                <img class="smallScreen cheapScreen" src="GreyFirebugIconClosed.gif" />
+                <h3>One Click to Start Firebug</h3>
+                <p>After you install Firebug you will see a gray 'Firebug' in the Firefox status bar (along the bottom of the window).
+                Click on the Bug to start. Firebug will open in the bottom of your web page.</p>
+            </div>
+
+            <div class="section">
+                <img class="smallScreen cheapScreen odd" src="InstantHTML_CSS_DOM.gif"/>
+                <h3>Instant HTML, CSS, and DOM Views</h3>
+                <p>  As soon as you open Firebug you can examine the Web page markup, styling, and object model.
+                Three tabs -- <a href="../../html.html">HTML</a>, <a href="../../css.html">CSS</a>, and <a href="../../dom.html">DOM</a> -- activate as soon as you open Firebug.
+                If you are a HTML author or CSS designer, this may be all of the Firebug you need.
+                As long as you don't enable other panels, the overhead caused by using the Firebug should be small:
+                by default Firebug keeps all the expensive features off.</p>
+            </div>
+
+            <div class="section" id="BySite">
+                <img class="smallScreen cheapScreen" src="DisabledFirebugPage.gif" />
+                <h3>Enabling Panels</h3>
+                <p>To work on Javascript code or to study the network action on a site, you need to enable one or more Firebug panels.
+                If you select the Console, Script, or Net panels, you will see the tab is grey and the panel says "disabled". Each
+                panel tab has a small menu control for enabling the panel. All the panels can be enabled or disabled using the
+                context menu (right click) on the Firebug status bar icon.
+                </p>
+            </div>
+
+            <div class="section"  id="YouSuspendIt">
+                <img class="smallScreen cheapScreen odd" src="OrangeFirebug.gif">
+                <h3>Coming up for Air (or email...)</h3>
+                <p>Once you have enabled one of the active-listener panels, Firebug will cause some overhead.
+                Look at Firefox's status bar: you will see that the Firebug icon is now orange, meaning 'on'.
+                As you change tabs, Firebug will suspend if you have not opened Firebug on that page.
+                </p>
+            </div>
+
+            <div class="section" id="ByPanel">
+                <img class="smallScreen cheapScreen" src="MinimizeIt.gif">
+                <h3>Minimize it; close it</h3>
+                <p>To bring down the Firebug UI you can either push the Firebug status bar icon a second time or use the minimize button next to
+                the search box (down arrow).  To close Firebug on a page, use the red [x].</p>
+            </div>
+
+            <div class="section">
+                <img class="smallScreen odd" src="screenUsing-screens.gif">
+                <h3>Use that second monitor</h3>
+                <p>Free Firebug from the tiny confines of the browser and give it a whole window to play with.  If you have two monitors, you'll work even faster with Firebug in one window and Firefox in the other.</p>
+                <p>To open Firebug in a separate window, customize the Firefox toolbars and add the Firebug button.  You can click this button, or use Control+F12 (or Command+F12 on Mac) for fast keyboard access.</p>
+            </div>
+
+            <div class="section" id="WhyEnabled">
+                <img class="smallScreen cheapScreen" src="OrangeFirebug.gif">
+                <h3 >Why is Firebug Still On???</h3>
+                <p>Whenever the Firebug status bar icon is orange (not gray), Firebug has one or more active listeners.
+                If you get confused about why Firebug is still on, hover over the icon. Firebug may be minimized on a tab
+                you currently do not have selected.</p>
+            </div>
+
+            <div class="section">
+                <img class="smallScreen odd" src="screenUsing-f12.gif">
+                <h3>F12 is your friend</h3>
+                <p>The F12 key is undoubtedly the fastest way to get to Firebug.  Train yourself to hit that key when it's time to go debugging.  If you're the big screen type, use Control+F12 (or Command+F12 on Mac) to open Firebug in a separate window.</p>
+            </div>
+
+            <div class="section">
+                <img class="smallScreen" src="screenUsing-text.gif">
+                <h3>Put down your spectacles</h3>
+                <p>If you find yourself squinting at Firebug, don't press your nose against the monitor, just make the font larger.  Firebug lets you increase or decrease the size of its fonts to your heart's content.</p>
+            </div>
+            <div class="section" id="HTML_CSS_Authors">
+                <img class="smallScreen cheapScreen odd" src="HTML_CSS_Authors.gif">
+                <h3 >Firebug For HTML Authors and CSS Designers</h3>
+                <p>If your primary work in Firebug is with HTML or CSS, leave all the active-listener panels <b>Disabled</b>.
+                Firebug will have minimal overhead when you are not using it. You probably want enable the Console to look for errors.
+                Enable one site at a time or enable the Console (only) for all sites, then selectively disable it for
+                sites like your email</p>
+            </div>
+
+            <div class="section" id="JavascriptDevs">
+                <img class="smallScreen cheapScreen" src="JavascriptDevs.gif">
+                <h3>Firebug for Javascript Developers</h3>
+                <p>For Javascript you'll want the Console and Script panels enabled. You may was well run with these panels fully enabled.</p>
+            </div>
+
+            <div class="section" id="SiteEngineers">
+                <img class="smallScreen cheapScreen odd" src="SiteEngineers.gif">
+                <h3>Firebug for Site Engineers</h3>
+                <p>If your primary job is monitoring load times and looking out for 404s, activate the Net panel and perhaps the Console.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer"></div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,330 @@
+Breakpoints in a Web Page Debugger, Firebug 1.5
+
+John J. Barton, IBM Research - Almaden
+Jan Odvarko, Mozilla Corp.
+
+Abstract: While breakpoints are perhaps the quintesenstial feature of
+a debugger, most developers are familiar with breakpoints set on a line
+of source code. For large, complex, web pages with multiple
+developers, the relevant source line for a given user interface
+problem may not be known to the developer. In this paper we describe
+the implementation of breakpoints in dynamically created source, and
+on error messages, network events, DOM mutation, DOM object property
+changes, and CSS style rule updates. These breakpoint features are
+implemented in the open source Firebug project, version 1.5.
+
+
+Introduction
+
+Steady design, development, and deployment of standardized Web programming
+interfaces combined with the introduction of XMLHttpRequest for
+asynchronous data update lead to the "Web 2.0" revolution. This
+shifted Web page user interface development from servers to clients and
+from various server languages to the dominant web client language,
+the combination of Javascript/CSS/HTML.
+As the client-side applications became more sophisticated,
+demand grew for new development tools.
+
+In 2006, Joe Hewitt developed "Firebug", a new kind of debug tool. He
+combined ideas from his previous work on DOMi, the Mozilla document
+object model inspector[domi], with a javascript debugger to create a "Web
+page debugger".  This combination was more than the sum of the parts:
+breakpoints in the Javascript debugger halted the Javascript
+interpreter with stack variables connected to the inspector. This gave
+the developer a complete live-object view of the web page at an
+execution point in their program. Rather than examining memory
+directly, this debugger allows you to examine the graphical state of
+the user interface.
+
+This integration of code debugging and graphics would not be
+considered an innovation to Smalltalk users[smalltalk]. Firebug however was not
+developed within a self-hosting graphical language. Instead, Firebug
+works within a production Web browser written mostly in C++ with a
+later of interpreted graphics on top. Consequently Firebug has to develop
+correlations between Javascript and graphical elements using the
+browser's programming interfaces.
+
+In this paper we extend Hewitt's work to add breakpoints important for
+web debugging beyond the standard source code breakpoints. These
+include breakpoints in dynamically generated code where there may be
+no source file, breakpoints on error conditions and network events,
+breakpoints on object property updates and on markup element
+changes. The implementation of these breakpoints uses a variety of
+techniques that we will describe.
+
+These breakpoints allow the debugger to scale up to much larger, more
+complex, multi-developer projects. In principle, a developer with a
+complete understanding of a program would know which line of code to
+break on for any given problem. In practice, this fails for several
+reasons. Developers can't remember all of the code in a large
+program. They employ advanced programming frameworks that make
+predicting code paths more complex. They work in teams and
+consequently they don't know all of the code. For these and similar
+reasons, setting breakpoints by navigating through source code is not
+always the most effective or convenient solution.
+
+By integrating breakpoints with user interface operations as we do here, the
+developer halts into code based on graphical operations. That means
+they don't need to know all of the code to start debugging. Rather,
+they enter the salient source code based on the user-interface issue
+they wish to investigate. If they wrote the code, this form of
+breakpoint will help them recall the design and begin new development
+work even if some time as passed since they last studied the
+source. If the user-interface operation is implemented in a framework,
+they can use the call-stack in the debugger's user interface to navigate
+into code they control and understand. And if they are working on
+code written by others, these kinds of breakpoints help them
+understand the relationship between the application's operation and
+the source code.
+
+Another way to describe the advantage of these kinds of breakpoints is
+'recall' vs 'recognize' models for information retrieval. Conventional
+breakpoints support 'recall': the user remembers the source location
+and searches for it directly. The breakpoints we describe here support
+'recognize': the user arrives at the source line by operating on the
+application user interface. For example, the developer may inspect the
+end-user view with a graphical element selector in the debugger like
+Firebug's "inspect" feature, then break when the element is changed by
+Javascript code.  In this case there is no "recall" of source, the
+breakpoint is entirely by browsing.
+
+In this paper we describe the techniques we used to implement these
+breakpoints and the issues we faced in practice. We consider each kind
+of breakpoint in the following sections, starting with the user
+experience and then giving some of the implementation information. We
+don't claim that our ideas on breakpoints are novel or not implemented
+elsewhere. Our primary contribution in this paper is the practical
+implementation techniques in Firefox, a modern, extensible web
+browser, which allow these breakpoints to be implemented in a widely
+used production debug tool and the integration of these breakpoints
+into the debugger's user experience.  The interested reader can follow
+along with Firebug 1.5 and the on-line demonstration pages at
+http://getfirebug.com/breakpoints/demo.html.  We will use the
+abbreviation "BP" for breakpoint, UX for user experience, XHR for
+XMLHttpRequest, and "DOM" for Document Object Model; as is
+conventional we will use DOM to mean the concrete data structure
+backing the Web page as well as the abstract architecture.
+
+Breakpoints in Dynamically Created Javascript
+
+Javascript supports the creation of new executable functions at
+runtime with "eval()" function. This feature was heavily used by, for
+example, the 'dojo' javascript framework to support conditional
+construction of an application[dojo].  To support breakpoints in
+dynamically created code, we need to associate a unique identifier
+with the code. This identifier needs to be robust across page reloads,
+since the dominant paradigm for debugging is to set a breakpoint then
+reload the page to stop on the breakpoint and examine the browser
+state.  Because 'eval(str)' takes a string argument, the dynamic
+functions have no source file as far as the browser is concerned. That
+is, compiler sees only the string, not say, the URL used to download
+the source for compilation via "eval()".  More generally, source code
+can create source code so the string may be prepared in memory just
+before execution and the developer may never have seen the particular
+instance executing.
+
+In the particular case of the Firefox browser, obtaining the string
+passed to the compiler involved manipulating the javascript runtime
+through the debug interface. The compiler provides notification of
+compilation ('onScriptCreated') but not source compiled nor an
+indication of whether that source is from 'eval()', a 'script' tag, or
+a browser generated source.  To distinguish these cases it was
+necessary to set a breakpoint in the compiled code at program counter
+zero and, when the engine hit the breakpoint, examine the call stack
+heuristically. Ideally this approach would not be necessary, but it is
+worth noting that a debugger has this ability to create such
+un-conventional control flows.
+
+Given the source string we need a unique identifier for it.  Our
+initial implementation followed previous suggestions to encode the
+source string as a 'data:' URL[bugzilla]. The 'data:' URL is a valid
+input to various parts of the brower, making it attractive for this
+purpose and for small programs this approach was effective. However
+the performance of this implementation was unacceptably slow, probably
+because it more than doubles the memory required for source files and
+the encoding algorithm is not highly optimized.
+
+We reimplemented the identifier computation in two ways. First, we use
+the browser's builtin MD5 hash computation function to create a 128
+bit identifier very likely to be unique to the string.  The built-in
+function for MD5 is highly optimized (though other similar algorithms
+may be somewhat faster).  Second we look for a sentinel string at the
+end of the eval() string giving a user-defined value for the
+identifier; this can be used by, e.g. dojo framework to connect the
+compiled source to the download URL.
+
+The same solution can be applied to browser-generated functions, for
+example, functions generated to implement 'click' event
+handlers. These functions wrap an expression given withn HTML markup.
+Attempts to apply the same solution to functions created by
+Javascript's "new Function" feature failed because the heuristics to
+access the source string became too complex. Additional support from
+the browser will be needed for that case.
+
+User-experience. Once the identifiers are computed from the source
+strings, all of the remaining debugger infrastructure and user
+interface features work as for static sources. In the case of source
+URLs at the end of the source buffer, the use is hardly aware of any
+difference between static and dynamic sources. For the MD5
+identifiers, the user sees a source URL based on the call site of the
+eval() with an appended fragment of source code. Once they connect this to the
+eval(), the rest of the experience is conventional.
+
+Breakpoints on Errors
+
+Two different BPs relate to errors: an error-selected source-code line
+BP and break on next error. The first kind is a conventional source
+code BP created by navigation through the error message as described
+in the UX section below. The implementation of the second one is
+described next.
+
+Break on exception is a common feature of debuggers. Our
+implementation relies on the Javascript engine's |onError()| method
+called for every exception. When |onError()| is called we don't
+directly enter the debugger' user interface code. Rather we call our
+method |breakNow()| which sets a break-cause object containing error
+message and then executes a single Javascript statement
+"debugger;". This triggers the JS engine to call our |onDebugger()|
+function. In this handler we examine the stackframes, skip frames from
+the debugger itself, then find the file and line number for the
+developer's frame. We pick up the break cause, position the source
+code view to the file and line, and pop up a bubble giving the error
+message text.  The |breakNow| function is used for many of our
+breakpoints to increate code reuse and ensure a consistency in the
+user experience across BP implementations.
+
+UX: As a Web page operates with Firebug active, errors in the page are
+signaled to the developer with a red error counter in the browser's
+status bar across the bottom. Clicking on the error count opens
+Firebug on the Console panel (or selects the Console panel if Firebug
+was open). The error message is shown as a line along with a stack
+trace to the problem and one line of source showing where the error
+occured. The developer can click on the left end of the line to set a
+breakpoint on the source code line. This is a simple form of setting
+BPs by navigation: the BP is set via an error message. However, this
+BP is set on source code and to trigger the BP the page must be
+operated again to reproduce the condition that caused the error.
+
+For Break on Next, not specific line of source has a
+breakpoint. Instead the developer clicks the Console panel's "pause"
+button. This arms the breakNow() code path described above.  The
+user-interface signals the the change in state by changing the color
+of the Console panel label and animating the pause icon to simulate
+"throbbing" bars. When the breakpoint hits, the break cause is loaded
+with the error message and |breakNow()| is called as describe above.
+
+
+
+
+Breakpoints on Network Events
+
+Since XMLHttpRequest has been introduced for asynchronous data update,
+more and more web developers are using this technique to replace
+traditional model where a web page is entirely reloaded every time the
+user performs an action. The modern XHR approach allows loading
+additional data or further parts of the application logic without
+necessity to leave the current page. This dramatically improves
+usability and responsiveness of a Web application.
+
+Using dynamic XHR pattern for building online applications has
+obviously impact on amount of code that developers have to write on
+the client side. The more code is involved in the network
+communication the more effective tools for debugging are required.
+
+Firebug already contained a tool that can be used to monitor and
+analyze HTTP traffic between a client browser and the server, but
+there was no integration with the Firebug debugger.  And so, we
+decided to support direct debugging of code that is responsible for
+sending network requests, by implementing breakpoints related to
+network events. Clearly, these also fall into the 'recognize' category
+described earlier.
+
+The practice purpose of Network breakpoints is to halt javascript
+execution when a requests is made to a specific URL. When an existing
+breakpoint, associated with that URL, is found Firebug debugger is
+immediately activated showing javascript source line that initiated
+that request.
+
+It's also possible to create a breakpoint condition that utilizes URL
+query string parameters or posted data and causes halt only if it's
+evaluated to true at the time of the network event.  In other words,
+if the developer wanted to halt on request to
+http://example.com/address.html?person=Joe, only when 'person'
+parameter is equal to 'Joe', the condition would be: 'person == Joe'.
+
+
+UX: Unlike conventional source-code breakpoints, XHR breakpoints are
+dynamic. Thus the web page must first be operatede to produce the
+XHR. Then the developer can navigate to the debugger's view of the
+request [Fig. Firebug Net Panel w/B set]. Each XHR appears on a
+separate line; the developer selects a request for breaking by
+clicking in the left end. To increase developer awareness of the BP
+feature, the XHT lines are styled with a gray cell on the left end,
+consistent with the source code display in the Script panel.
+
+To activate the BP, the developer operates the Web page to cause the
+XHR event [FIG]. At the breakpoint, the usual debugging operations can
+be performed and execution can be continued. When many XHR events
+occur, the developer may avoid tedious repitive break/continue
+operations by using the conditional expresssions. A right click on the
+BP indicator opens a one-line expression input control. The developer
+would typically enter an expression evaluating to a Boolean value and
+using parameters to the XHR call they they wish to break on.
+
+In the opposite extreme, the developer can elect to break on the next
+XHR event of any kind by clicking the yellow "pause" parallel bar icon
+(see prev Fig). The feature can be useful to gain understanding of the
+application when the connection between XHR and Web page user
+interaction is not well understood or when the XHR event timing is
+unclear. This feature can be combined with the conditional XHR BP set
+to "false" to skip XHR events that are understood. (NEED TO TEST).
+ 
+
+Breakpoints on HTML (DOM Mutation) Events
+
+Modern Web pages create dynamic use experiences in part by Javascript
+UI event handlers that add or remove HTML elements or their
+attributes. The W3C XXXX standard implemented by Firefox supports DOM
+mutation events raised for each change in the DOM. The BP
+implementation for the HTML panel simply adds listeners for each DOM
+mutation event and calls the |breakNow| function described above.
+
+UX: The HTML BP dramatically illustrates the browse or navigate
+approach to BPs. Using Firebug's inspect feature, a developer points
+to the Web page graphical area they want to investigate. The HTML
+panel updates to show the HTML reconstruction of the current state of
+the corresponding DOM element. The developer right clicks on the
+element and selects one or more menu entry for break on attribute
+change, child element addition or removal, or element removal. Then
+they operate the page and the debugger halts on the Javascript code
+that causes the corresponding mutation. Only at this last step does
+the developer engage with the source code view.
+
+
+Breakpoints on DOM Property Changes
+
+A common feature of debuggers is to break the execution flow when
+memory is written. In object-oriented languages, the debugger can
+express this operation in terms of object changes. We implement this
+feature in Firebug using Firefox's |watch()| method available for all
+objects. The method (if defined) is called whenever an object property
+is changed. The BP implementation simply defines the watch() tocall
+|breakNow()| as described above.
+
+UX: Object properties are shown in Firebug as name-value pairs on
+separate lines. Following the style of the Net and Script panels, the
+DOM panel shows a gray area on the left end of the line where the
+developer can click to set a property change BP. When the BP hits, the
+source lines causing the modification is highlighted and a pop-up
+balloon give the old and new property values.
+
+
+
+Breakpoints on CSS Style Rule Changes
+
+Breakpoints support for Extensions
+
+Conclusion
+
+
+(c) 2009 IBM and John J. Barton; Jan Odvarko and Mozilla Corp.

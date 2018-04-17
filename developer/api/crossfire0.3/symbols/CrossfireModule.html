@@ -1,0 +1,1806 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="generator" content="JsDoc Toolkit" />
+        
+        <title>Firebug API Reference - CrossfireModule</title>
+
+        <style type="text/css">
+        /* See license.txt for terms of usage */
+
+body {
+    font-size: 12px;
+    font-family: Lucida Grande, Arial, sans-serif;
+}
+
+/************************************************************************************************/
+
+#container {
+    margin-top: 93px;
+    border-top: solid rgb(230, 230, 230) 25px;
+    width: 880px;
+}
+
+#header img {
+    z-index: 200;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#index {
+    float: left;
+    width: 250px; /*xxxHonza 160px*/
+    left: 8px;
+    background-color: rgb(230, 230, 230); /* #F3F3F3 */
+    padding: 8px;
+    padding-top: 35px;
+}
+
+#content
+{
+    margin-top: -20px;
+    margin-left: 280px; /*xxxHonza 190px*/
+    width: 600px;
+}
+
+/************************************************************************************************/
+
+h1
+{
+    color: #444444;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0;
+    margin: 1em 0 0 .3em;
+}
+
+hr
+{
+    border: none 0;
+    border-top: 1px solid #7F8FB1;
+    height: 1px;
+}
+
+pre.code
+{
+    display: block;
+    padding: 8px;
+    border: 1px dashed #ccc;
+}
+
+a {
+    color: SlateBlue;
+    font-weight: bold;
+}
+
+/************************************************************************************************/
+
+/* cllClasses.tmpl */
+.allClassesMenu {
+}
+
+/************************************************************************************************/
+
+.reportIssue {
+    margin-left: 310px;
+}
+
+/************************************************************************************************/
+
+.classList
+{
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 0 8px;
+    font-family: arial, sans-serif;
+    font-size: 1em;
+    overflow: auto;
+}
+
+.classList li
+{
+    padding: 0;
+    margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+    line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+    background-color: #7F8FB1;
+    color: #fff;
+    font-size:130%;
+    text-align: left;
+    padding: 2px 6px 2px 6px;
+    border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+    vertical-align: top;
+    padding: 4px;
+    border-bottom: 1px #7F8FB1 solid;
+    border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+    border-left: 1px #7F8FB1 solid;
+    width: 140px;
+    text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+    line-height: 15px;
+    color: #002EBE;
+    font-family: "Courier New",Courier,monospace;
+    font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+    text-align: left;
+    font-size: 13px;
+    line-height: 15px;
+}
+
+.description {
+    line-height: 17px !important;
+}
+
+.summaryTable td.nameDescription, .description
+{
+    line-height: 15px;
+    padding: 4px;
+    padding-left: 4px;
+    font-size: 12px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+    list-style: square;
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+.detailList {
+    margin-left: 20px; 
+    line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+    font-weight: bold;
+    padding-bottom: 6px;
+    margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+    color: #777;
+    font-style: italic;
+}
+
+.fineprint
+{
+    text-align: right;
+    font-size: 10px;
+}
+
+        </style>
+	</head>
+
+<body>
+    <div id="container">
+<!-- ============================== header ================================= -->	
+        <!-- begin static/header.html -->
+        <div id="header">
+    <img src="http://getfirebug.com/developer/api/header.png"/>
+</div>
+        <!-- end static/header.html -->
+
+<!-- ============================== classes index ============================ -->
+        <div id="index">
+            <!-- begin publish.classesIndex -->
+            <!-- Top Menu -->
+<div align="center">
+<a href="../index.html">Class Index</a> |
+<a href="../files.html">File Index</a>
+</div>
+<hr />
+
+<!-- List of Modules (objects derived from Firebug.Module) -->
+
+<h2>Modules</h2>
+<ul class="classList">
+    
+    <li><a href="../symbols/CrossfireModule.html">CrossfireModule</a></li>
+    
+</ul><hr />
+
+
+<!-- List of Panels (objects derived from Firebug.Panel) -->
+
+
+<!-- List of Domplate templates (usually objects derived from Firebug.Rep) -->
+
+
+<!-- List of all Services (XPCOM) objects -->
+
+
+<!-- List of all dialog objects -->
+
+
+<!-- List of all classes -->
+<h2>All Classes</h2>
+<ul class="classList">
+    
+    <li><i><a href="../symbols/_global_.html">_global_</a></i></li>
+    
+    <li><a href="../symbols/CommandLineHandler.html">CommandLineHandler</a></li>
+    
+    <li><a href="../symbols/CrossfireModule.html">CrossfireModule</a></li>
+    
+    <li><a href="../symbols/CrossfireSocketTransport.html">CrossfireSocketTransport</a></li>
+    
+    <li><a href="../symbols/EventPacket.html">EventPacket</a></li>
+    
+    <li><a href="../symbols/FirebugCommandAdaptor.html">FirebugCommandAdaptor</a></li>
+    
+    <li><a href="../symbols/RequestPacket.html">RequestPacket</a></li>
+    
+    <li><a href="../symbols/ResponsePacket.html">ResponsePacket</a></li>
+    
+</ul>
+<hr />
+            <!-- end publish.classesIndex -->
+        </div>
+
+        <div id="content">
+            <a class="reportIssue" href="http://code.google.com/p/fbug/issues/entry?template=API Reference Report">Report Doc Issue</a>
+             |
+            <a href="http://getfirebug.com/wiki/index.php/Firebug_Source_Code_Comments">How To Comment Firebug Code</a>
+<!-- ============================== class title ============================ -->
+            <h1 class="classTitle">
+                
+                Class CrossfireModule
+            </h1>
+
+<!-- ============================== class summary ========================== -->			
+            
+            
+            <p class="description">
+                
+                Firebug Module for Crossfire. This module acts as a controller
+between Firebug and the remote debug connection.  It is responsible for
+opening a connection to the remote debug host and dispatching any
+command requests to the FirebugCommandAdaptor.
+<br><br>
+This module also adds context and debugger listeners and sends the
+appropriate events to the remote host.
+                <br />
+                
+                    <br /><i>Defined in: </i> <a href="../symbols/src/firefox_chrome_content_crossfire.js.html">crossfire.js</a>.
+                
+            </p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class CrossfireModule.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/CrossfireModule.html#constructor">CrossfireModule</a></b>()
+							</div>
+							<div class="description"></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class CrossfireModule.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CrossfireModule.<b><a href="../symbols/CrossfireModule.html#.connectClient">connectClient</a></b>(host, port)
+								</div>
+								<div class="description">Attempts to connect to remote host/port</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CrossfireModule.<b><a href="../symbols/CrossfireModule.html#.copyFrame">copyFrame</a></b>(frame, ctx, shouldCopyStack)
+								</div>
+								<div class="description">Make a copy of a frame since the jsdIStackFrame's are ephemeral,
+but our protocol is asynchronous so the original frame object may
+be gone by the time the remote host requests it.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CrossfireModule.<b><a href="../symbols/CrossfireModule.html#.destroyContext">destroyContext</a></b>(context)
+								</div>
+								<div class="description">Handles a context being destroyed - i.e.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CrossfireModule.<b><a href="../symbols/CrossfireModule.html#.disconnect">disconnect</a></b>()
+								</div>
+								<div class="description">Disconnects the current connection and closes the socket.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CrossfireModule.<b><a href="../symbols/CrossfireModule.html#.handleRequest">handleRequest</a></b>(request)
+								</div>
+								<div class="description">Looks up the context by the request object's <code>context_id</code>
+property and calls the requested command on that context's command adaptor.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CrossfireModule.<b><a href="../symbols/CrossfireModule.html#.initContext">initContext</a></b>(context)
+								</div>
+								<div class="description">Handles a context being created - i.e.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CrossfireModule.<b><a href="../symbols/CrossfireModule.html#.listContexts">listContexts</a></b>()
+								</div>
+								<div class="description">Called in response to a <code>listcontexts</code> command.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CrossfireModule.<b><a href="../symbols/CrossfireModule.html#.loadedContext">loadedContext</a></b>(context)
+								</div>
+								<div class="description">Handles a context being loaded - i.e.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CrossfireModule.<b><a href="../symbols/CrossfireModule.html#.logFormatted">logFormatted</a></b>(context, objects, className, sourceLink)
+								</div>
+								<div class="description">Generates event packets based on the className (log,debug,info,warn,error).</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CrossfireModule.<b><a href="../symbols/CrossfireModule.html#.onConnectionStatusChanged">onConnectionStatusChanged</a></b>(status)
+								</div>
+								<div class="description">Called when the status of the transport's connection changes.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CrossfireModule.<b><a href="../symbols/CrossfireModule.html#.onInspectNode">onInspectNode</a></b>(context, node)
+								</div>
+								<div class="description">Handles a node being inspected in Firebug.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CrossfireModule.<b><a href="../symbols/CrossfireModule.html#.onModifyBreakpoint">onModifyBreakpoint</a></b>(context, xpath, type)
+								</div>
+								<div class="description">Handles a breakpoint being modified in Firebug.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CrossfireModule.<b><a href="../symbols/CrossfireModule.html#.onResume">onResume</a></b>(context)
+								</div>
+								<div class="description">Handles Firebug resuming and sets the running state to <code>true</code>.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CrossfireModule.<b><a href="../symbols/CrossfireModule.html#.onSourceFileCreated">onSourceFileCreated</a></b>(context, sourceFile)
+								</div>
+								<div class="description">Handles a script being loaded - i.e.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CrossfireModule.<b><a href="../symbols/CrossfireModule.html#.onStartDebugging">onStartDebugging</a></b>(context)
+								</div>
+								<div class="description">Handles Firebug suspending.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CrossfireModule.<b><a href="../symbols/CrossfireModule.html#.onStatusMenuShowing">onStatusMenuShowing</a></b>(menu)
+								</div>
+								<div class="description">Call-back when the menu is showing</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CrossfireModule.<b><a href="../symbols/CrossfireModule.html#.onStop">onStop</a></b>(context, frame, type, rv)
+								</div>
+								<div class="description">Handles Firebug stopping
+<br><br>
+Fires an <code>onStop</code> event.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CrossfireModule.<b><a href="../symbols/CrossfireModule.html#.onToggleBreakpoint">onToggleBreakpoint</a></b>(context, url, lineNo, isSet, props)
+								</div>
+								<div class="description">Handles a breakpoint being toggled on or off in the Firebug.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CrossfireModule.<b><a href="../symbols/CrossfireModule.html#.onToggleErrorBreakpoint">onToggleErrorBreakpoint</a></b>(context, url, lineNo, isSet, props)
+								</div>
+								<div class="description">Handles toggling an error breakpoint on or off in Firebug.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CrossfireModule.<b><a href="../symbols/CrossfireModule.html#.setRunning">setRunning</a></b>(isRunning)
+								</div>
+								<div class="description">Update the Crossfire running status.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CrossfireModule.<b><a href="../symbols/CrossfireModule.html#.showContext">showContext</a></b>(browser, context)
+								</div>
+								<div class="description">Handles a context being shown - i.e.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CrossfireModule.<b><a href="../symbols/CrossfireModule.html#.startServer">startServer</a></b>(host, port)
+								</div>
+								<div class="description">Listen for incoming connections on a port.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CrossfireModule.<b><a href="../symbols/CrossfireModule.html#.stopServer">stopServer</a></b>()
+								</div>
+								<div class="description">Stops the server and closes the socket</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CrossfireModule.<b><a href="../symbols/CrossfireModule.html#.updateStatusIcon">updateStatusIcon</a></b>(status)
+								</div>
+								<div class="description">Update the Crossfire connection status icon.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CrossfireModule.<b><a href="../symbols/CrossfireModule.html#.updateStatusText">updateStatusText</a></b>(status)
+								</div>
+								<div class="description">Updates the Crossfire status text</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>CrossfireModule</b>()
+				</div>
+				
+				<div class="description">
+					
+					
+				</div>
+				
+				
+				
+				
+					
+					
+					
+					
+					
+					
+					
+						<dl class="detailList">
+						<dt class="heading">See:</dt>
+						
+							<dd>FirebugCommandAdaptor.js</dd>
+						
+						</dl>
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name=".connectClient"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CrossfireModule.</span><b>connectClient</b>(host, port)
+					
+					</div>
+					<div class="description">
+						Attempts to connect to remote host/port
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>host</b>
+									
+								</dt>
+								<dd>the remote host name.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Number}</span> <b>port</b>
+									
+								</dt>
+								<dd>the remote port number.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".copyFrame"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Array}</span>
+					<span class="light">CrossfireModule.</span><b>copyFrame</b>(frame, ctx, shouldCopyStack)
+					
+					</div>
+					<div class="description">
+						Make a copy of a frame since the jsdIStackFrame's are ephemeral,
+but our protocol is asynchronous so the original frame object may
+be gone by the time the remote host requests it.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>frame</b>
+									
+								</dt>
+								<dd>the stackframe to copy</dd>
+							
+								<dt>
+									<b>ctx</b>
+									
+								</dt>
+								<dd>the current Crossfire context</dd>
+							
+								<dt>
+									<b>shouldCopyStack</b>
+									
+								</dt>
+								<dd>is the stack of the frame should also be copied</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>a copy of the given stackframe</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".destroyContext"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CrossfireModule.</span><b>destroyContext</b>(context)
+					
+					</div>
+					<div class="description">
+						Handles a context being destroyed - i.e. a tab has been closed in the browser. 
+<br><br>
+Fires an <code>onContextDestroyed</code> event.
+<br><br>
+The event body contains the following:
+<ul>
+<li><code>context_id</code> - the id of the current Crossfire context</li>
+</ul>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>context</b>
+									
+								</dt>
+								<dd>the context that has been destroyed</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".disconnect"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CrossfireModule.</span><b>disconnect</b>()
+					
+					</div>
+					<div class="description">
+						Disconnects the current connection and closes the socket.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".handleRequest"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CrossfireModule.</span><b>handleRequest</b>(request)
+					
+					</div>
+					<div class="description">
+						Looks up the context by the request object's <code>context_id</code>
+property and calls the requested command on that context's command adaptor.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>request</b>
+									
+								</dt>
+								<dd>the original request from SocketTransport</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".initContext"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CrossfireModule.</span><b>initContext</b>(context)
+					
+					</div>
+					<div class="description">
+						Handles a context being created - i.e. a new tab has been opened.
+<br><br>
+Fires an <code>onContextCreated</code> event.
+<br><br>
+The event body contains the following:
+<ul>
+<li><code>context_id</code> - the id of the current Crossfire context</li>
+<li><code>data</code> - the event payload with the <code>href</code> value set</li>
+</ul>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>context</b>
+									
+								</dt>
+								<dd>the new context</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".listContexts"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Array}</span>
+					<span class="light">CrossfireModule.</span><b>listContexts</b>()
+					
+					</div>
+					<div class="description">
+						Called in response to a <code>listcontexts</code> command.
+This method returns all the context id's that we know about.
+
+This is the only method that returns a protocol command response
+that is not implemented in FirebugCommandAdaptor, because it is
+not specific to one context.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>an Array of the known list of contexts</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".loadedContext"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CrossfireModule.</span><b>loadedContext</b>(context)
+					
+					</div>
+					<div class="description">
+						Handles a context being loaded - i.e. the scripts in a given context have completed being compiled.
+<br><br>
+Fires an <code>onContextLoaded</code> event.
+<br><br>
+The event body contains the following:
+<ul>
+<li><code>context_id</code> - the id of the current Crossfire context</li>
+<li><code>data</code> - the event payload with the <code>href</code> value set</li>
+</ul>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>context</b>
+									
+								</dt>
+								<dd>the context that completed loading</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".logFormatted"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CrossfireModule.</span><b>logFormatted</b>(context, objects, className, sourceLink)
+					
+					</div>
+					<div class="description">
+						Generates event packets based on the className (log,debug,info,warn,error). 
+The object or message logged is contained in the packet's <code>data</code> property.
+<br><br>
+Fires one of the following events:
+<ul>
+<li><code>onConsoleLog</code></li>
+<li><code>onConsoleDebug</code></li>
+<li><code>onConsoleInfo</code></li>
+<li><code>onConsoleWarn</code></li>
+<li><code>onConsoleError</code></li>
+</ul>
+<br><br>
+The event body contains the following:
+<ul>
+<li><code>context_id</code> - the id of the current Crossfire context</li>
+<li><code>data</code> - the event payload from Firebug</li>
+</ul>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>context</b>
+									
+								</dt>
+								<dd>the current Crossfire context</dd>
+							
+								<dt>
+									<b>objects</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>className</b>
+									
+								</dt>
+								<dd>the name of the kind of console event.
+<br>
+One of:
+<ul>
+<li>log</li>
+<li>debug</li>
+<li>info</li>
+<li>warn</li>
+<li>error</li>
+</ul></dd>
+							
+								<dt>
+									<b>sourceLink</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".onConnectionStatusChanged"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CrossfireModule.</span><b>onConnectionStatusChanged</b>(status)
+					
+					</div>
+					<div class="description">
+						Called when the status of the transport's connection changes.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>status</b>
+									
+								</dt>
+								<dd>the status to report</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".onInspectNode"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CrossfireModule.</span><b>onInspectNode</b>(context, node)
+					
+					</div>
+					<div class="description">
+						Handles a node being inspected in Firebug.
+<br><br>
+Fires an <code>onInspectNode</code> event.
+<br><br>
+The event body contains the following:
+<ul>
+<li><code>context_id</code> - the id of the current Crossfire context</li>
+<li><code>data</code> - the event payload from Firebug with the <code>node</code> value set</li>
+</ul>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>context</b>
+									
+								</dt>
+								<dd>the current Crossfire context</dd>
+							
+								<dt>
+									<b>node</b>
+									
+								</dt>
+								<dd>the node being inspected</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".onModifyBreakpoint"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CrossfireModule.</span><b>onModifyBreakpoint</b>(context, xpath, type)
+					
+					</div>
+					<div class="description">
+						Handles a breakpoint being modified in Firebug.
+<br><br>
+Fires an <code>onToggleBreakpoint</code> event for HTML breakpoints.
+<br><br>
+The event body contains the following:
+<ul>
+<li><code>context_id</code> - the id of the current Crossfire context</li>
+<li><code>data</code> - the event payload from Firebug which contains 
+the <code>xpath</code> and <code>type</code> entries</li>
+</ul>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>context</b>
+									
+								</dt>
+								<dd>the current Crossfire context</dd>
+							
+								<dt>
+									<b>xpath</b>
+									
+								</dt>
+								<dd>the xpath the breakpoint was modified for</dd>
+							
+								<dt>
+									<b>type</b>
+									
+								</dt>
+								<dd>the type of the breakpoint</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".onResume"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CrossfireModule.</span><b>onResume</b>(context)
+					
+					</div>
+					<div class="description">
+						Handles Firebug resuming and sets the running state to <code>true</code>.
+<br><br>
+Fires an <code>onResume</code> event.
+<br><br>
+The event body contains the following:
+<ul>
+<li><code>context_id</code> - the id of the current Crossfire context</li>
+</ul>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>context</b>
+									
+								</dt>
+								<dd>the current Crossfire context</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".onSourceFileCreated"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CrossfireModule.</span><b>onSourceFileCreated</b>(context, sourceFile)
+					
+					</div>
+					<div class="description">
+						Handles a script being loaded - i.e. a script has been compiled in the current context.
+<br><br>
+Fires an <code>onScript</code> event.
+<br><br>
+The event body contains the following:
+<ul>
+<li><code>context_id</code> - the id of the current Crossfire context</li>
+<li><code>data</code> - the event payload from Firebug</li>
+</ul>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>context</b>
+									
+								</dt>
+								<dd>the context of this event</dd>
+							
+								<dt>
+									<b>sourceFile</b>
+									
+								</dt>
+								<dd>the source file object</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".onStartDebugging"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CrossfireModule.</span><b>onStartDebugging</b>(context)
+					
+					</div>
+					<div class="description">
+						Handles Firebug suspending.
+<br><br>
+Fires an <code>onBreak</code> event.
+<br><br>
+The event body contains the following:
+<ul>
+<li><code>context_id</code> - the id of the current Crossfire context</li>
+<li><code>data</code> - the event payload from Firebug with the <code>url</code> and <code>line</code> values set</li>
+</ul>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>context</b>
+									
+								</dt>
+								<dd>the current Crossfire context</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".onStatusMenuShowing"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CrossfireModule.</span><b>onStatusMenuShowing</b>(menu)
+					
+					</div>
+					<div class="description">
+						Call-back when the menu is showing
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>menu</b>
+									
+								</dt>
+								<dd>the menu showing</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".onStop"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CrossfireModule.</span><b>onStop</b>(context, frame, type, rv)
+					
+					</div>
+					<div class="description">
+						Handles Firebug stopping
+<br><br>
+Fires an <code>onStop</code> event.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>context</b>
+									
+								</dt>
+								<dd>the current Crossfire context</dd>
+							
+								<dt>
+									<b>frame</b>
+									
+								</dt>
+								<dd>the current stackframe</dd>
+							
+								<dt>
+									<b>type</b>
+									
+								</dt>
+								<dd></dd>
+							
+								<dt>
+									<b>rv</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".onToggleBreakpoint"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CrossfireModule.</span><b>onToggleBreakpoint</b>(context, url, lineNo, isSet, props)
+					
+					</div>
+					<div class="description">
+						Handles a breakpoint being toggled on or off in the Firebug.
+<br><br>
+Fires an <code>onToggleBreakpoint</code> event.
+<br><br>
+The event body contains the following:
+<ul>
+<li><code>context_id</code> - the id of the current Crossfire context</li>
+<li><code>data</code> - the event payload from Firebug which contains 
+the <code>url</code>, <code>line</code>, <code>set</code> and <code>props</code> entries</li>
+</ul>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>context</b>
+									
+								</dt>
+								<dd>the current Crossfire context</dd>
+							
+								<dt>
+									<b>url</b>
+									
+								</dt>
+								<dd>the URL that the breakpoint was toggled within</dd>
+							
+								<dt>
+									<b>lineNo</b>
+									
+								</dt>
+								<dd>the number of the line the breakpoint was toggled on</dd>
+							
+								<dt>
+									<b>isSet</b>
+									
+								</dt>
+								<dd>the toggled state of the breakpoint. 
+<code>true</code> if the breakpoint was toggled on (created), <code>false</code> otherwise</dd>
+							
+								<dt>
+									<b>props</b>
+									
+								</dt>
+								<dd>a collection of additional properties from Firebug</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd>FirebugEventAdapter.onToggleBreakpoint</dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name=".onToggleErrorBreakpoint"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CrossfireModule.</span><b>onToggleErrorBreakpoint</b>(context, url, lineNo, isSet, props)
+					
+					</div>
+					<div class="description">
+						Handles toggling an error breakpoint on or off in Firebug.
+<br><br>
+Fires an <code>onToggleBreakpoint</code> event.
+<br><br>
+The event body contains the following:
+<ul>
+<li><code>context_id</code> - the id of the current Crossfire context</li>
+<li><code>data</code> - the event payload from Firebug which contains 
+the <code>url</code>, <code>line</code>, <code>set</code> and <code>props</code> entries</li>
+</ul>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>context</b>
+									
+								</dt>
+								<dd>the current Crossfire context</dd>
+							
+								<dt>
+									<b>url</b>
+									
+								</dt>
+								<dd>the URL that the breakpoint was toggled within</dd>
+							
+								<dt>
+									<b>lineNo</b>
+									
+								</dt>
+								<dd>the number of the line the breakpoint was toggled on</dd>
+							
+								<dt>
+									<b>isSet</b>
+									
+								</dt>
+								<dd>the toggled state of the breakpoint. 
+<code>true</code> if the breakpoint was toggled on (created), <code>false</code> otherwise</dd>
+							
+								<dt>
+									<b>props</b>
+									
+								</dt>
+								<dd>a collection of additional properties from Firebug</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd>FirebugEventAdapter.onToggleBreakpoint</dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name=".setRunning"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CrossfireModule.</span><b>setRunning</b>(isRunning)
+					
+					</div>
+					<div class="description">
+						Update the Crossfire running status.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>isRunning</b>
+									
+								</dt>
+								<dd>the desired running state for Crossfire</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".showContext"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CrossfireModule.</span><b>showContext</b>(browser, context)
+					
+					</div>
+					<div class="description">
+						Handles a context being shown - i.e. a tab has been switched to. 
+<br><br>
+Fires an <code>onContextChanged</code> event
+<br><br>
+The event body contains the following:
+<ul>
+<li><code>context_id</code> - the id of the current Crossfire context</li>
+<li><code>new_context_id</code> - the id of the Crossfire context switched to</li>
+<li><code>data</code> - the event payload with the <code>href</code> and <code>new_href</code> values set</li>
+</ul>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>browser</b>
+									
+								</dt>
+								<dd>the browser the context was changed to in</dd>
+							
+								<dt>
+									<b>context</b>
+									
+								</dt>
+								<dd>the context that was switched to</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".startServer"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CrossfireModule.</span><b>startServer</b>(host, port)
+					
+					</div>
+					<div class="description">
+						Listen for incoming connections on a port.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>host</b>
+									
+								</dt>
+								<dd>the host name.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Number}</span> <b>port</b>
+									
+								</dt>
+								<dd>the port number to listen on.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".stopServer"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CrossfireModule.</span><b>stopServer</b>()
+					
+					</div>
+					<div class="description">
+						Stops the server and closes the socket
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".updateStatusIcon"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CrossfireModule.</span><b>updateStatusIcon</b>(status)
+					
+					</div>
+					<div class="description">
+						Update the Crossfire connection status icon.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>status</b>
+									
+								</dt>
+								<dd>the status to update the icon to</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".updateStatusText"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CrossfireModule.</span><b>updateStatusText</b>(status)
+					
+					</div>
+					<div class="description">
+						Updates the Crossfire status text
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>status</b>
+									
+								</dt>
+								<dd>the status to update the text to</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.3.0 on Mon Nov 08 2010 16:30:44 GMT-0800 (PST)
+		</div>
+    </div>
+</body>
+</html>

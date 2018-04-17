@@ -1,0 +1,4 @@
+<div id="delicious-posts-firebug" class="delicious-posts">
+<h3 class="delicious-banner sidebar-title">Firebug around the web</h3>
+<script type="text/javascript" src="http://feeds.delicious.com/v2/js/firebugnews?count=10&amp;title=&amp;sort=date&amp;extended"></script>
+</div>

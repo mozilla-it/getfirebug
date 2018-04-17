@@ -1,0 +1,218 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=UTF-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/* See license.txt for terms of usage */</span><span class="WHIT">
+<span class='line'>  2</span> </span><span class="COMM">/* See license.txt for terms of usage */</span><span class="WHIT">
+<span class='line'>  3</span> 
+<span class='line'>  4</span> </span><span class="COMM">// ************************************************************************************************</span><span class="WHIT">
+<span class='line'>  5</span> </span><span class="COMM">// Module</span><span class="WHIT">
+<span class='line'>  6</span> 
+<span class='line'>  7</span> </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">EXPORTED_SYMBOLS</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="STRN">"Breakpoint"</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>  8</span> 
+<span class='line'>  9</span> </span><span class="COMM">// ************************************************************************************************</span><span class="WHIT">
+<span class='line'> 10</span> </span><span class="COMM">// Breakpoint</span><span class="WHIT">
+<span class='line'> 11</span> 
+<span class='line'> 12</span> </span><span class="COMM">/**
+<span class='line'> 13</span>  * Describes a breakpoint in a compilation unit. A breakpoint is specific to a compilation unit and
+<span class='line'> 14</span>  * execution context.
+<span class='line'> 15</span>  * &lt;p>
+<span class='line'> 16</span>  * A breakpoint proceeds through states in its lifecycle.
+<span class='line'> 17</span>  * &lt;ul>
+<span class='line'> 18</span>  * &lt;li>{@link Breakpoint.PENDING_INSTALL} - created and pending installation in the runtime&lt;/li>
+<span class='line'> 19</span>  * &lt;li>{@link Breakpoint.FAILED_INSTALL} - failed to install in the runtime&lt;/li>
+<span class='line'> 20</span>  * &lt;li>{@link Breakpoint.INSTALLED} - installed in the runtime&lt;/li>
+<span class='line'> 21</span>  * &lt;li>{@link Breakpoint.PENDING_CLEAR} - pending removal from the runtime&lt;/li>
+<span class='line'> 22</span>  * &lt;li>{@link Breakpoint.FAILED_CLEAR} - failed to clear from the runtime&lt;/li>
+<span class='line'> 23</span>  * &lt;li>{@link Breakpoint.CLEARED} - cleared from the runtime&lt;/li>
+<span class='line'> 24</span>  * &lt;/ul>
+<span class='line'> 25</span>  * &lt;/p>
+<span class='line'> 26</span>  * 
+<span class='line'> 27</span>  * @constructor
+<span class='line'> 28</span>  * @param compilationUnit the {@link CompilationUnit} unit that contains this breakpoint
+<span class='line'> 29</span>  * @param lineNumber the source code line number the breakpoint is set on
+<span class='line'> 30</span>  * @type Breakpoint
+<span class='line'> 31</span>  * @return a new Breakpoint
+<span class='line'> 32</span>  * @version 1.0
+<span class='line'> 33</span>  */</span><span class="WHIT">
+<span class='line'> 34</span> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">Breakpoint</span><span class="PUNC">(</span><span class="NAME">compilationUnit</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">lineNumber</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 35</span> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 36</span> </span><span class="WHIT">    </span><span class="NAME">this.compilationUnit</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">compilationUnit</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 37</span> </span><span class="WHIT">    </span><span class="NAME">this.lineNumber</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">lineNumber</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 38</span> </span><span class="WHIT">    </span><span class="NAME">this.state</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.PENDING_INSTALL</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 39</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 40</span> 
+<span class='line'> 41</span> </span><span class="COMM">// ************************************************************************************************</span><span class="WHIT">
+<span class='line'> 42</span> </span><span class="COMM">// API</span><span class="WHIT">
+<span class='line'> 43</span> 
+<span class='line'> 44</span> </span><span class="COMM">/**
+<span class='line'> 45</span>  * Breakpoint state indicating a breakpoint has been created and is pending installation.
+<span class='line'> 46</span>  * @constant 
+<span class='line'> 47</span>  */</span><span class="WHIT">
+<span class='line'> 48</span> </span><span class="NAME">Breakpoint.prototype.PENDING_INSTALL</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">1</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 49</span> </span><span class="COMM">/**
+<span class='line'> 50</span>  * Breakpoint state indicating a breakpoint failed to install.
+<span class='line'> 51</span>  * @constant 
+<span class='line'> 52</span>  */</span><span class="WHIT">
+<span class='line'> 53</span> </span><span class="NAME">Breakpoint.prototype.FAILED_INSTALL</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">2</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 54</span> </span><span class="COMM">/**
+<span class='line'> 55</span>  * Breakpoint state indicating a breakpoint has been installed.
+<span class='line'> 56</span>  * @constant 
+<span class='line'> 57</span>  */</span><span class="WHIT">
+<span class='line'> 58</span> </span><span class="NAME">Breakpoint.prototype.INSTALLED</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">3</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 59</span> </span><span class="COMM">/**
+<span class='line'> 60</span>  * Breakpoint state indicating a breakpoint pending a clear. 
+<span class='line'> 61</span>  * @constant 
+<span class='line'> 62</span>  */</span><span class="WHIT">
+<span class='line'> 63</span> </span><span class="NAME">Breakpoint.prototype.PENDING_CLEAR</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">4</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 64</span> </span><span class="COMM">/**
+<span class='line'> 65</span>  * Breakpoint state indicating a clear request failed.
+<span class='line'> 66</span>  * @constant 
+<span class='line'> 67</span>  */</span><span class="WHIT">
+<span class='line'> 68</span> </span><span class="NAME">Breakpoint.prototype.FAILED_CLEAR</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">5</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 69</span> </span><span class="COMM">/**
+<span class='line'> 70</span>  * Breakpoint state indicating a breakpoint has been cleared.
+<span class='line'> 71</span>  * @constant 
+<span class='line'> 72</span>  */</span><span class="WHIT">
+<span class='line'> 73</span> </span><span class="NAME">Breakpoint.prototype.CLEARED</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">6</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 74</span> 
+<span class='line'> 75</span> </span><span class="COMM">/**
+<span class='line'> 76</span>  * Returns the compilation unit this breakpoint was created in.
+<span class='line'> 77</span>  * &lt;p>
+<span class='line'> 78</span>  * This function does not require communication with
+<span class='line'> 79</span>  * the browser.
+<span class='line'> 80</span>  * &lt;/p>
+<span class='line'> 81</span>  * 
+<span class='line'> 82</span>  * @function
+<span class='line'> 83</span>  * @returns a {@link CompilationUnit}
+<span class='line'> 84</span>  */</span><span class="WHIT">
+<span class='line'> 85</span> </span><span class="NAME">Breakpoint.prototype.getCompilationUnit</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'> 86</span> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 87</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.compilationUnit</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 88</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 89</span> 
+<span class='line'> 90</span> </span><span class="COMM">/**
+<span class='line'> 91</span>  * Requests to clear this breakpoint from its compilation unit asynchronously. The clear
+<span class='line'> 92</span>  * request will be sent to the browser and an &lt;code>onToggleBreakpoint&lt;/code> event will
+<span class='line'> 93</span>  * be sent by the browser when the breakpoint is cleared.
+<span class='line'> 94</span>  * &lt;p>
+<span class='line'> 95</span>  * &lt;ul>
+<span class='line'> 96</span>  * &lt;li>TODO: onToggleBreakpoint event is not spec'd - is this the intended use?&lt;/li>
+<span class='line'> 97</span>  * &lt;li>TODO: breakpoint does not exist&lt;/li>
+<span class='line'> 98</span>  * &lt;li>TODO: compilation unit no longer exists in the browser&lt;/li>
+<span class='line'> 99</span>  * &lt;/ul>
+<span class='line'>100</span>  * &lt;/p>
+<span class='line'>101</span>  * @function
+<span class='line'>102</span>  */</span><span class="WHIT">
+<span class='line'>103</span> </span><span class="NAME">Breakpoint.prototype.clear</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>104</span> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>105</span> </span><span class="WHIT">    </span><span class="COMM">// TODO:</span><span class="WHIT">
+<span class='line'>106</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>107</span> 
+<span class='line'>108</span> </span><span class="COMM">/**
+<span class='line'>109</span>  * Returns the current state of this breakpoint - one of the state constants defined
+<span class='line'>110</span>  * by this object.
+<span class='line'>111</span>  * &lt;p>
+<span class='line'>112</span>  * This function does not require communication with
+<span class='line'>113</span>  * the browser.
+<span class='line'>114</span>  * &lt;/p>
+<span class='line'>115</span>  * @function
+<span class='line'>116</span>  * @return breakpoint state
+<span class='line'>117</span>  */</span><span class="WHIT">
+<span class='line'>118</span> </span><span class="NAME">Breakpoint.prototype.getState</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>119</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.state</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>120</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>121</span> 
+<span class='line'>122</span> </span><span class="COMM">/**
+<span class='line'>123</span>  * Returns the source code line number this breakpoint was created on.
+<span class='line'>124</span>  * &lt;p>
+<span class='line'>125</span>  * This function does not require communication with
+<span class='line'>126</span>  * the browser.
+<span class='line'>127</span>  * &lt;/p>
+<span class='line'>128</span>  * @function
+<span class='line'>129</span>  * @returns line number
+<span class='line'>130</span>  * 
+<span class='line'>131</span>  */</span><span class="WHIT">
+<span class='line'>132</span> </span><span class="NAME">Breakpoint.prototype.getLineNumber</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>133</span> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>134</span> </span><span class="WHIT">    </span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.lineNumber</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>135</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>136</span> 
+<span class='line'>137</span> </span><span class="COMM">// ************************************************************************************************</span><span class="WHIT">
+<span class='line'>138</span> </span><span class="COMM">// Private </span><span class="WHIT">
+<span class='line'>139</span> 
+<span class='line'>140</span> </span><span class="COMM">/**
+<span class='line'>141</span>  * Implementations must call this method when a breakpoint gets installed in the browser.
+<span class='line'>142</span>  * Notification will be sent to registered listeners that the breakpoint has been installed.
+<span class='line'>143</span>  * Updates the installed property of this breakpoint. This method should only be called once when
+<span class='line'>144</span>  * a breakpoint becomes installed.
+<span class='line'>145</span>  * 
+<span class='line'>146</span>  * @function
+<span class='line'>147</span>  */</span><span class="WHIT">
+<span class='line'>148</span> </span><span class="NAME">Breakpoint.prototype._installed</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>149</span> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>150</span> </span><span class="WHIT">    </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this.state</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="NAME">this.PENDING_INSTALL</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>151</span> </span><span class="WHIT">    </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>152</span> </span><span class="WHIT">    	</span><span class="NAME">this.state</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.INSTALLED</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>153</span> </span><span class="WHIT">        </span><span class="NAME">this.getCompilationUnit</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">getBrowserContext</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">getBrowser</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">_dispatch</span><span class="PUNC">(</span><span class="STRN">"onToggleBreakpoint"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="KEYW">this</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">	</span><span class="WHIT">
+<span class='line'>154</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>155</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>156</span> 
+<span class='line'>157</span> </span><span class="COMM">/**
+<span class='line'>158</span>  * Implementations must call this method when a breakpoint is cleared from the browser.
+<span class='line'>159</span>  * Notification will be sent to registered listeners that the breakpoint has been cleared.
+<span class='line'>160</span>  * This method should only be called once when a breakpoint is cleared.
+<span class='line'>161</span>  * 
+<span class='line'>162</span>  * @function
+<span class='line'>163</span>  */</span><span class="WHIT">
+<span class='line'>164</span> </span><span class="NAME">Breakpoint.prototype._cleared</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>165</span> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>166</span> </span><span class="WHIT">    </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this.state</span><span class="WHIT"> </span><span class="PUNC">!=</span><span class="WHIT"> </span><span class="NAME">this.CLEARED</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>167</span> </span><span class="WHIT">    </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>168</span> </span><span class="WHIT">        </span><span class="NAME">this.state</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.CLEARED</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>169</span> </span><span class="WHIT">        </span><span class="NAME">this.getCompilationUnit</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">getBrowserContext</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">getBrowser</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">_dispatch</span><span class="PUNC">(</span><span class="STRN">"onToggleBreakpoint"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="KEYW">this</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>170</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>171</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>172</span> 
+<span class='line'>173</span> </span><span class="COMM">/**
+<span class='line'>174</span>  * Implementations must call this method when a breakpoint fails to install in the browser.
+<span class='line'>175</span>  * Notification will be sent to registered listeners that breakpoint installation has failed.
+<span class='line'>176</span>  * Updates breakpoint state. This method should only be called once when a breakpoint fails to
+<span class='line'>177</span>  * install.
+<span class='line'>178</span>  * 
+<span class='line'>179</span>  * @function
+<span class='line'>180</span>  */</span><span class="WHIT">
+<span class='line'>181</span> </span><span class="NAME">Breakpoint.prototype._failedInstall</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>182</span> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>183</span> </span><span class="WHIT">    </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this.state</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="NAME">this.PENDING_INSTALL</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>184</span> </span><span class="WHIT">    </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>185</span> </span><span class="WHIT">        </span><span class="NAME">this.state</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.FAILED_INSTALL</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>186</span> </span><span class="WHIT">        </span><span class="NAME">this.getCompilationUnit</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">getBrowserContext</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">getBrowser</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">_dispatch</span><span class="PUNC">(</span><span class="STRN">"onBreakpointError"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="KEYW">this</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>187</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>188</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>189</span> 
+<span class='line'>190</span> </span><span class="COMM">/**
+<span class='line'>191</span>  * Implementations must call this method when a breakpoint fails to clear from the browser.
+<span class='line'>192</span>  * Notification will be sent to registered listeners that breakpoint clear has failed.
+<span class='line'>193</span>  * Updates breakpoint state. This method should only be called once when a breakpoint fails to
+<span class='line'>194</span>  * clear.
+<span class='line'>195</span>  * 
+<span class='line'>196</span>  * @function
+<span class='line'>197</span>  */</span><span class="WHIT">
+<span class='line'>198</span> </span><span class="NAME">Breakpoint.prototype._failedClear</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>199</span> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>200</span> </span><span class="WHIT">    </span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this.state</span><span class="WHIT"> </span><span class="PUNC">===</span><span class="WHIT"> </span><span class="NAME">this.PENDING_CLEAR</span><span class="PUNC">)</span><span class="WHIT">
+<span class='line'>201</span> </span><span class="WHIT">    </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>202</span> </span><span class="WHIT">        </span><span class="NAME">this.state</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.FAILED_CLEAR</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>203</span> </span><span class="WHIT">        </span><span class="NAME">this.getCompilationUnit</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">getBrowserContext</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">getBrowser</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">.</span><span class="NAME">_dispatch</span><span class="PUNC">(</span><span class="STRN">"onBreakpointError"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="KEYW">this</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>204</span> </span><span class="WHIT">    </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>205</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>206</span> 
+<span class='line'>207</span> </span><span class="COMM">// ************************************************************************************************</span><span class="WHIT">
+<span class='line'>208</span> </span><span class="COMM">// CommonJS</span><span class="WHIT">
+<span class='line'>209</span> 
+<span class='line'>210</span> </span><span class="NAME">exports</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">Breakpoint</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>211</span> </span></pre></body></html>

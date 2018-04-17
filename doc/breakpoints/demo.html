@@ -1,0 +1,415 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Firebug Breakpoints Feature Demo Page</title>
+<style type="text/css" media="screen">
+@import "firebug.css";
+
+.screenshot {
+    border: 4px solid #D1D1D1;
+    margin: 7px;
+}
+
+.screenshotWithBorder {
+    margin: 7px;
+}
+</style>
+</head>
+
+<body>
+<div id="main">
+<img class="corner cornerTopLeft" src="blank.gif"/>
+<img class="corner cornerTopRight" src="blank.gif"/>
+
+<div id="topNav">
+    <div><a href="http://blog.getfirebug.com/">blog</a></div>
+    <div><a href="http://groups.google.com/group/firebug">discuss</a></div>
+    <div><a href="http://getfirebug.com/getinvolved">contribute</a></div>
+    <div><a href="http://getfirebug.com/wiki/index.php/Main_Page">documentation</a></div>
+</div>
+
+<a href="/"><img class="header" src="header.png"/></a>
+
+<div id="content">
+    <div class="columns">
+        <div class="fullColumn">
+            <br/>
+            <h1>Firebug Breakpoints Demo</h1>
+            <p>These demos illustrate the article
+            <a href="paper/breakpoints.pdf">Dynamic and Graphical Web Page Breakpoints</a> by
+            John J. Barton and Jan Odvarko, submitted to <a href="http://www2010.org/www/">WWW 2010</a>
+            </p>
+            <h2>New Kinds of Breakpoints</h2>
+            <h3>Breakpoints: Quintessential feature of debuggers</h3>
+            <ul>
+            <li>Find the line of source you want to investigate</li>
+            <li>Set a breakpoint</li>
+            <li>Run the program</li>
+            <li>Debugger halts execution, you poke around</li>
+            </ul>
+
+            <h3>Why Setting Breakpoints On Source Does Not Always Work</h3>
+            <ul>
+            <li>Large programs: you forget which line of code does what</li>
+            <li>Frameworks: your code is lost in a sea of other code</li>
+            <li>Multi-developer: your code and 26 other folks too</li>
+            </ul>
+
+            <h3>User-Interface Oriented Breakpoints</h3>
+            <ul>
+            <li><i>Solution:</i> Breakpoint first then see the line of code <li>
+            <li>Break on UI events: modication, activations, errors</li>
+            <li>"Recognize (browse)" rather then "Recall (search)"</li>
+            <il>Contribution: implementation of many UI event breakpoints in a production debugger</il>
+            </ul>
+
+            <h3>Demos</h3>
+            <p>To run the demos:</p>
+            <ol>
+            <li>Open Firefox 3.5 or newer</li>
+            <li>Install <a href="../../releases/index.html" target="_blank">Firebug 1.5 or newer</a></li>
+            <li>Reload this page</li>
+            <li>Follow the instructions below for each kind of breakpoint</li>
+            </ol>
+            <p>Individual Demos:</p>
+            <ul>
+            <li><a href="#eval">Breakpoints in Dynamic Javascript via eval()</a></li>
+            <li><a href="#suspend">Break on Next Javascript Call</a></li>
+            <li><a href="#errors">Breakpoints on Errors</a></li>
+            <li><a href="#net">Breakpoints on Network Events</a></li>
+            <li><a href="#html">Breakpoints on DOM (HTML) Mutation Events</a></li>
+            <li><a href="#dom">Breakpoints on DOM Property Changes</a></li>
+            <li><a href="#css">Breakpoints on CSS Style Rule Changes</a></li>
+            <li><a href="#event">Breakpoints on Event Handlers</a></li>
+            <li><a href="#ext">Breakpoints support for Extensions</a></li>
+            </ul>
+
+            <!-- Breakpoints in Dynamic Javascript via eval() -->
+            <h2><a name="eval"></a>Breakpoints in Dynamic Javascript via eval()</h2>
+            <h3>Dynamic Javascript with User Supplied Filename</h3>
+<script>
+function loadAnimals()
+{
+    //  Load the code dynamically
+    var req = new XMLHttpRequest();
+    req.open('GET','payloadCatsAndDucks.js', false);
+    req.send(null);
+    eval( req.responseText);  // line 23
+    document.getElementById('evalLoad').disabled = true;
+}
+function prodAnimals()
+{
+    //  Now use the code
+    Animals.prod( new Animals.Duck());
+    Animals.prod( new Animals.Cat());
+}
+function prodError()
+{
+    Animal.prod();  // call point of error
+}
+window.addEventListener('load', function connectEvalDemoButtons()
+{
+    var elt = document.getElementById('evalLoad');
+    elt.removeAttribute('disabled');
+    elt.addEventListener('click', loadAnimals, false);
+    document.getElementById('evalProdAnimals').addEventListener('click', prodAnimals, false);
+
+}, false);
+</script>
+            <ol>
+        <li>If you are stopped in the debugger, either click the blue continue button or reload the page</li>
+            <li>Load the duck and cat functions by AJAX <button id="evalLoad">Load Animals</button></li>
+            <li>Open the Firebug Script Panel and select "payloadCatsAndDucks.js", then set a breakpoint on line 10</li>
+            <li>Call the Duck and Cat functions <button id="evalProdAnimals">Prod Animals</button></li>
+            <li>You should halt in the debugger on a breakpoint in dynamically created source code</li>
+            </ol>
+            <img class="screenshotWithBorder" src="script_hit_eval_userURL.png"/>
+            <p>Note the special comment at the end of the source. This comment is parsed by Firebug to
+            set the file name.</p>
+
+            <h3>Dynamic Javascript with Generated Filename</h3>
+<script>
+function loadAnonAnimals()
+{
+    //  Load the code dynamically
+    var req = new XMLHttpRequest();
+    req.open('GET','payloadCatsAndDucksAnon.js', false);
+    req.send(null);
+    eval( req.responseText);  // line 23
+    document.getElementById('evalAnonLoad').disabled = true;
+}
+function prodAnonAnimals()
+{
+    //  Now use the code
+    Animals.prod( new Animals.Duck());
+    Animals.prod( new Animals.Cat());
+}
+function prodError()
+{
+    Animal.prod();  // call point of error
+}
+window.addEventListener('load', function connectEvalAnonDemoButtons()
+{
+    var elt = document.getElementById('evalAnonLoad');
+    elt.removeAttribute('disabled');
+    elt.addEventListener('click', loadAnonAnimals, false);
+    document.getElementById('evalAnonProdAnimals').addEventListener('click', prodAnonAnimals, false);
+}, false);
+</script>
+            <ol>
+        <li>If you are stopped in the debugger, either click the blue continue button or reload the page</li>
+            <li>Load the duck and cat functions by AJAX <button id="evalAnonLoad">Load Anonymous Animals</button></li>
+            <li>Open the Firebug Script Panel and select "payloadCatsAndDucks.js", then set a breakpoint on line 10</li>
+            <li>Call the Duck and Cat functions <button id="evalAnonProdAnimals">Prod Anonymous Animals</button></li>
+            <li>You should halt in the debugger on a breakpoint in dynamically created source code</li>
+            </ol>
+            <img src="eval_anon_script_panel_on_break.jpg"/>
+            <p>In this case the user code did not give a file name, so Firebug created one by computing
+            an MD5 hash of the file, so that it can reset the breakpoints on reload</p>
+
+
+            <!-- Breakpoints on Javascript Execution -->
+            <h2><a name="suspend"></a>Breakpoints on Javascript Execution</h2>
+<script>
+function demoEventBreak(event)
+{
+    console.log("See you learned about this code");
+}
+function demoGeneratedEventBreak(event)
+{
+    console.log("You'll have to step into this function");
+}
+window.addEventListener('load', function connectBreakNextDemoButtons()
+{
+    document.getElementById("breakImmediately").addEventListener('click', demoEventBreak, true);
+}, false);
+</script>
+            <h3>Break on Next Javascript Call</h3>
+            <ol>
+        <li>If you are stopped in the debugger, either click the blue continue button or reload the page</li>
+            <li>Select the Firebug Script Panel</li>
+            <li>Click the <i>Break on Next</i> or Pause button (<img src="breakNextActive.png" />)</li>
+            <li>Click this button <button id="breakImmediately">Break Immediately</button></li>
+            <li>Firebug will break on the event handler</li>
+            </ol>
+            <img class="screenshot" src="event_on_break.jpg"/>
+
+            <h3>Break on a Generated Event Handler</h3>
+            <ol>
+        <li>If you are stopped in the debugger, either click the blue continue button or reload the page</li>
+            <li>Select the Firebug Script Panel</li>
+            <li>Click the <i>Break on Next</i> or Pause button (<img src="breakNextActive.png" />)</li>
+            <li>Click this button <button onclick="demoGeneratedEventBreak(event);" id="breakImmediately">Break In onClick</button></li>
+            <li>Firebug will break on the browser-generated event handler</li>
+            </ol>
+            <img class="screenshot" src="event_generated_on_break.jpg"/>
+            <p>These simple examples make the Javascript break on next feature
+            look more useful than it is in practical experience. Timer, XHR, and mouseover events trigger
+            break on next far too often in real-world code</p>
+
+            <h2><a name="errors"></a>Breakpoints on Errors</h2>
+<script>
+function demoBreakOnErrors()
+{
+    window.noSuchFunction();
+}
+window.addEventListener("load", function connectBreakOnErrorsDemo()
+{
+    document.getElementById("breakOnError").addEventListener('click', demoBreakOnErrors, true);
+}, false);
+</script>
+
+            <!-- Break on a Error Shown in the Console -->
+            <h3>Break on a Error Shown in the Console</h3>
+            <ol>
+            <li>If you are stopped in the debugger, either click the blue continue button or reload the page</li>
+            <li>Select the Firebug Console Panel</li>
+            <li>Click this button <button id="breakOnError">Fail on Error</button></li>
+            <li>Click the <i>Breakpoint</i> button (<img src="breakpointDisabled.png" />)</li>
+            <p>BUG: The Breakpoint image does not update</p>
+            <img class="screenshotWithBorder" src="error_in_console_set_break.jpg"/><br/>
+            <li>Click the <code>Fail on Error</code> button again</li>
+            <li>Firebug will break on the error-generating line</li>
+            </ol>
+            <img class="screenshot" src="error_in_console_break.jpg"/>
+
+            <!-- Break on All Errors -->
+            <h3>Break on All Errors</h3>
+            <ol>
+            <li>Select the Firebug Console Panel</li>
+            <li>Click the <i>Break on All Errors</i> or Pause button (<img src="breakNextActive.png" />)</li>
+            <li>Click this button <button id="breakOnAllErrors">Fail on Error</button></li>
+            <li>Firebug will break on the error</li>
+            </ol>
+
+<script>
+function demoBreakOnAllErrors()
+{
+    window.noSuchFunction();
+}
+window.addEventListener("load", function connectBreakOnErrorsDemo()
+{
+    document.getElementById("breakOnAllErrors").addEventListener('click', demoBreakOnAllErrors, true);
+}, false);
+</script>
+
+            <p>Note that this feature was previsously implemented as <b>Break On Errors</b>
+            option accessible in Script panel option menu. Use the <b>Break On All Errors</b>
+            pause button within the Console panel now.</p>
+
+            <!-- Breakpoints on Network Events -->
+            <h2><a name="net"></a>Breakpoints on Network Events</h2>
+
+            <h3>Break On Next Network Event</h3>
+            <ol>
+        <li>If you are stopped in the debugger, either click the blue continue button or reload the page</li>
+            <li>Select the Firebug Net Panel</li>
+            <li>Click the <i>Break on Next</i> or Pause button (<img src="breakNextActive.png" />)</li>
+            <li>Click this button <button onclick="demoGeneratedXHRBreak();">Break On XHR</button></li>
+            <li>Firebug will break on the XHR event</li>
+            </ol>
+            <img class="screenshot" src="xhr_on_break.jpg"/>
+
+            <script>
+            function demoGeneratedXHRBreak()
+            {
+                var request = new XMLHttpRequest();
+                request.open("POST", "xhrDemo.json", true);
+                request.send(null);
+            }
+            </script>
+
+            <!-- Conditional Breakpoints on Network Events -->
+            <h3>Conditional Network Breakpoints</h3>
+            <ol>
+        <li>If you are stopped in the debugger, either click the blue continue button or reload the page</li>
+            <li>Select the Firebug Net Panel</li>
+            <li>Click this button to generate a XMLHttpRequest
+                <button onclick="demoGeneratedXHRBreak();">Execute XHR</button>
+            </li>
+            <li>Click on the left hand bar to create a breakpoint for <i>xhrDemo.json</i> URL
+                <img class="screenshotWithBorder" src="net_create_breakpoint.jpg"/>
+            </li>
+            <li>Right click on the breakpoint and insert following condition
+                <code>count==1</code>
+                <img class="screenshotWithBorder" src="net_create_condition.jpg"/>
+            </li>
+            <li>Click following buttons to generate XHR with parameter <i>count</i>
+                set to either to <i>1</i> or 2</li>
+                <button onclick="demoGeneratedXHRConditionalBreak(1);">count == 1</button>
+                <button onclick="demoGeneratedXHRConditionalBreak(2);">count == 2</button>
+            <li>Firebug will break on the XHR event only if the target URL is <i>xhrDemo.json</i>
+                and a parameter <i>count</i> is available and set to <i>1</i></li>
+            </ol>
+            <img class="screenshot" src="xhr_on_conditional_break.jpg"/>
+
+            <script>
+            function demoGeneratedXHRConditionalBreak(value)
+            {
+                var request = new XMLHttpRequest();
+                request.open("POST", "xhrDemo.json?count=" + value, true);
+                request.send(null);
+            }
+            </script>
+
+            <!-- Breakpoints on DOM (HTML) Mutation Events -->
+            <h2><a name="html"></a>Breakpoints on DOM (HTML) Mutation Events</h2>
+            <ol>
+        <li>If you are stopped in the debugger, either click the blue continue button or reload the page</li>
+            <li>Select the Firebug HTML Panel</li>
+            <li>Use HTML Inspector <img src="inspector.png"/>
+            to find <span id="breakOnAttribute" style="color:green">this element</span></li>
+            <li>Right click on the element and pick <i>Break On Attribute Change</i> menu item.
+                <img class="screenshotWithBorder" src="html_create_breakpoint.jpg"/>
+            </li>
+            <li>Click this button <button onclick="demoGeneratedHTMLBreak();">Break On Attribute Change</button></li>
+            <li>Firebug will break when the attribute is changed.</li>
+            </ol>
+            <img class="screenshotWithBorder" src="html_mutation_on_break.jpg"/>
+
+            <script>
+            function demoGeneratedHTMLBreak()
+            {
+                var element = document.getElementById("breakOnAttribute");
+                var value = element.getAttribute("style");
+                if (value.indexOf("green") > 0)
+                    element.setAttribute("style", "color:red");
+                else
+                    element.setAttribute("style", "color:green");
+            }
+            </script>
+
+            <!-- Breakpoints on DOM Property Changes -->
+            <h2><a name="dom"></a>Breakpoints on DOM Property Changes</h2>
+            <ol>
+        <li>If you are stopped in the debugger, either click the blue continue button or reload the page</li>
+            <li>Select the Firebug DOM Panel</li>
+        <li>If you are stopped in the debugger, either click the blue continue button or reload the page</li>
+            <li>Expand the <i>_testObject</i> to see it's properties</li>
+            <li>Click on the left hand bar to create a breakpoint for <i>propA</i>
+                <img class="screenshotWithBorder" src="dom_property_breakpoint.jpg"/>
+            </li>
+            <li>Click this button <button onclick="demoGeneratedDOMBreak();">Break On Property Change</button></li>
+            <li>Firebug will break when the property is changing.</li>
+            </ol>
+            <img class="screenshot" src="dom_on_break.jpg"/>
+
+            <script>
+            var _testObject = {
+                propA: "red",
+                propB: "green"
+            };
+            function demoGeneratedDOMBreak()
+            {
+                _testObject.propA = (new Date()).getTime();
+            }
+            </script>
+
+            <!-- Breakpoints on CSS Style Rule Changes -->
+            <h2><a name="css"></a>Breakpoints on CSS Style Rule Changes</h2>
+            <p>This feature not yet implemented, but we have prototype that shows it can work.</p>
+            <script>
+            function hookSetProperty()
+            {
+                console.log(CSSStyleDeclaration.prototype.setProperty);
+                window._firebugCSSStyleDeclarationSetProperty = CSSStyleDeclaration.prototype.setProperty;
+
+                CSSStyleDeclaration.prototype.setProperty = function(name, value, priority)
+                {
+                    debugger;
+                    return window._firebugCSSStyleDeclarationSetProperty.apply(this, [name, value, priority]);
+                }
+
+            console.log(CSSStyleDeclaration.prototype.setProperty);
+
+            }
+            if (!window._firebugCSSStyleDeclarationSetProperty)
+                hookSetProperty();
+
+            function demoCSSPropertySet()
+            {
+                var element = document.getElementById("breakOnCSS");
+                var cssStyle = element.style;
+
+                var color = cssStyle.getPropertyValue("color");
+                if (color.indexOf("green") >= 0)
+                    cssStyle.setProperty("color", "red", null);
+                else
+                    cssStyle.setProperty("color", "green", null);
+            }
+            </script>
+<li>Click this <span id="breakOnCSS" style="color:blue">button</span> <button onclick="demoCSSPropertySet();">Break On CSS setProperty</button></li>
+
+            <h2><a name="event"></a>Breakpoints on Event Handlers</h2>
+            <p>This feature not yet implemented</p>
+            <h2><a name="ext"></a>Breakpoints support for Extensions</h2>
+            <p>This feature not yet implemented</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

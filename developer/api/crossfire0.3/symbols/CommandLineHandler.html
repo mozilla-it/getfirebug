@@ -1,0 +1,830 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="generator" content="JsDoc Toolkit" />
+        
+        <title>Firebug API Reference - CommandLineHandler</title>
+
+        <style type="text/css">
+        /* See license.txt for terms of usage */
+
+body {
+    font-size: 12px;
+    font-family: Lucida Grande, Arial, sans-serif;
+}
+
+/************************************************************************************************/
+
+#container {
+    margin-top: 93px;
+    border-top: solid rgb(230, 230, 230) 25px;
+    width: 880px;
+}
+
+#header img {
+    z-index: 200;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#index {
+    float: left;
+    width: 250px; /*xxxHonza 160px*/
+    left: 8px;
+    background-color: rgb(230, 230, 230); /* #F3F3F3 */
+    padding: 8px;
+    padding-top: 35px;
+}
+
+#content
+{
+    margin-top: -20px;
+    margin-left: 280px; /*xxxHonza 190px*/
+    width: 600px;
+}
+
+/************************************************************************************************/
+
+h1
+{
+    color: #444444;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0;
+    margin: 1em 0 0 .3em;
+}
+
+hr
+{
+    border: none 0;
+    border-top: 1px solid #7F8FB1;
+    height: 1px;
+}
+
+pre.code
+{
+    display: block;
+    padding: 8px;
+    border: 1px dashed #ccc;
+}
+
+a {
+    color: SlateBlue;
+    font-weight: bold;
+}
+
+/************************************************************************************************/
+
+/* cllClasses.tmpl */
+.allClassesMenu {
+}
+
+/************************************************************************************************/
+
+.reportIssue {
+    margin-left: 310px;
+}
+
+/************************************************************************************************/
+
+.classList
+{
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 0 8px;
+    font-family: arial, sans-serif;
+    font-size: 1em;
+    overflow: auto;
+}
+
+.classList li
+{
+    padding: 0;
+    margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+    line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+    background-color: #7F8FB1;
+    color: #fff;
+    font-size:130%;
+    text-align: left;
+    padding: 2px 6px 2px 6px;
+    border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+    vertical-align: top;
+    padding: 4px;
+    border-bottom: 1px #7F8FB1 solid;
+    border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+    border-left: 1px #7F8FB1 solid;
+    width: 140px;
+    text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+    line-height: 15px;
+    color: #002EBE;
+    font-family: "Courier New",Courier,monospace;
+    font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+    text-align: left;
+    font-size: 13px;
+    line-height: 15px;
+}
+
+.description {
+    line-height: 17px !important;
+}
+
+.summaryTable td.nameDescription, .description
+{
+    line-height: 15px;
+    padding: 4px;
+    padding-left: 4px;
+    font-size: 12px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+    list-style: square;
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+.detailList {
+    margin-left: 20px; 
+    line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+    font-weight: bold;
+    padding-bottom: 6px;
+    margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+    color: #777;
+    font-style: italic;
+}
+
+.fineprint
+{
+    text-align: right;
+    font-size: 10px;
+}
+
+        </style>
+	</head>
+
+<body>
+    <div id="container">
+<!-- ============================== header ================================= -->	
+        <!-- begin static/header.html -->
+        <div id="header">
+    <img src="http://getfirebug.com/developer/api/header.png"/>
+</div>
+        <!-- end static/header.html -->
+
+<!-- ============================== classes index ============================ -->
+        <div id="index">
+            <!-- begin publish.classesIndex -->
+            <!-- Top Menu -->
+<div align="center">
+<a href="../index.html">Class Index</a> |
+<a href="../files.html">File Index</a>
+</div>
+<hr />
+
+<!-- List of Modules (objects derived from Firebug.Module) -->
+
+<h2>Modules</h2>
+<ul class="classList">
+    
+    <li><a href="../symbols/CrossfireModule.html">CrossfireModule</a></li>
+    
+</ul><hr />
+
+
+<!-- List of Panels (objects derived from Firebug.Panel) -->
+
+
+<!-- List of Domplate templates (usually objects derived from Firebug.Rep) -->
+
+
+<!-- List of all Services (XPCOM) objects -->
+
+
+<!-- List of all dialog objects -->
+
+
+<!-- List of all classes -->
+<h2>All Classes</h2>
+<ul class="classList">
+    
+    <li><i><a href="../symbols/_global_.html">_global_</a></i></li>
+    
+    <li><a href="../symbols/CommandLineHandler.html">CommandLineHandler</a></li>
+    
+    <li><a href="../symbols/CrossfireModule.html">CrossfireModule</a></li>
+    
+    <li><a href="../symbols/CrossfireSocketTransport.html">CrossfireSocketTransport</a></li>
+    
+    <li><a href="../symbols/EventPacket.html">EventPacket</a></li>
+    
+    <li><a href="../symbols/FirebugCommandAdaptor.html">FirebugCommandAdaptor</a></li>
+    
+    <li><a href="../symbols/RequestPacket.html">RequestPacket</a></li>
+    
+    <li><a href="../symbols/ResponsePacket.html">ResponsePacket</a></li>
+    
+</ul>
+<hr />
+            <!-- end publish.classesIndex -->
+        </div>
+
+        <div id="content">
+            <a class="reportIssue" href="http://code.google.com/p/fbug/issues/entry?template=API Reference Report">Report Doc Issue</a>
+             |
+            <a href="http://getfirebug.com/wiki/index.php/Firebug_Source_Code_Comments">How To Comment Firebug Code</a>
+<!-- ============================== class title ============================ -->
+            <h1 class="classTitle">
+                
+                Class CommandLineHandler
+            </h1>
+
+<!-- ============================== class summary ========================== -->			
+            
+            
+            <p class="description">
+                
+                
+                <br />
+                
+                    <br /><i>Defined in: </i> <a href="../symbols/src/firefox_components_CommandLineHandler.js.html">CommandLineHandler.js</a>.
+                
+            </p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class CommandLineHandler.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/CommandLineHandler.html#constructor">CommandLineHandler</a></b>()
+							</div>
+							<div class="description">Processes command-line arguments to connect to a remote debug host and port.</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class CommandLineHandler.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								CommandLineHandler.<b><a href="../symbols/CommandLineHandler.html#.host">host</a></b>
+								</div>
+								<div class="description">the hostname of the computer to connect to</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								CommandLineHandler.<b><a href="../symbols/CommandLineHandler.html#.loadFBModules">loadFBModules</a></b>
+								</div>
+								<div class="description">if the Firebug modules should be loaded at startup</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								CommandLineHandler.<b><a href="../symbols/CommandLineHandler.html#.noFBModules">noFBModules</a></b>
+								</div>
+								<div class="description">if no Firebug modules should be loaded at startup</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								CommandLineHandler.<b><a href="../symbols/CommandLineHandler.html#.port">port</a></b>
+								</div>
+								<div class="description">the port of the computer to connect to</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								CommandLineHandler.<b><a href="../symbols/CommandLineHandler.html#.serverPort">serverPort</a></b>
+								</div>
+								<div class="description">the port the server was started on</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class CommandLineHandler.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CommandLineHandler.<b><a href="../symbols/CommandLineHandler.html#.getHost">getHost</a></b>()
+								</div>
+								<div class="description">returns the host computer name that Crossfire should try and connect to.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CommandLineHandler.<b><a href="../symbols/CommandLineHandler.html#.getPort">getPort</a></b>()
+								</div>
+								<div class="description">returns the port that Crossfire should try and connect to.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CommandLineHandler.<b><a href="../symbols/CommandLineHandler.html#.getServerPort">getServerPort</a></b>()
+								</div>
+								<div class="description">returns the port that the server was started on.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CommandLineHandler.<b><a href="../symbols/CommandLineHandler.html#.handle">handle</a></b>(cmdLine)
+								</div>
+								<div class="description">default call-back to look for the crossfire command line arguments.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">CommandLineHandler.<b><a href="../symbols/CommandLineHandler.html#.shouldLoadFBModules">shouldLoadFBModules</a></b>()
+								</div>
+								<div class="description">if the Firebug modules should be loaded when Firefox starts.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>CommandLineHandler</b>()
+				</div>
+				
+				<div class="description">
+					Processes command-line arguments to connect to a remote debug host and port.
+<br><br>
+List of accepted command line arguments includes:
+<ul>
+<li><code>crossfire-server-port</code> - the port to start the crossfire server listening on</li>
+<li><code>crossfire-host</code> - the name of the host computer to try and connect to, this is consulted iff <code>crossfire-server-port</code> is not present</li>
+<li><code>crossfire-port</code> - the port of the host computer to try and connect to, this is consulted iff <code>crossfire-server-port</code> is not present</li>
+<li><code>-load-fb-modules</code> - this flag will enable all of the Firebug modules when Firefox starts</li> 
+<li><code>-no-fb-modules</code> - this flag will cause no Firebug modules to be loaded when Firefox starts regardless of any other settings</li>
+</ul>
+					
+				</div>
+				
+				
+				
+				
+					
+					
+					
+					
+					
+						<dl class="detailList">
+						<dt class="heading">Returns:</dt>
+						
+								<dd>a new <a href="../symbols/CommandLineHandler.html">CommandLineHandler</a></dd>
+						
+						</dl>
+					
+					
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name=".host"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CommandLineHandler.</span><b>host</b>
+					
+					</div>
+					<div class="description">
+						the hostname of the computer to connect to
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".loadFBModules"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CommandLineHandler.</span><b>loadFBModules</b>
+					
+					</div>
+					<div class="description">
+						if the Firebug modules should be loaded at startup
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".noFBModules"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CommandLineHandler.</span><b>noFBModules</b>
+					
+					</div>
+					<div class="description">
+						if no Firebug modules should be loaded at startup
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".port"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CommandLineHandler.</span><b>port</b>
+					
+					</div>
+					<div class="description">
+						the port of the computer to connect to
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".serverPort"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CommandLineHandler.</span><b>serverPort</b>
+					
+					</div>
+					<div class="description">
+						the port the server was started on
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name=".getHost"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{String}</span>
+					<span class="light">CommandLineHandler.</span><b>getHost</b>()
+					
+					</div>
+					<div class="description">
+						returns the host computer name that Crossfire should try and connect to. This value can be a computer name or IP address -
+for example <code>localhost</code> or <code>127.0.0.1</code>.
+<br><br>
+This value is specified using the <code>crossfire-host</code> argument.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>the host that was specified on the command-line.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getPort"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Integer}</span>
+					<span class="light">CommandLineHandler.</span><b>getPort</b>()
+					
+					</div>
+					<div class="description">
+						returns the port that Crossfire should try and connect to. 
+<br><br>
+This value is specified using the <code>crossfire-port</code> argument.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>the port that was specified on the command-line.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getServerPort"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Integer}</span>
+					<span class="light">CommandLineHandler.</span><b>getServerPort</b>()
+					
+					</div>
+					<div class="description">
+						returns the port that the server was started on.
+<br><br>
+This value is specified using the <code>crossfire-server-port</code> argument.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>the server port that was specified on the command-line.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name=".handle"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">CommandLineHandler.</span><b>handle</b>(cmdLine)
+					
+					</div>
+					<div class="description">
+						default call-back to look for the crossfire command line arguments.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>cmdLine</b>
+									
+								</dt>
+								<dd>an nsICommandLine object</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">See:</dt>
+							
+								<dd>https://developer.mozilla.org/en/XPCOM_Interface_Reference/nsICommandLine</dd>
+							
+							</dl>
+						
+
+					<hr />
+				
+					<a name=".shouldLoadFBModules"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{Boolean}</span>
+					<span class="light">CommandLineHandler.</span><b>shouldLoadFBModules</b>()
+					
+					</div>
+					<div class="description">
+						if the Firebug modules should be loaded when Firefox starts.
+<br><br>
+This value is specified using the <code>-load-fb-modules</code> or <code>-no-fb-modules</code> flag.
+<br><br>
+If both <code>-no-fb-modules</code> and <code>-load-fb-modules</code> are specified <code>-no-fb-modules</code> will be 
+considered to 'win' and no Firebug modules will be loaded.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>boolean indicating whether <code>-no-fb-modules</code> or <code>-load-fb-modules</code> was specified on the command-line.</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.3.0 on Mon Nov 08 2010 16:30:44 GMT-0800 (PST)
+		</div>
+    </div>
+</body>
+</html>

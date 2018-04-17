@@ -1,0 +1,301 @@
+<html><head><meta http-equiv="content-type" content="text/html; charset=UTF-8"> <style>
+	.KEYW {color: #933;}
+	.COMM {color: #bbb; font-style: italic;}
+	.NUMB {color: #393;}
+	.STRN {color: #393;}
+	.REGX {color: #339;}
+	.line {border-right: 1px dotted #666; color: #666; font-style: normal;}
+	</style></head><body><pre><span class='line'>  1</span> <span class="COMM">/**
+<span class='line'>  2</span>  * Software License Agreement (BSD License)
+<span class='line'>  3</span>  * 
+<span class='line'>  4</span>  * Copyright (c) 2010 IBM Corporation.
+<span class='line'>  5</span>  * All rights reserved.
+<span class='line'>  6</span>  * 
+<span class='line'>  7</span>  * Redistribution and use of this software in source and binary forms, with or without modification,
+<span class='line'>  8</span>  * are permitted provided that the following conditions are met:
+<span class='line'>  9</span>  * 
+<span class='line'> 10</span>  * * Redistributions of source code must retain the above
+<span class='line'> 11</span>  *   copyright notice, this list of conditions and the
+<span class='line'> 12</span>  *   following disclaimer.
+<span class='line'> 13</span>  * 
+<span class='line'> 14</span>  * * Redistributions in binary form must reproduce the above
+<span class='line'> 15</span>  *   copyright notice, this list of conditions and the
+<span class='line'> 16</span>  *   following disclaimer in the documentation and/or other
+<span class='line'> 17</span>  *   materials provided with the distribution.
+<span class='line'> 18</span>  * 
+<span class='line'> 19</span>  * * Neither the name of IBM nor the names of its
+<span class='line'> 20</span>  *   contributors may be used to endorse or promote products
+<span class='line'> 21</span>  *   derived from this software without specific prior
+<span class='line'> 22</span>  *   written permission of IBM.
+<span class='line'> 23</span>  * 
+<span class='line'> 24</span>  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR
+<span class='line'> 25</span>  * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+<span class='line'> 26</span>  * FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+<span class='line'> 27</span>  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+<span class='line'> 28</span>  * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+<span class='line'> 29</span>  * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
+<span class='line'> 30</span>  * IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+<span class='line'> 31</span>  * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+<span class='line'> 32</span>  */</span><span class="WHIT">
+<span class='line'> 33</span> 
+<span class='line'> 34</span> </span><span class="COMM">/**
+<span class='line'> 35</span>  * Proxy to a debuggable web browser. A browser may be remote and contain one or more
+<span class='line'> 36</span>  * JavaScript execution contexts. Each JavaScript execution context may contain one or
+<span class='line'> 37</span>  * more compilation units. A browser provides notification to registered listeners describing
+<span class='line'> 38</span>  * events that occur in the browser.
+<span class='line'> 39</span>  * 
+<span class='line'> 40</span>  * @constructor
+<span class='line'> 41</span>  * @type Browser
+<span class='line'> 42</span>  * @return a new Browser
+<span class='line'> 43</span>  * @version 1.0
+<span class='line'> 44</span>  */</span><span class="WHIT">
+<span class='line'> 45</span> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">Browser</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 46</span> </span><span class="WHIT">	</span><span class="NAME">this.contexts</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="COMM">// map of contexts, indexed by conext ID</span><span class="WHIT">
+<span class='line'> 47</span> </span><span class="WHIT">	</span><span class="NAME">this.activeContext</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 48</span> </span><span class="WHIT">	</span><span class="NAME">this.handlers</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="COMM">// map of event types to array of handler functions</span><span class="WHIT">
+<span class='line'> 49</span> </span><span class="WHIT">	</span><span class="NAME">this.EVENT_TYPES</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="STRN">"onBreak"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"onConsoleDebug"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"onConsoleError"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"onConsoleInfo"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"onConsoleLog"</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 50</span> </span><span class="WHIT">	                    </span><span class="STRN">"onConsoleWarn"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"onContextCreated"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"onContextDestroyed"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"onContextChanged"</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 51</span> </span><span class="WHIT">	                    </span><span class="STRN">"onContextLoaded"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"onInspectNode"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"onResume"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"onScript"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"onSuspend"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="STRN">"onToggleBreakpoint"</span><span class="PUNC">,</span><span class="WHIT">
+<span class='line'> 52</span> </span><span class="WHIT">	                    </span><span class="STRN">"onDisconnect"</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 53</span> </span><span class="WHIT">	</span><span class="NAME">this.connected</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">false</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 54</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 55</span> 
+<span class='line'> 56</span> </span><span class="COMM">/** 
+<span class='line'> 57</span>  * Function to extend/subclass an object.
+<span class='line'> 58</span>  * 
+<span class='line'> 59</span>  * @function
+<span class='line'> 60</span>  */</span><span class="WHIT">
+<span class='line'> 61</span> </span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">subclass</span><span class="PUNC">(</span><span class="NAME">obj</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 62</span> </span><span class="WHIT">	</span><span class="KEYW">function</span><span class="WHIT"> </span><span class="NAME">f</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">{</span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 63</span> </span><span class="WHIT">	</span><span class="NAME">f.prototype</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">obj</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 64</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">f</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 65</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 66</span> 
+<span class='line'> 67</span> </span><span class="COMM">// ---- API ----</span><span class="WHIT">
+<span class='line'> 68</span> 
+<span class='line'> 69</span> </span><span class="COMM">/**
+<span class='line'> 70</span>  * Returns the {@link BrowserContext} with the specified id or &lt;code>null&lt;/code>
+<span class='line'> 71</span>  * if none.
+<span class='line'> 72</span>  * 
+<span class='line'> 73</span>  * @function
+<span class='line'> 74</span>  * @param id identifier of an {@link BrowserContext}
+<span class='line'> 75</span>  * @returns the {@link BrowserContext} with the specified id or &lt;code>null&lt;/code>
+<span class='line'> 76</span>  * 
+<span class='line'> 77</span>  */</span><span class="WHIT">
+<span class='line'> 78</span> </span><span class="NAME">Browser.prototype.getBrowserContext</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">id</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 79</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">context</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.contexts</span><span class="PUNC">[</span><span class="NAME">id</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 80</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">context</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 81</span> </span><span class="WHIT">		</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">context</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 82</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'> 83</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="KEYW">null</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 84</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 85</span> 
+<span class='line'> 86</span> </span><span class="COMM">/**
+<span class='line'> 87</span>  * Returns the root contexts being browsed. A {@link BrowserContext} represents the
+<span class='line'> 88</span>  * content that has been served up and is being rendered for a location (URL) that
+<span class='line'> 89</span>  * has been navigated to. 
+<span class='line'> 90</span>  * &lt;p>
+<span class='line'> 91</span>  * This function does not require communication with the remote browser.
+<span class='line'> 92</span>  * &lt;/p>
+<span class='line'> 93</span>  * @function
+<span class='line'> 94</span>  * @returns an array of {@link BrowserContext}'s
+<span class='line'> 95</span>  */</span><span class="WHIT">
+<span class='line'> 96</span> </span><span class="NAME">Browser.prototype.getBrowserContexts</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 97</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">knownContexts</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'> 98</span> </span><span class="WHIT">	</span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">id</span><span class="WHIT"> </span><span class="KEYW">in</span><span class="WHIT"> </span><span class="NAME">this.contexts</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'> 99</span> </span><span class="WHIT">		</span><span class="NAME">knownContexts.push</span><span class="PUNC">(</span><span class="NAME">this.contexts</span><span class="PUNC">[</span><span class="NAME">id</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>100</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>101</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">knownContexts</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>102</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>103</span> 
+<span class='line'>104</span> </span><span class="COMM">/**
+<span class='line'>105</span>  * Returns the {@link BrowserContext} that currently has focus in the browser
+<span class='line'>106</span>  * or &lt;code>null&lt;/code> if none.
+<span class='line'>107</span>  * 
+<span class='line'>108</span>  * @function
+<span class='line'>109</span>  * @returns the {@link BrowserContext} that has focus or &lt;code>null&lt;/code>
+<span class='line'>110</span>  */</span><span class="WHIT">
+<span class='line'>111</span> </span><span class="NAME">Browser.prototype.getFocusBrowserContext</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>112</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.activeContext</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>113</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>114</span> 
+<span class='line'>115</span> </span><span class="COMM">/**
+<span class='line'>116</span>  * Returns whether this proxy is currently connected to the underlying browser it
+<span class='line'>117</span>  * represents.
+<span class='line'>118</span>  * 
+<span class='line'>119</span>  *  @function
+<span class='line'>120</span>  *  @returns whether connected to the underlying browser
+<span class='line'>121</span>  */</span><span class="WHIT">
+<span class='line'>122</span> </span><span class="NAME">Browser.prototype.isConnected</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>123</span> </span><span class="WHIT">	</span><span class="KEYW">return</span><span class="WHIT"> </span><span class="NAME">this.connected</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>124</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>125</span> 
+<span class='line'>126</span> </span><span class="COMM">/**
+<span class='line'>127</span>  * Registers a listener (function) for a specific type of event. Listener
+<span class='line'>128</span>  * call back functions are specified in {@link BrowserEventListener}.
+<span class='line'>129</span>  * &lt;p>
+<span class='line'>130</span>  * The supported event types are:
+<span class='line'>131</span>  * &lt;ul>
+<span class='line'>132</span>  *   &lt;li>onBreak&lt;/li>
+<span class='line'>133</span>  *   &lt;li>onConsoleDebug&lt;/li>
+<span class='line'>134</span>  *   &lt;li>onConsoleError&lt;/li>
+<span class='line'>135</span>  *   &lt;li>onConsoleInfo&lt;/li>
+<span class='line'>136</span>  *   &lt;li>onConsoleLog&lt;/li>
+<span class='line'>137</span>  *   &lt;li>onConsoleWarn&lt;/li>
+<span class='line'>138</span>  *   &lt;li>onContextCreated&lt;/li>
+<span class='line'>139</span>  *   &lt;li>onContextChanged&lt;/li>
+<span class='line'>140</span>  *   &lt;li>onContextDestroyed&lt;/li>
+<span class='line'>141</span>  *   &lt;li>onDisconnect&lt;/li>
+<span class='line'>142</span>  *   &lt;li>onInspectNode&lt;/li>
+<span class='line'>143</span>  *   &lt;li>onResume&lt;/li>
+<span class='line'>144</span>  *   &lt;li>onScript&lt;/li>
+<span class='line'>145</span>  *   &lt;li>onToggleBreakpoint&lt;/li>
+<span class='line'>146</span>  * &lt;/ul>
+<span class='line'>147</span>  * &lt;ul>
+<span class='line'>148</span>  * &lt;li>TODO: how can clients remove (deregister) listeners?&lt;/li>
+<span class='line'>149</span>  * &lt;/ul>
+<span class='line'>150</span>  * &lt;/p>
+<span class='line'>151</span>  * @function
+<span class='line'>152</span>  * @param eventType an event type ({@link String}) listed above
+<span class='line'>153</span>  * @param listener a listener (function) that handles the event as specified
+<span class='line'>154</span>  *   by {@link BrowserEventListener}
+<span class='line'>155</span>  * @exception Error if an unsupported event type is specified
+<span class='line'>156</span>  */</span><span class="WHIT">
+<span class='line'>157</span> </span><span class="NAME">Browser.prototype.addEventListener</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">eventType</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">listener</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>158</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.EVENT_TYPES.indexOf</span><span class="PUNC">(</span><span class="NAME">eventType</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>159</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>160</span> </span><span class="WHIT">		</span><span class="COMM">// unsupported event type</span><span class="WHIT">
+<span class='line'>161</span> </span><span class="WHIT">		</span><span class="KEYW">throw</span><span class="WHIT"> </span><span class="KEYW">new</span><span class="WHIT"> </span><span class="NAME">Error</span><span class="PUNC">(</span><span class="STRN">"eventType '"</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="NAME">eventType</span><span class="WHIT"> </span><span class="PUNC">+</span><span class="WHIT"> </span><span class="STRN">"' is not supported"</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>162</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>163</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">list</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.handlers</span><span class="PUNC">[</span><span class="NAME">eventType</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>164</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="PUNC">!</span><span class="NAME">list</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>165</span> </span><span class="WHIT">		</span><span class="NAME">list</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>166</span> </span><span class="WHIT">		</span><span class="NAME">this.handlers</span><span class="PUNC">[</span><span class="NAME">eventType</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">list</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>167</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>168</span> </span><span class="WHIT">	</span><span class="NAME">list.push</span><span class="PUNC">(</span><span class="NAME">listener</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>169</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>170</span> 
+<span class='line'>171</span> </span><span class="COMM">/**
+<span class='line'>172</span>  * Disconnects this client from the browser it is associated with.
+<span class='line'>173</span>  * 
+<span class='line'>174</span>  * @function
+<span class='line'>175</span>  */</span><span class="WHIT">
+<span class='line'>176</span> </span><span class="NAME">Browser.prototype.disconnect</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>177</span> </span><span class="WHIT">	</span><span class="WHIT">
+<span class='line'>178</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>179</span> 
+<span class='line'>180</span> </span><span class="COMM">//TODO: support to remove a listener</span><span class="WHIT">
+<span class='line'>181</span> 
+<span class='line'>182</span> </span><span class="COMM">// ---- PRIVATE ---- Subclasses may call these functions</span><span class="WHIT">
+<span class='line'>183</span> 
+<span class='line'>184</span> </span><span class="COMM">/**
+<span class='line'>185</span>  * Notification the given context has been added to this browser.
+<span class='line'>186</span>  * Adds the context to the list of active contexts and notifies context
+<span class='line'>187</span>  * listeners.
+<span class='line'>188</span>  * &lt;p>
+<span class='line'>189</span>  * Has no effect if the context has already been created. For example,
+<span class='line'>190</span>  * it's possible for a race condition to occur when a remote browser
+<span class='line'>191</span>  * sends notification of a context being created before the initial set
+<span class='line'>192</span>  * of contexts have been retrieved. In such a case, it would possible for
+<span class='line'>193</span>  * a client to add the context twice (once for the create event, and again
+<span class='line'>194</span>  * when retrieving the initial list of contexts).
+<span class='line'>195</span>  * &lt;/p>
+<span class='line'>196</span>  * @function
+<span class='line'>197</span>  * @param context the {@link BrowserContext} that has been added
+<span class='line'>198</span>  */</span><span class="WHIT">
+<span class='line'>199</span> </span><span class="NAME">Browser.prototype._contextCreated</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">context</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>200</span> </span><span class="WHIT">	</span><span class="COMM">// if already present, don't add it again</span><span class="WHIT">
+<span class='line'>201</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">id</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">context.getId</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>202</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">this.contexts</span><span class="PUNC">[</span><span class="NAME">id</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>203</span> </span><span class="WHIT">		</span><span class="KEYW">return</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>204</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>205</span> </span><span class="WHIT">	</span><span class="NAME">this.contexts</span><span class="PUNC">[</span><span class="NAME">id</span><span class="PUNC">]</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">context</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>206</span> </span><span class="WHIT">	</span><span class="NAME">this._dispatch</span><span class="PUNC">(</span><span class="STRN">"onContextCreated"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="NAME">context</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">	</span><span class="WHIT">
+<span class='line'>207</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>208</span> 
+<span class='line'>209</span> </span><span class="COMM">/**
+<span class='line'>210</span>  * Notification the given context has been destroyed.
+<span class='line'>211</span>  * Removes the context from the list of active contexts and notifies context
+<span class='line'>212</span>  * listeners.
+<span class='line'>213</span>  * &lt;p>
+<span class='line'>214</span>  * Has no effect if the context has already been destroyed or has not yet
+<span class='line'>215</span>  * been retrieved from the browser. For example, it's possible for a race
+<span class='line'>216</span>  * condition to occur when a remote browser sends notification of a context
+<span class='line'>217</span>  * being destroyed before the initial list of contexts is retrieved from the
+<span class='line'>218</span>  * browser. In this case an implementation could ask to destroy a context that
+<span class='line'>219</span>  * that has not yet been reported as created.
+<span class='line'>220</span>  * &lt;/p>
+<span class='line'>221</span>  * 
+<span class='line'>222</span>  * @function
+<span class='line'>223</span>  * @param id the identifier of the {@link BrowserContext} that has been destroyed
+<span class='line'>224</span>  */</span><span class="WHIT">
+<span class='line'>225</span> </span><span class="NAME">Browser.prototype._contextDestroyed</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">id</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>226</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">destroyed</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.contexts</span><span class="PUNC">[</span><span class="NAME">id</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>227</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">destroyed</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>228</span> </span><span class="WHIT">		</span><span class="NAME">destroyed._destroyed</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>229</span> </span><span class="WHIT">		</span><span class="KEYW">delete</span><span class="WHIT"> </span><span class="NAME">this.contexts</span><span class="PUNC">[</span><span class="NAME">id</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>230</span> </span><span class="WHIT">		</span><span class="NAME">this._dispatch</span><span class="PUNC">(</span><span class="STRN">"onContextDestroyed"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="NAME">destroyed</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>231</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>232</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>233</span> 
+<span class='line'>234</span> </span><span class="COMM">/**
+<span class='line'>235</span>  * Notification the given context has been loaded. Notifies context listeners.
+<span class='line'>236</span>  * 
+<span class='line'>237</span>  * @function
+<span class='line'>238</span>  * @param id the identifier of the {@link BrowserContext} that has been loaded
+<span class='line'>239</span>  */</span><span class="WHIT">
+<span class='line'>240</span> </span><span class="NAME">Browser.prototype._contextLoaded</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">id</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>241</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">loaded</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.contexts</span><span class="PUNC">[</span><span class="NAME">id</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>242</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">loaded</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>243</span> </span><span class="WHIT">		</span><span class="NAME">loaded._loaded</span><span class="PUNC">(</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>244</span> </span><span class="WHIT">		</span><span class="NAME">this._dispatch</span><span class="PUNC">(</span><span class="STRN">"onContextLoaded"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="NAME">loaded</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>245</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>246</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>247</span> 
+<span class='line'>248</span> </span><span class="COMM">/**
+<span class='line'>249</span>  * Dispatches an event notification to all registered functions for
+<span class='line'>250</span>  * the specified event type.
+<span class='line'>251</span>  * 
+<span class='line'>252</span>  * @param eventType event type
+<span class='line'>253</span>  * @param arguments arguments to be applied to handler functions
+<span class='line'>254</span>  */</span><span class="WHIT">
+<span class='line'>255</span> </span><span class="NAME">Browser.prototype._dispatch</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">eventType</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">arguments</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>256</span> </span><span class="WHIT">	</span><span class="NAME">functions</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.handlers</span><span class="PUNC">[</span><span class="NAME">eventType</span><span class="PUNC">]</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>257</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">functions</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>258</span> </span><span class="WHIT">		</span><span class="KEYW">for</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="WHIT"> </span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NUMB">0</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="WHIT"> </span><span class="PUNC">&lt;</span><span class="WHIT"> </span><span class="NAME">functions.length</span><span class="PUNC">;</span><span class="WHIT"> </span><span class="NAME">i</span><span class="PUNC">++</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>259</span> </span><span class="WHIT">			</span><span class="NAME">functions</span><span class="PUNC">[</span><span class="NAME">i</span><span class="PUNC">]</span><span class="PUNC">.</span><span class="NAME">apply</span><span class="PUNC">(</span><span class="KEYW">null</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">arguments</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>260</span> </span><span class="WHIT">		</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>261</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>262</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>263</span> 
+<span class='line'>264</span> </span><span class="COMM">/**
+<span class='line'>265</span>  * Sets the browser context that has focus, possibly &lt;code>null&lt;/code>.
+<span class='line'>266</span>  * 
+<span class='line'>267</span>  * @function
+<span class='line'>268</span>  * @param context a {@link BrowserContext} or &lt;code>null&lt;/code>
+<span class='line'>269</span>  */</span><span class="WHIT">
+<span class='line'>270</span> </span><span class="NAME">Browser.prototype._setFocusContext</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">context</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>271</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">prev</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.activeContext</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>272</span> </span><span class="WHIT">	</span><span class="NAME">this.activeContext</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">context</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>273</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">prev</span><span class="WHIT"> </span><span class="PUNC">!=</span><span class="WHIT"> </span><span class="NAME">context</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>274</span> </span><span class="WHIT">		</span><span class="NAME">this._dispatch</span><span class="PUNC">(</span><span class="STRN">"onContextChanged"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="NAME">prev</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="NAME">this.activeContext</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>275</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>276</span> </span><span class="PUNC">}</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>277</span> 
+<span class='line'>278</span> </span><span class="COMM">/**
+<span class='line'>279</span>  * Sets whether this proxy is connected to its underlying browser.
+<span class='line'>280</span>  * Sends 'onDisconnect' notification when the browser becomes disconnected.
+<span class='line'>281</span>  * 
+<span class='line'>282</span>  * @function
+<span class='line'>283</span>  * @param connected whether this proxy is connected to its underlying browser
+<span class='line'>284</span>  */</span><span class="WHIT">
+<span class='line'>285</span> </span><span class="NAME">Browser.prototype._setConnected</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="KEYW">function</span><span class="PUNC">(</span><span class="NAME">connected</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>286</span> </span><span class="WHIT">	</span><span class="KEYW">var</span><span class="WHIT"> </span><span class="NAME">wasConnected</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">this.connected</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>287</span> </span><span class="WHIT">	</span><span class="NAME">this.connected</span><span class="WHIT"> </span><span class="PUNC">=</span><span class="WHIT"> </span><span class="NAME">connected</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>288</span> </span><span class="WHIT">	</span><span class="KEYW">if</span><span class="WHIT"> </span><span class="PUNC">(</span><span class="NAME">wasConnected</span><span class="WHIT"> </span><span class="PUNC">&&</span><span class="WHIT"> </span><span class="PUNC">!</span><span class="NAME">connected</span><span class="PUNC">)</span><span class="WHIT"> </span><span class="PUNC">{</span><span class="WHIT">
+<span class='line'>289</span> </span><span class="WHIT">		</span><span class="NAME">this._dispatch</span><span class="PUNC">(</span><span class="STRN">"onDisconnect"</span><span class="PUNC">,</span><span class="WHIT"> </span><span class="PUNC">[</span><span class="KEYW">this</span><span class="PUNC">]</span><span class="PUNC">)</span><span class="PUNC">;</span><span class="WHIT">
+<span class='line'>290</span> </span><span class="WHIT">	</span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>291</span> 
+<span class='line'>292</span> </span><span class="PUNC">}</span><span class="WHIT">
+<span class='line'>293</span> 
+<span class='line'>294</span> </span></pre></body></html>
