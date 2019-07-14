@@ -1,4 +1,5 @@
 # Site is decomisionned, redirect everything back to the home
 
-/*		/		302
 /		/index.php	200
+/*.php		/		302
+/*.html		/		302
